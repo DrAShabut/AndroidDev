@@ -113,6 +113,7 @@ If we press the button we want the text in the TextView to be changed to “Find
 9. The two variables are in red colour which means more classes are required to be imported by the system. To resolve this click Alt + Enter and click Import class.
 
 `
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
