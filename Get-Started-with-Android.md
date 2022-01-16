@@ -18,33 +18,52 @@ Enough space on your disk to install Android Studio if you decide to use your ow
 1. Install Android Studio 
 Instructions on how to install Android Studio, features and user guide are available through this link: https://developer.android.com/studio/?utm_source=android-studio. This link will provide you with the latest stable version. Android Studio 2020.3.1 is the latest version at the time of preparing this tutorial. You may see little differences between your screens and what is already present in this tutorial as a different version is used to prepare this guide.
 
-1. After installing Android Studio, you will have the following screen: 
+2. After installing Android Studio, you will have the following screen: 
 
+ ![image](uploads/f64d59ca226169b58c53fe1a0e4da997/image.png)
+
+3. Press on the ‘Create New Project’ option and the following screen will appear:
+![image](uploads/64a993e7ec4b7c0485739ed233334011/image.png)
  
-3) Press on the ‘Create New Project’ option and the following screen will appear:
+4. Keep the default selections as we will develop apps for “Phone and Tablet” and we will select an “Empty Activity” to start our project with, press Next when you are ready and the following screen will appear:
+
+![image](uploads/821cffa9f098bcb578553f11cdfc933f/image.png)
  
-4) Keep the default selections as we will develop apps for “Phone and Tablet” and we will select an “Empty Activity” to start our project with, press Next when you are ready and the following screen will appear.
+5. Change the name of the project to “MyFirstApplication” and package name to “com.example.leedstrinity.myfirstapplication” and select the project location. Keep the default value for the language option and the minimum SDK.
+
+_It is preferred to keep all the examples in one folder and name it “Android App Development”._ 
+
+6. Click Finish to see your app created with an Activity (java based file) called MainActivity and a Layout (xml based file) called activity_main. If your project is created successfully, you will see the following project screen:
+
+![image](uploads/e6e2184dccb263907829f2eaf6afcc05/image.png)
  
-5) Change the name of the project to “MyFirstApplication” and package name to “com.example.leedstrinity.myfirstapplication” and select the project location. Keep the default value for the language option and the minimum SDK.
- It is preferred to keep all the examples in one folder and name it “Android App Development”. 
-6) Click Finish to see your app created with an Activity (java based file) called MainActivity and a Layout (xml based file) called activity_main. If your project is created successfully, you will see the following project screen:
+_**Now you are ready to run your application**_
+
+7. Click the Run menu and select the Run ‘app’ command according to the following screen:
+
+![image](uploads/f9a3f5fca79d652746708a8e3d81fd7d/image.png)
  
-Now you are ready to run your application
-7) Click the Run menu and select the Run ‘app’ command according to the following screen:
- 
-8) Select the deployment target (i.e. where do you want to run your app) by creating a virtual device or connecting a real device. The screen below shows no connected devices so far:
+8. Select the deployment target (i.e. where do you want to run your app) by creating a virtual device or connecting a real device. The screen below shows no connected devices so far:
+
+![image](uploads/65a58a45bcf57b83e8a5a627cd66ed78/image.png)
   
-You may see an error message “No target device found” instead of the above screen. In either case, click “Create New Virtual Device” or follow the complete steps in the following link to create your own virtual device: Create and manage virtual devices  |  Android Developers. If you successfully created a virtual device, you will see a screen similar to the following: 
+You may see an error message “**No target device found**” instead of the above screen. In either case, click “**Create New Virtual Device**” or follow the complete steps in the following link to create your own virtual device: [Create and manage virtual devices  |  Android Developers](https://developer.android.com/studio/run/managing-avds). If you successfully created a virtual device, you will see a screen similar to the following: 
+
+![image](uploads/1014300ff0057525938b05cde4fb1e4c/image.png)
  
 For this test, I connected my Samsung Galaxy S7 and the screen below shows the detected device. To connect your device, you need to activate the DEVELOPER OPTIONS and USB debugging from the device settings. The following link will provide you with detailed information to connect your real device: Run apps on a hardware device  |  Android Developers.
 By allowing access to your device, you will have the following screen:
+
+![image](uploads/b1aa61b172bcc6449ed4c4ec0109e153/image.png)
  
-9) Now select the connected device and click the OK button. The run process will start as in the screen below:
+9. Now select the connected device and click the OK button. The run process will start as in the screen below:
+
+![image](uploads/f5e942fb0d724ae01a364e4093479b2c/image.png)
  
 This process may take a long time to finish and it can take longer if you use a virtual device. 
 Well done you have created your first ‘Hello World’ app.
  
-Now time for coding…
+**Now time for coding…**
  
 
 Change Me Example 
