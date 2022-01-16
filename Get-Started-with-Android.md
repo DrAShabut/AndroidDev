@@ -28,19 +28,19 @@ Instructions on how to install Android Studio, features and user guide are avail
 
 4. Keep the default selections as we will develop apps for “Phone and Tablet” and we will select an “Empty Activity” to start our project with, press Next when you are ready and the following screen will appear:
 
-![image](uploads/821cffa9f098bcb578553f11cdfc933f/image.png)
- 
-5. Change the name of the project to “MyFirstApplication” and package name to “com.example.leedstrinity.myfirstapplication” and select the project location. Keep the default value for the language option and the minimum SDK.
+![image](uploads/247fc797596a0f4b4788f604980aefa8/image.png) 
 
-_It is preferred to keep all the examples in one folder and name it “Android App Development”._ 
+5. Change the name of the project to “MyFirstApplication” and the language to Java instead of Kotlin. Select the project location and keep the default value for the package and the minimum SDK.
+
+- _It is preferred to keep all the examples in one folder and name it “Android App Development”._ 
 
 6. Click Finish to see your app created with an Activity (java based file) called MainActivity and a Layout (xml based file) called activity_main. If your project is created successfully, you will see the following project screen:
 
-![image](uploads/e6e2184dccb263907829f2eaf6afcc05/image.png)
- 
+![image](uploads/252b9f3d0766cd65243d9e0abecaed5e/image.png) 
+
 _**Now you are ready to run your application**_
 
-7. Click the Run menu and select the Run ‘app’ command according to the following screen:
+7. Click the Run menu and select Run ‘app’ command according to the following screen:
 
 ![image](uploads/f9a3f5fca79d652746708a8e3d81fd7d/image.png)
  
