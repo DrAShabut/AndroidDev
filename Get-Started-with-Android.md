@@ -1,5 +1,8 @@
 **About this Tutorial**
 
+
+![image](uploads/7e766148270fd32ad121f48164e0b921/image.png)
+
 Android is an open-source mobile operating system based on Java language and Linux kernel. It runs on different handheld mobile devices such as smartphones, tablets, switches, TV, etc. Android was developed by Android Inc. and is now led by Google which purchased it in 2005. This tutorial will illustrate the basics of Android development through “Hello World” and “Change me” examples. To satisfy with this material, please review the introductory lecture notes. 
 
 **Learning objectives**
@@ -12,10 +15,11 @@ Enough space on your disk to install Android Studio if you decide to use your ow
 
 **Hello World Example**
 
-1) Install Android Studio 
-Instructions on how to install Android Studio, features and user guide are available through this link: https://developer.android.com/studio/?utm_source=android-studio. This link will provide you with the latest stable version. Android Studio 4.1.1 is the latest version at the time of preparing this tutorial. You may see little differences between your screens and what is already present in this tutorial as a different version is used to prepare this guide.
+1. Install Android Studio 
+Instructions on how to install Android Studio, features and user guide are available through this link: https://developer.android.com/studio/?utm_source=android-studio. This link will provide you with the latest stable version. Android Studio 2020.3.1 is the latest version at the time of preparing this tutorial. You may see little differences between your screens and what is already present in this tutorial as a different version is used to prepare this guide.
 
-2) After installing Android Studio, you will have the following screen: 
+1. After installing Android Studio, you will have the following screen: 
+
  
 3) Press on the ‘Create New Project’ option and the following screen will appear:
  
