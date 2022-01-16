@@ -44,11 +44,13 @@ _**Now you are ready to run your application**_
 
 ![image](uploads/f9a3f5fca79d652746708a8e3d81fd7d/image.png)
  
-8. Select the deployment target (i.e. where do you want to run your app) by creating a virtual device or connecting a real device. The screen below shows no connected devices so far:
-
-![image](uploads/65a58a45bcf57b83e8a5a627cd66ed78/image.png)
+8. Select the deployment target (i.e. where do you want to run your app) by creating a virtual device or connecting a real device.
   
-You may see an error message “**No target device found**” instead of the above screen. In either case, click “**Create New Virtual Device**” or follow the complete steps in the following link to create your own virtual device: [Create and manage virtual devices  |  Android Developers](https://developer.android.com/studio/run/managing-avds). If you successfully created a virtual device, you will see a screen similar to the following: 
+You will see an error message “**No target device found**” at this stage as there is "**No Device**" yet to run your app. Click "**No Device**" and then click "**Open AVD Manager**". You will see a screen similar to the following:
+
+![image](uploads/8b2a92467ba7daefe7ff9fabd43d8dbd/image.png)
+
+Click “**Create New Virtual Device**” and follow the complete steps in the following link to create your own virtual device: [Create and manage virtual devices  |  Android Developers](https://developer.android.com/studio/run/managing-avds). If you successfully created a virtual device, you will see a screen similar to the following: 
 
 ![image](uploads/1014300ff0057525938b05cde4fb1e4c/image.png)
  
@@ -67,57 +69,156 @@ Well done you have created your first ‘Hello World’ app.
 **Now time for coding…**
  
 
-Change Me Example 
-1) Expand the app files on the left-hand side and then expand the ‘res’ folder and scroll down to the layout folder and expand it and click on ‘activity_main.xml’ and  the UI design will be shown on your screen as follow:
- 
+**Change Me Example**
 
-Now you can be creative and design your UI.
- 
-2) Delete the ‘Hello World!’ TextView by clicking it and then pressing ‘delete’ button from your keyboard. 
-3) From the pallet (in the above screen) where all Widgets are available, add a TextView and a Button to your project by clicking, dragging and dropping on the activity design in the required location. The design will look like the following screen:
- 
-4) Click the Button as in the screen above and change the ID on the right-hand side to ‘firstButton’ and create an event on the onClick option named ‘pressMeButton’.
+1. Expand the app files on the left-hand side and then expand the ‘res’ folder and scroll down to the layout folder and expand it, click on ‘activity_main.xml’ and  the UI design will be shown on your screen as follow:
 
+![image](uploads/3db1ea9be98d32c056b5a2b7a8d2d237/image.png) 
 
+- Now you can be creative and design your UI.__
  
+2. Delete the ‘Hello World!’ TextView by clicking it and then pressing ‘delete’ button from your keyboard. 
+
+3. From the pallet (in the above screen) where all Widgets are available, add a TextView and a Button to your project by clicking, dragging and dropping on the activity design in the required location. The design will look like the following screen:
+
+![image](uploads/6a5460f15298a043473edea6ee3bcb96/image.png) 
+
+4. Click the Button as in the screen above and change the ID on the right-hand side to ‘firstButton’ and create an event on the onClick option named ‘pressMeButton’. 
+
+![image](uploads/44707980dd1a4006db555a76e060accb/image.png)
  
-5) Click on the Text tap down the screen above and the xml code will appear as follow: 
+5. Click on the Code tab at the top right of the screen above and the xml code will appear as follow: 
+
+![image](uploads/b133c6cb485ab1ce7c7e4d6a8663c154/image.png)
  
-6) Move the pointer to the ‘pressMeButton’ event and a small help light bulb will appear. Press on the option ‘Create ‘pressMeButton(View)’ in ‘MainActivity’’ option as in the screen below:
+6. Move the pointer to the ‘pressMeButton’ event and a small help light bulb will appear. Press on the option ‘Create ‘pressMeButton(View)’ in ‘MainActivity’’ option as in the screen below:
+
+![image](uploads/83c2d8abd6a1398246463aa6bd3f569d/image.png)
   
-7) A public method called ‘pressMeButton’ is created in the ‘MainActivity’ as in the screen below:
+7. A public method called ‘pressMeButton’ is created in the ‘MainActivity’ as in the screen below:
+
+![image](uploads/95e2b3a9887012ed251421345de7e5ea/image.png)
  
-Now we need to write our code inside this method. 
-Change Me idea is very simple for now:
+- Now we need to write our code inside this method. __
 
 
+**Change Me idea is very simple for now:**
 
 If we press the button we want the text in the TextView to be changed to “Find a great idea for the next app”. 
 
-8) To do so, define two variables to match the two types of views as below:
- 
-9) The two variables are in red colour which means more classes are required to be imported by the system. To resolve this click Alt + Enter and click Import class.
- 
+8. To do so, define two variables to match the two types of views as below:
+
+![image](uploads/a351c23e84d2616155b72c299afb91a1/image.png)
+
+9. The two variables are in red colour which means more classes are required to be imported by the system. To resolve this click Alt + Enter and click Import class.
+
+`package com.example.myfirstapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    TextView newText;
+    Button changeButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    public void pressMeButton(View view) {
+    }
+}` 
  
-Now everything is fine, let continue coding:
+- Now everything is fine, let continue coding:__
  
-10) Add the following code inside the method onCreate() to find the views by their IDs. The onCreate() method is one of many methods that are fired when an activity is loaded.  
+10. Add the following code inside the method onCreate() to find the views by their IDs. The onCreate() method is one of many methods that are fired when an activity is loaded.  
  
-11) Now write the following code in the pressMeButton() method.
+11. Now write the following code in the pressMeButton() method.
  
 The code will look like this in the MainActivity.java.
  
+`package com.example.myfirstapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    TextView newText;
+    Button changeButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        newText = findViewById(R.id.textView);
+        changeButton = findViewById(R.id.firstButton);
+    }
+
+    public void pressMeButton(View view) {
+        newText.setText("Find a great idea for the next app");
+    }
+}`
 
 
-
-12) Add a layout constraint to your UI design by connecting the views to the parent. Change the text of the TextView to “change me” and text of pressMeButton to “Click me” as in the screen below:
+12. Add a layout constraint to your UI design by connecting the views to the parent. Change the text of the TextView to “change me” and text of pressMeButton to “Click me”.
  
 The xml code in the activity_main.xml will look like the following: 
- 
-12) Let us run the app again, remember to click on the Run list and press Run app command. You will have the following screens:
- 
 
+`<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-What’s Next 
-To consolidate your understanding and dive further in Android basic concepts and add them to your toolbox, you need to go through chapter 1 from the book “Head First Andriod Development, 3rd Edition” available at 1. Getting Started: Diving In - Head First Android Development, 3rd Edition (oreilly.com).
+    <Button
+        android:id="@+id/firstButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="157dp"
+        android:layout_marginLeft="157dp"
+        android:layout_marginEnd="166dp"
+        android:layout_marginRight="166dp"
+        android:layout_marginBottom="374dp"
+        android:onClick="pressMeButton"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="172dp"
+        android:layout_marginLeft="172dp"
+        android:layout_marginTop="93dp"
+        android:layout_marginEnd="181dp"
+        android:layout_marginRight="181dp"
+        android:layout_marginBottom="196dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/firstButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>`
+ 
+13. Let us run the app again, remember to click on the Run list and press Run app command. You will have the following screens:
+ 
+![image](uploads/5a96782ae204d167d44bb6543fb436ee/image.png)
+
+**What’s Next**
+
+To consolidate your understanding and dive further into Android basic concepts and add them to your toolbox, you need to go through chapter 1 from the book “Head First Andriod Development, 3rd Edition” available at 1. Getting Started: Diving In - Head First Android Development, 3rd Edition (oreilly.com).
 Note: this book will use Kotlin as the development programming language but Chapter 1 is generic and it will cover everything we need to start with Android. 
