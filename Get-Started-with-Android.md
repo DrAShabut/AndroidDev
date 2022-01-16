@@ -112,19 +112,7 @@ If we press the button we want the text in the TextView to be changed to “Find
 
 9. The two variables are in red colour which means more classes are required to be imported by the system. To resolve this click Alt + Enter and click Import class.
 
-`package com.example.myfirstapplication;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
-public class MainActivity extends AppCompatActivity {
-    TextView newText;
-    Button changeButton;
-
+`
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -133,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void pressMeButton(View view) {
     }
-}` 
+` 
  
 - Now everything is fine, let continue coding:__
  
@@ -144,10 +132,7 @@ public class MainActivity extends AppCompatActivity {
 The code will look like this in the MainActivity.java.
  
 `
-public class MainActivity extends AppCompatActivity {
-    TextView newText;
-    Button changeButton;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -159,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
     public void pressMeButton(View view) {
         newText.setText("Find a great idea for the next app");
     }
-}`
+`
 
 
 12. Add a layout constraint to your UI design by connecting the views to the parent. Change the text of the TextView to “change me” and text of pressMeButton to “Click me”.
