@@ -174,15 +174,7 @@ public class MainActivity extends AppCompatActivity {
  
 The xml code in the activity_main.xml will look like the following: 
 
-`<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <Button
+`<Button
         android:id="@+id/firstButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -211,8 +203,7 @@ The xml code in the activity_main.xml will look like the following:
         app:layout_constraintBottom_toTopOf="@+id/firstButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>`
+        app:layout_constraintTop_toTopOf="parent" />'
  
 13. Let us run the app again, remember to click on the Run list and press Run app command. You will have the following screens:
  
