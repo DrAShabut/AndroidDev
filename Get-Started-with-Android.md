@@ -143,15 +143,7 @@ public class MainActivity extends AppCompatActivity {
  
 The code will look like this in the MainActivity.java.
  
-`package com.example.myfirstapplication;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
+`
 public class MainActivity extends AppCompatActivity {
     TextView newText;
     Button changeButton;
@@ -203,7 +195,7 @@ The xml code in the activity_main.xml will look like the following:
         app:layout_constraintBottom_toTopOf="@+id/firstButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />'
+        app:layout_constraintTop_toTopOf="parent" />
  
 13. Let us run the app again, remember to click on the Run list and press Run app command. You will have the following screens:
  
