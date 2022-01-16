@@ -20,11 +20,12 @@ Instructions on how to install Android Studio, features and user guide are avail
 
 2. After installing Android Studio, you will have the following screen: 
 
- ![image](uploads/f64d59ca226169b58c53fe1a0e4da997/image.png)
+![image](uploads/40df356643d45955a55a3cce54b5b1da/image.png)
 
 3. Press on the ‘Create New Project’ option and the following screen will appear:
-![image](uploads/64a993e7ec4b7c0485739ed233334011/image.png)
- 
+
+![image](uploads/7bdd6780cd6584fc6e0019f346e96e97/image.png) 
+
 4. Keep the default selections as we will develop apps for “Phone and Tablet” and we will select an “Empty Activity” to start our project with, press Next when you are ready and the following screen will appear:
 
 ![image](uploads/821cffa9f098bcb578553f11cdfc933f/image.png)
