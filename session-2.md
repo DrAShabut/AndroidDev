@@ -3,12 +3,12 @@
 ![image](uploads/ff971689644c8b4dcbb0f7d1aeb6be01/image.png)
 
  
-This tutorial will illustrate the basics of Layout – UI elements in Android. This is just an example of how to use one type of layout. You need to read and practice more examples on Android Developer Website.
+This tutorial will illustrate the basics of Layout – UI elements in Android. This is just an example of how to use one type of layout. You need to read and practice more examples from Android Developer Website.
  
 
 **Exercise 1: Send Message Design**
 
-Open a new project and design the send message activity as in Figure 1 below. Use the constraintLayout container to hold one EmailText, two PlainText and one Button. Access the XML file and change the code as in the code below.
+Create a new project and design the send message activity as in Figure 1 below. Use the constraintLayout container to hold one EmailText, two PlainText from the Text group and one Button from the Buttons group. Select each view and change properties from the Attributes section in the IDE. Use the XML code below as a guide to know what changes you need to make. 
  
 ![image](uploads/940f012f4c0c25900c2e1d7c66831827/image.png)
 
@@ -93,7 +93,7 @@ Can you now add a TextView and write “Message sent” when the user press the 
 
 **Exercise 2: Apply for Job Design**
 
-Open a new project and design Apply activity as the following figure 2 below. 
+Create a new project and design 'Apply' activity as the following figure 3 below. 
 
 
 ![image](uploads/be2f12f38a16dd62277ab86db74eabaf/image.png)
