@@ -1,15 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-
-
+Build Interactive Apps
 
 About the Tutorial 
 This tutorial will illustrate the basics of Layout – UI elements in Android. This is just an example of how to use one type of layout. You need to read and practice more examples at Android Developer Website.
