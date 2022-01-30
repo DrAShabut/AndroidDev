@@ -1,21 +1,36 @@
-Android Intent Example
-Android apps can contain one or more activities. Once your app has more than one activity, you will get to navigate from one activity to another. In Android, you navigate between activities through what’s called an intent.
-The following example shows a way to add another activity to an existing project and so navigate between the 2 activities in android application.
-Explicit Intent - Navigate Between Two Activities Example:
-(Skip this example if you are done with the MyMessenger project introduced in the lecturer).
-1.  Create a new project and name it “MultipleActivitiesApplication”.
+**About the Tutorial**
+
+![image](https://gitlab.com/LTUcompsci/5014-further-software-dev/-/wikis/uploads/ff971689644c8b4dcbb0f7d1aeb6be01/image.png)
+
+Android apps can contain one or more activities. Once your app has more than one activity, you will get to navigate from one activity to another using Intent. This tutorial will illustrate the basics of Intent in Android and how to use this messaging object to start communication between different components. 
+
+**Exercise 1: Android Intent Example**
+
+The following example shows a way to add another activity to an existing project and so navigate between the two activities in an android application.
+
+**Explicit Intent - Navigate Between Two Activities Example:**
+
+_(Skip this example if you are done with the MyMessenger project introduced in the lecture)._
+
+1. Create a new project and name it “MultipleActivitiesApplication”.
 2.  Open res ➪ layout ➪ activity_main.xml , add a button and change its id to “linkButton” and text to “NextActivity”.
  
+![image](uploads/157a5adb478afbe7a6f2b711ace34fed/image.png)
+
 3.  Now you need to add a new activity and name it “SecondActivity”. 
 4. Click the app folder from the project window and add a new activity by selecting File -> New -> Activity -> EmptyActivity.
 
+![image](uploads/9956a070ed9ab6e185c4df947a6cdfc6/image.png)
 
-  
-
+![image](uploads/0678b64d1a62f0dd7e6a93d4cae8c3bd/image.png)
  
 5.  Now add a TextView to the xml layout and change its id to “linkView” and text to “This is second Activity”.  
+
+![image](uploads/074d02a26625c01e372b04dc010ebe9b/image.png)
  
 6.  Now add the following code in MainActivity.java class.
+
+``
 package com.example.multipleactivitiesapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
