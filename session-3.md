@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
  
 **Pending Intent - Notification Example**
 
-1. Create a new project called NotifyMeApp and add a button to the activity_main.xml. Change its id to “notifyMe” and the text to “create notification”.
+1. Create a new project called NotifyMeApp and add a button to the activity_main.xml. Change its id to “notifyMe” and the text to “create notification”. Add onClick event to the button, call it 'onCreateNotification' and add the corresponding method associated with it to java code. 
 
 _Hint: you can now develop some advanced skills and keep all strings in a strings.xml file which is used to replace the Hard-coded strings with a single string. We define all the strings in this xml file and then access them in our app (Activity or in Layout XML files) from this file. This file enhances the reusability of the code. Location in Android Studio:_
 
@@ -130,8 +130,10 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-4. Done. Run your application.
-5. Set the notification's tap action: every notification should respond to a tap, usually to open an activity in your app that corresponds to the notification. To do so, you must specify a content intent defined with a PendingIntent object and pass it to setContentIntent(). The following snippet shows how to create a basic intent to open an activity when the user taps the notification:
+4. You are done now. Run your application.
+5. Set the notification's tap action: every notification should respond to a tap, usually to open an activity in your app that corresponds to the notification. To do so, you must specify a content intent defined with a PendingIntent object and pass it to setContentIntent(). 
+The following snippet shows how to create a basic intent to open an activity when the user taps the notification:
+
 ```java
 // Create an explicit intent for an Activity in your app
 Intent intent = new Intent(this, TestActivity.class);
@@ -301,4 +303,4 @@ public class CreateMessageActivity extends AppCompatActivity {
 **Challenge:** Write a simple activity for typing a phone number and then place the call?
 Check this YouTube [video ](https://www.youtube.com/watch?v=eL69kj-_Wvs)to have a clue on how to solve the challenge. Discuss how to design your app and what steps do you need before implementing the solution using Android Studio.
 
-**Happy Coding**
+**Happy Android Coding**
