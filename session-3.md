@@ -63,7 +63,23 @@ public class MainActivity extends AppCompatActivity {
 
 7.  You are done now. Run your Android Intent Application.
 
+8. Now practice sharing data between your activities. Go to the MainActivity.java class and add the following code to the 'linkNextActivity' method:
 
+```java
+Intent intent= new Intent(this, SecondActivity.class);
+String message = editText.getText().toString();
+intent.putExtra("Message", message);
+startActivity(intent);
+```
+
+9. To receive the data in the SecondActivity, add the following code to onCreate() method in the SecondActivity.java class:
+
+```java
+textMessage = findViewById(R.id.textView);
+Intent intent = new Intent();
+textMessage.setText(getIntent().getStringExtra("Message"));
+```
+10. You are done now, run your code to see your message shown on the SecondActivity.
  
 **Pending Intent - Notification Example**
 
