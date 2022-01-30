@@ -8,7 +8,7 @@ Android apps can contain one or more activities. Once your app has more than one
 
 The following example shows a way to add another activity to an existing project and so navigate between the two activities in an android application.
 
-**Exercise 1: Explicit Intent - Navigate Between Two Activities Example:**
+**Explicit Intent - Navigate Between Two Activities Example:**
 
 _(Skip this example if you are done with the MyMessenger project introduced in the lecture)._
 
