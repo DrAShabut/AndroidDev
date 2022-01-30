@@ -2,7 +2,7 @@
 
 ![image](https://gitlab.com/LTUcompsci/5014-further-software-dev/-/wikis/uploads/ff971689644c8b4dcbb0f7d1aeb6be01/image.png)
 
-Android apps can contain one or more activities. Once your app has more than one activity, you will get to navigate from one activity to another using Intent. This tutorial will illustrate the basics of Intent in Android and how to use this messaging object to start communication between different components. 
+Android apps can contain one or more activities. Once your app has more than one activity, you will get to navigate from one activity to another using Intent. This tutorial will illustrate the basics of Intent in Android and how to use this messaging object to start communications between different components. 
 
 **Exercise 1: Android Intent Example**
 
