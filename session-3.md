@@ -292,7 +292,8 @@ public class CreateMessageActivity extends AppCompatActivity {
 ```
 
 5) Run your application on a real device. 
-Challenge: Write a simple activity for typing a phone number and then place the call?
-Check this YouTube video to have a clue on how to solve the challenge. Discuss how to design your app and what steps do you need before implementing the solution using Android Studio.
+
+**Challenge:** Write a simple activity for typing a phone number and then place the call?
+Check this YouTube [video ](https://www.youtube.com/watch?v=eL69kj-_Wvs)to have a clue on how to solve the challenge. Discuss how to design your app and what steps do you need before implementing the solution using Android Studio.
 
 **Happy Coding**
