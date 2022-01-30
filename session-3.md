@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-7.  Done. Run your Android Intent Application.
+7.  You are done now. Run your Android Intent Application.
 
 
  
@@ -69,23 +69,24 @@ public class MainActivity extends AppCompatActivity {
 
 1. Create a new project called NotifyMeApp and add a button to the activity_main.xml. Change its id to “notifyMe” and the text to “create notification”.
 
-_Hint: you can now develop some advanced skills and keep all strings in a strings.xml file which is used to replace the Hard-coded strings with a single string. We define all the strings in this xml file and then access them in our app (Activity or in Layout XML files) from this file. This file enhance the reusability of the code. Location in Android Studio:_
+_Hint: you can now develop some advanced skills and keep all strings in a strings.xml file which is used to replace the Hard-coded strings with a single string. We define all the strings in this xml file and then access them in our app (Activity or in Layout XML files) from this file. This file enhances the reusability of the code. Location in Android Studio:_
 
 ![image](uploads/a066331b659fadde7ff5cc962b212f9e/image.png)
  
-_For more information about strings.xml file and how to format and style your text visit the following link String resources  |  Android Developers._
+_For more information about strings.xml file and how to format and style your text visit the following [link](https://developer.android.com/guide/topics/resources/string-resource#java)._
 
 ![image](uploads/d666473293241377fdc636aa1bfa4a14/image.png) 
 
-2. Add a new activity and name it to “TestActivity” as in the previous example and design the activity_test.xml layout to include a TextView. The conde should look as follow:
+2. Add a new activity and name it “TestActivity” as in the previous example and design the activity_test.xml layout to include a TextView. The code should look as follow:
 
 ![image](uploads/32f6cfde1caebed19df35e62662c2b8e/image.png)
  
 3. Add the following code to the MainActivity.java class:
+
+```java
 public class MainActivity extends AppCompatActivity {
     String NOTIFICATION_CHANNEL_ID = "my_channel_id_01";
 
-```java
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
