@@ -4,11 +4,11 @@
 
 Android apps can contain one or more activities. Once your app has more than one activity, you will get to navigate from one activity to another using Intent. This tutorial will illustrate the basics of Intent in Android and how to use this messaging object to start communications between different components. 
 
-**Exercise 1: Android Intent Example**
+**Android Intent Example**
 
 The following example shows a way to add another activity to an existing project and so navigate between the two activities in an android application.
 
-**Explicit Intent - Navigate Between Two Activities Example:**
+**Exercise 1: Explicit Intent - Navigate Between Two Activities Example:**
 
 _(Skip this example if you are done with the MyMessenger project introduced in the lecture)._
 
