@@ -27,6 +27,12 @@ _(Skip this example if you are done with the MyMessenger project introduced in t
 ![image](uploads/074d02a26625c01e372b04dc010ebe9b/image.png)
  
 6.  Now add the following code in MainActivity.java class.
+The main points are as follow: 
+- Create a variable from the type Button to access the button view you put in the main layout.
+- Access the button view in onCreate method using the R java class and the button id.
+- Create onClick event for the button view in the main layout and add the corresponding method in the java code as we did in previous sessions.
+- Add the code as below.
+
 
 ```java
 package com.example.multipleactivitiesapplication;
