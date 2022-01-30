@@ -231,14 +231,17 @@ To solve this problem, you’re going to do the following:
 Intent intent = new Intent(ACTION);
 ```
 where action is the type of activity action you want to perform. Android provides you with a number of standard actions you can use. As an example, you can use Intent.ACTION_DIAL to dial a number, Intent.ACTION_WEB_SEARCH to perform a web search, and Intent.ACTION_SEND to send a message. So, if you want to create an intent that specifies you want to send a message, you use:
-Intent intent = new Intent(Intent.ACTION_SEND);
 
-2) Adding extra information
+```java
+Intent intent = new Intent(Intent.ACTION_SEND);
+```
+
+2) Add extra information to the intent
 Once you’ve specified the action you want to use, you can add extra information to it. We want to pass some text with the intent that will form the body of the message we’re sending. To do this, you use the following lines of code:
    
 ```java
 intent.setType("text/plain");
-   intent.putExtra("Extra_Message", messageText);
+intent.putExtra(Intent.EXTRA_TEXT,messageText);
 ```
 
 3) Android sees that the intent can only be passed to activities able to handle ACTION_SEND and text/plain data. Android checks all the activities on the user’s device, looking for ones that are able to receive the intent. If no actions are able to handle the intent, an ActivityNotFoundException is thrown. So, you need to add a filter to your CreateMessageActivity.java in the AndroidManifest.xml file to make this activity able to handle ACTION_SEND and data of any MIME type as follow: 
@@ -292,13 +295,15 @@ public class CreateMessageActivity extends AppCompatActivity {
         //Intent intent = new Intent(this, ReceiveMessageActivity.class);
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra("Extra_Message", messageText);
-        startActivity(intent);
+        intent.putExtra(Intent.EXTRA_TEXT,messageText);
+        Intent shareIntent = Intent.createChooser(intent, null);
+        startActivity(shareIntent);
     }
 }
 ```
 
 5) Run your application on a real device. 
+6) Practice more examples in this [link](https://developer.android.com/training/sharing/send#:~:text=1%20Sending%20text%20content.%20The%20most%20straightforward%20and,content%2C%20use%20the%20ACTION_SEND_MULTIPLE%20action%20together...%20More%20).
 
 **Challenge:** Write a simple activity for typing a phone number and then place the call?
 Check this YouTube [video ](https://www.youtube.com/watch?v=eL69kj-_Wvs)to have a clue on how to solve the challenge. Discuss how to design your app and what steps do you need before implementing the solution using Android Studio.
