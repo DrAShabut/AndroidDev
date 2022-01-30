@@ -20,8 +20,6 @@ _(Skip this example if you are done with the MyMessenger project introduced in t
 3.  Now you need to add a new activity and name it “SecondActivity”. 
 4. Click the app folder from the project window and add a new activity by selecting File -> New -> Activity -> EmptyActivity.
 
-![image](uploads/9956a070ed9ab6e185c4df947a6cdfc6/image.png)
-
 ![image](uploads/0678b64d1a62f0dd7e6a93d4cae8c3bd/image.png)
  
 5.  Now add a TextView to the xml layout and change its id to “linkView” and text to “This is second Activity”.  
