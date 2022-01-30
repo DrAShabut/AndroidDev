@@ -30,7 +30,7 @@ _(Skip this example if you are done with the MyMessenger project introduced in t
  
 6.  Now add the following code in MainActivity.java class.
 
-``
+```java
 package com.example.multipleactivitiesapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,19 +55,27 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
+```
 
 7.  Done. Run your Android Intent Application.
 
 
  
-Pending Intent - Notification Example
+**Pending Intent - Notification Example**
+
 1. Create a new project called NotifyMeApp and add a button to the activity_main.xml. Change its id to “notifyMe” and the text to “create notification”.
-Hint: you can now develop some advanced skills and keep all strings in a strings.xml file which is used to replace the Hard-coded strings with a single string. We define all the strings in this xml file and then access them in our app (Activity or in Layout XML files) from this file. This file enhance the reusability of the code. Location in Android Studio:
+
+_Hint: you can now develop some advanced skills and keep all strings in a strings.xml file which is used to replace the Hard-coded strings with a single string. We define all the strings in this xml file and then access them in our app (Activity or in Layout XML files) from this file. This file enhance the reusability of the code. Location in Android Studio:_
+
+![image](uploads/a066331b659fadde7ff5cc962b212f9e/image.png)
  
-For more information about strings.xml file and how to format and style your text visit the following link String resources  |  Android Developers.
- 
+_For more information about strings.xml file and how to format and style your text visit the following link String resources  |  Android Developers._
+
+![image](uploads/d666473293241377fdc636aa1bfa4a14/image.png) 
 
 2. Add a new activity and name it to “TestActivity” as in the previous example and design the activity_test.xml layout to include a TextView. The conde should look as follow:
+
+![image](uploads/32f6cfde1caebed19df35e62662c2b8e/image.png)
  
 3. Add the following code to the MainActivity.java class:
 public class MainActivity extends AppCompatActivity {
