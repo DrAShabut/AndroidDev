@@ -80,6 +80,7 @@ Intent intent = new Intent();
 textMessage.setText(getIntent().getStringExtra("Message"));
 ```
 10. You are done now, run your code to see your message shown on the SecondActivity.
+
  
 **Pending Intent - Notification Example**
 
