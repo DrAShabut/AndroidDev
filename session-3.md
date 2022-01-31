@@ -19,12 +19,12 @@ _(Skip this example if you are done with the MyMessenger project introduced in t
 
 _Important Note!!! You need to constraint each view you add to your XML UI using the design editor._
 
-3.  Now you need to add a new activity and name it “SecondActivity”. 
+3. Now you need to add a new activity and name it “SecondActivity”. 
 4. Click the app folder from the project window and add a new activity by selecting File -> New -> Activity -> EmptyActivity.
 
 ![image](uploads/0678b64d1a62f0dd7e6a93d4cae8c3bd/image.png)
  
-5.  Now add a TextView to the xml layout and change its id to “linkView” and text to “This is second Activity”.  
+5.  Now add a TextView to the xml layout and change its id to “linkView” and text to “This is the second Activity”.  
 
 ![image](uploads/074d02a26625c01e372b04dc010ebe9b/image.png)
  
@@ -65,23 +65,53 @@ public class MainActivity extends AppCompatActivity {
 
 7.  You are done now. Run your Android Intent Application.
 
-8. Now practice sharing data between your activities. Go to the MainActivity.java class and add the following code to the 'linkNextActivity' method:
+8. Now practice sharing data between your activities. Adjust the activity_main.xml UI design and add a PlainText view to your UI, change its id to "editTextMessage", delete the default value of text attribute and add "Enter your Message" in the hint attribute. 
+  
+9. Go to the MainActivity.java class and add the following code to the 'linkNextActivity' method:
 
 ```java
-Intent intent= new Intent(this, SecondActivity.class);
-String message = editText.getText().toString();
-intent.putExtra("Message", message);
-startActivity(intent);
+package com.example.multipleactivitiesapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.content.Intent;
+
+public class MainActivity extends AppCompatActivity {
+    Button clickButton;
+    EditText editText;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        clickButton = findViewById(R.id.linkButton);
+        editText = findViewById(R.id.editTextMessage);
+    }
+
+    public void linkNextActivity(View view) {
+        Intent intent= new Intent(this, SecondActivity.class);
+        String message = editText.getText().toString();
+        intent.putExtra("Message", message);
+        startActivity(intent);
+    }
+}
+
 ```
 
-9. To receive the data in the SecondActivity, add the following code to onCreate() method in the SecondActivity.java class:
+10. To receive the data in the SecondActivity, add the following code to onCreate() method in the SecondActivity.java class:
 
 ```java
 textMessage = findViewById(R.id.textView);
 Intent intent = new Intent();
 textMessage.setText(getIntent().getStringExtra("Message"));
 ```
-10. You are done now, run your code to see your message shown on the SecondActivity.
+_Note: don't forget to define the variable textMessage as a class variable._
+
+11. You are done now, run your code to see your message shown on the SecondActivity.
 
  
 **Pending Intent - Notification Example**
