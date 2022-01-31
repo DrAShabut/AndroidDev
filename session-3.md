@@ -17,7 +17,7 @@ _(Skip this example if you are done with the MyMessenger project introduced in t
  
 ![image](uploads/157a5adb478afbe7a6f2b711ace34fed/image.png)
 
-_Important Note!!! You need to constraint each view you add to your XML UI using the design editor. _
+_Important Note!!! You need to constraint each view you add to your XML UI using the design editor._
 
 3.  Now you need to add a new activity and name it “SecondActivity”. 
 4. Click the app folder from the project window and add a new activity by selecting File -> New -> Activity -> EmptyActivity.
