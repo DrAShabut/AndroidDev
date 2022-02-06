@@ -227,6 +227,7 @@ The basic workflow for this app would be as follows:
                3. Show the retrieved data by setting the text attribute of a TextView object
 
 **Start coding now!**
+
 3) In the onCreate() method access the UI views and create two onClick() events for the two buttons as shown in the layout code above.
 
 ```java
@@ -261,11 +262,17 @@ public void onClickSave(View view) {
 }
 ```
 **Save Button**
+
 ❶ Creates the shared preferences file if one doesn’t exist yet
+
 ❷ We can’t save data to the shared preferences file (yet); we need an interface object for it. The editor objects will do that job
+
 ❸ Retrieve whatever the user has typed on the EditText objects and assign them to String variables
+
 ❹ Use the editor object to persist data into the shared preferences file
+
 ❺ Commit the changes to the file
+
 
 5) In the load_button onClick() event, write the following code:
 
@@ -281,11 +288,15 @@ public void onClickLoad(View view) {
 ```
 
 **Load Button**
-❶ Retrieve the shared preferences object by getting a reference to it. The syntax for creating a shared preferences object is the same as that for retrieving it. Android is clever enough to 
-Note:
-Figure out that if the file doesn’t exist, you want to create it, and if it does exist, you want to retrieve it
+
+❶ Retrieve the shared preferences object by getting a reference to it. The syntax for creating a shared preferences object is the same as that for retrieving it. 
+
+Android is clever enough to figure out that if the file doesn’t exist, you want to create it, and if it does exist, you want to retrieve it.
+
 ❷ Get the data out of the shared pref file using one of the get methods; store it in a String variable
+
 ❸ Set the text of the TextView object using the retrieved data from the shared pref file
+
 
 The final code should look like the following:
 
