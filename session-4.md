@@ -370,7 +370,7 @@ The full list of permissions that fall into the dangerous category is as follow:
 |            | WRITE_CONTACTS |
 |            | GET_ACCOUNTS |
 | Location   | ACCESS_FINE_LOCATION |
-             | ACCESS_COARSE_LOCATION |
+|             | ACCESS_COARSE_LOCATION |
 | Microphone |	RECORD_AUDIO |
 | Phone      | READ_PHONE_STATE |
 |            | CALL_PHONE |
