@@ -380,20 +380,21 @@ The full list of permissions that fall into the dangerous category is as follow:
 | ------ | ------ |
 
 **Lifecycle of Runtime Permissions**
-For example let’s assume, we want to request camera permission from user.
-	Step 1 -> First of all, we will ask it with pop up dialog. If user grants permissions, then you can implement camera feature.
-	Step 2 -> Other than granting the permission, user have other option to deny it. When user denies the permission, we have to repeat the step 1 and this process continues.
-	Step 3 -> Last case is that user first checks the “Never Ask Again” checkbox and then denies the permission. Here you cannot repeat the step 1. In this scenario, you need to create custom pop up dialog which will educate user about the importance of the permission. In this dialog, give user a button which will lead him to the app settings, from where he can grant the camera or other permissions.
+For example, let’s assume we want to request camera permission from the user.
+**Step 1 ->** First of all, we will ask it with a pop up dialog. If the user grants permission, then you can implement the camera feature.
+**Step 2 ->** Other than granting the permission, the user has another option to deny it. When the user denies permission, we have to repeat step 1 and this process continues.
+**Step 3 ->** the Last case is that the user first checks the “Never Ask Again” checkbox and then denies the permission. Here you cannot repeat step 1. In this scenario, you need to create a custom pop up dialog that will educate the user about the importance of the permission. In this dialog, give the user a button that will lead him to the app settings, from where he can grant the camera or other permissions.
 
-Creating the Permissions Example Project
+
+**Creating the Permissions Example Project**
 Start a new Android project with an Empty Activity template, enter PermissionDemo into the Name field and specify com.example.leedstrinity.permissiondemo as the package name. Before clicking on the Finish button, change the Minimum API level setting to API 26: Android 8.0 (Oreo) and the Language menu to Java.
 
 Checking for a Permission
 The Android Support Library contains a number of methods that can be used to seek and manage dangerous permissions within the code of an Android app. These API calls can be made safely regardless of the version of Android on which the app is running, but will only perform meaningful tasks when executed on Android 6.0 or later.
 
-Before an app attempts to make use of a feature that requires approval of a dangerous permission, and regardless of whether or not permission was previously granted, the code must check that the permission has been granted. This can be achieved via a call to the checkSelfPermission() method of the ContextCompat class, passing through as arguments a reference to the current activity and the permission being requested. The method will check whether the permission has been previously granted and return an integer value matching PackageManager.PERMISSION_GRANTED or PackageManager.PERMISSION_DENIED.
+Before an app attempts to make use of a feature that requires approval of dangerous permission, and regardless of whether or not permission was previously granted, the code must check that the permission has been granted. This can be achieved via a call to the checkSelfPermission() method of the ContextCompat class, passing through as arguments a reference to the current activity and the permission being requested. The method will check whether the permission has been previously granted and return an integer value matching PackageManager.PERMISSION_GRANTED or PackageManager.PERMISSION_DENIED.
 Within the MainActivity.java file of the example project, modify the code to check whether permission has been granted for the app to record audio:
-
+```java
 package com.example.leedstrinity.permissiondemo;
  
 import androidx.appcompat.app.AppCompatActivity;
@@ -425,10 +426,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
-
+```
 Run the app on a device or emulator running a version of Android that predates Android 6.0 and check the Logcat output within Android Studio. After the app has launched, the Logcat output should include the “Permission to record denied” message.
 
 Edit the AndroidManifest.xml file (located in the Project tool window under app -> manifests) and add a line to request recording permission as follows:
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.leedstrinity.permissiondemo" >
@@ -451,23 +454,23 @@ Edit the AndroidManifest.xml file (located in the Project tool window under app 
         </activity>
     </application>
 </manifest>
+```
 
 Compile and run the app once again and note that this time the permission denial message does not appear. Clearly, everything that needs to be done to request this permission on older versions of Android has been done. Run the app on a device or emulator running Android 6.0 or later, however, and note that even though permission has been added to the manifest file, the check still reports that permission has been denied. This is because Android version 6 and later require that the app also request dangerous permissions at runtime.
 
 Requesting Permission at Runtime
 A permission request is made via a call to the requestPermissions() method of the ActivityCompat class. When this method is called, the permission request is handled asynchronously and a method named onRequestPermissionsResult() is called when the task is completed.
 The requestPermissions() method takes as arguments a reference to the current activity, together with the identifier of the permission being requested and a request code. The request code can be any integer value and will be used to identify which request has triggered the call to the onRequestPermissionsResult() method. Modify the MainActivity.java file to declare a request code and request recording permission in the event that the permission check failed:
-.
-.
+```java
+...
 import androidx.core.app.ActivityCompat;
-.
-.
+
+...
 public class MainActivity extends AppCompatActivity {
  
     private static String TAG = "PermissionDemo";
     private static final int RECORD_REQUEST_CODE = 101;
-.
-.
+...
     @Override
     private void setupPermissions() {
  
@@ -486,7 +489,10 @@ public class MainActivity extends AppCompatActivity {
                 RECORD_REQUEST_CODE);
     }
 }
+```
 Next, implement the onRequestPermissionsResult() method so that it reads as follows:
+
+```java
 @Override
 public void onRequestPermissionsResult(int requestCode,
            @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -504,23 +510,27 @@ public void onRequestPermissionsResult(int requestCode,
         }
     }
 }
+```
+
 Compile and run the app on an Android 6 or later emulator or device and note that a dialog seeking permission to record audio appears as shown below:
  
 
 Tap the Allow button and check that the “Permission has been granted by user” message appears in the Logcat panel.
 Once the user has granted the requested permission, the checkSelfPermission() method call will return a PERMISSION_GRANTED result on future app invocations until the user uninstalls and re-installs the app or changes the permissions for the app in Settings.
 
-Providing a Rationale for the Permission Request
-The user has the option to deny the requested permission. In this case, the app will continue to request the permission each time that it is launched by the user unless the user selected the “Never ask again” option prior to clicking on the Deny button. Repeated denials by the user may indicate that the user doesn’t understand why the permission is required by the app. The user might, therefore, be more likely to grant permission if the reason for the requirements is explained when the request is made. Unfortunately, it is not possible to change the content of the request dialog to include such an explanation.
-An explanation is best included in a separate dialog which can be displayed before the request dialog is presented to the user. This raises the question as to when to display this explanation dialog. The Android documentation recommends that an explanation dialog only be shown in the event that the user has previously denied the permission and provides a method to identify when this is the case.
+**Providing a Rationale for the Permission Request**
+The user has the option to deny the requested permission. In this case, the app will continue to request permission each time that it is launched by the user unless the user selected the “Never ask again” option prior to clicking on the Deny button. Repeated denials by the user may indicate that the user doesn’t understand why permission is required by the app. The user might, therefore, be more likely to grant permission if the reason for the requirements is explained when the request is made. Unfortunately, it is not possible to change the content of the request dialog to include such an explanation.
+An explanation is best included in a separate dialog which can be displayed before the request dialog is presented to the user. This raises the question of when to display this explanation dialog. The Android documentation recommends that an explanation dialog only be shown in the event that the user has previously denied the permission and provides a method to identify when this is the case.
 A call to the shouldShowRequestPermissionRationale() method of the ActivityCompat class will return a true result if the user has previously denied a request for the specified permission, and a false result if the request has not previously been made. In the case of a true result, the app should display a dialog containing a rationale for needing the permission and, once the dialog has been read and dismissed by the user, the permission request should be repeated.
+
 To add this functionality to the example app, modify the onCreate() method so that it reads as follows:
-.
-.
+
+```java
+...
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-.
-.
+
+...
 private void setupPermissions() {
     
     int permission = ContextCompat.checkSelfPermission(this,
@@ -552,18 +562,21 @@ private void setupPermissions() {
         }
     }
 }
+```
+
 The method still checks whether or not the permission has been granted, but now also identifies whether a rationale needs to be displayed. If the user has previously denied the request, a dialog is displayed containing an explanation and an OK button on which a listener is configured to call the makeRequest() method when the button is tapped. In the event that the permission request has not previously been made, the code moves directly to seeking permission.
 
-Testing the Permissions App
+**Testing the Permissions App**
+
 On the Android 6 or later device or emulator session on which testing is being performed, launch the Settings app, select the Apps & notifications option and scroll to and select the PermissionDemo app. On the app settings screen, tap the uninstall button to remove the app from the device.
 Run the app once again and, when the permission request dialog appears, click on the Deny button. Stop and restart the app and verify that the rationale dialog appears. Tap the OK button and, when the permission request dialog appears, tap the Allow button.
 Return to the Settings app, select the Apps option and select the PermissionDemo app once again from the list. Once the settings for the app are listed, verify that the Permissions section lists the Microphone permission:
  
 
-Summary
-Prior to the introduction of Android 6.0 the only step necessary for an app to request permission to access certain functionality was to add an appropriate line to the application’s manifest file. The user would then be prompted to approve the permission at the point that the app was installed. This is still the case for most permissions, with the exception of a set of permissions that are considered dangerous. Permissions that are considered dangerous usually have the potential to allow an app to violate the user’s privacy such as allowing access to the microphone, contacts list or external storage.
+**Summary**
+Prior to the introduction of Android 6.0, the only step necessary for an app to request permission to access certain functionality was to add an appropriate line to the application’s manifest file. The user would then be prompted to approve the permission at the point that the app was installed. This is still the case for most permissions, with the exception of a set of permissions that are considered dangerous. Permissions that are considered dangerous usually have the potential to allow an app to violate the user’s privacy such as allowing access to the microphone, contacts list or external storage.
 
-Can you now implement a runtime permission for using a camera, write to external storage and read contacts?
+Can you now implement runtime permission for using a camera, writing to external storage and reading contacts?
 
 
 
