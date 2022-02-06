@@ -60,7 +60,7 @@ protected void onDestroy() {
 
 ```
  
-**_Note: If you want to see the onDestroy message, you can use the “Recent apps” button of the device to see all the running apps. You can kill the application from there, see figure below:_**
+**_Note: If you want to see the onDestroy message, you can use the “Recent apps” button of the device to see all the running apps. You can kill the application from there, see the figure below:_**
 
 ![image](uploads/0a033afcfaeb8522795cd0ea93816cec/image.png)
  
