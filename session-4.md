@@ -390,10 +390,14 @@ The full list of permissions that fall into the dangerous category is as follow:
 
 **Lifecycle of Runtime Permissions**
 
-For example, let’s assume we want to request camera permission from the user.
+For example, let’s assume we want to request camera permission from the user:
+
 **Step 1 ->** First of all, we will ask it with a pop up dialog. If the user grants permission, then you can implement the camera feature.
+
 **Step 2 ->** Other than granting the permission, the user has another option to deny it. When the user denies permission, we have to repeat step 1 and this process continues.
+
 **Step 3 ->** the Last case is that the user first checks the “Never Ask Again” checkbox and then denies the permission. Here you cannot repeat step 1. In this scenario, you need to create a custom pop up dialog that will educate the user about the importance of the permission. In this dialog, give the user a button that will lead him to the app settings, from where he can grant the camera or other permissions.
+
 
 
 **Creating the Permissions Example Project**
