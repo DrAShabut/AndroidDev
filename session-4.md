@@ -121,6 +121,7 @@ sp.getInt("age", 0);
 
 1) Create a new project and name it “SharedPreferences”. 
 2) Design the UI layout for the main layout file as shown below. 2 Plain Text, 2 Button and 1 Text View
+_(Change the id of the Views as per the code below)_
  
 ![image](uploads/34c7d1d128ba57c4e756b88869b6d2a5/image.png)
 
