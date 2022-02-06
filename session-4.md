@@ -2,7 +2,7 @@
 
 ![image](https://gitlab.com/LTUcompsci/5014-further-software-dev/-/wikis/uploads/ff971689644c8b4dcbb0f7d1aeb6be01/image.png)
 
-An activity in Android is a single, focused thing that the user can do. Almost all activities interact with the user, so the Activity class takes care of creating a window for you in which you can place your UI and allow the user to start interacting with your content, however, knowing about the Android Runtime system and activity lifecycle in Android is crucial to design your code. So, this tutorial will give you examples of how to use the Activity class and the lifecycle methods. In addition, you will know how to use runtime permission in Android.
+An activity in Android is a single, focused thing that the user can do. Almost all activities interact with the user, so the Activity class takes care of creating a window for you in which you can place your UI and allow the user to start interacting with your content, however, knowing about the Android Runtime system and activity lifecycle in Android is crucial to design your code. So, this tutorial will give you examples of how to use the Activity class and the lifecycle methods. In addition, you will know how to use runtime permissions in Android.
 
 **Activity Lifecycle Methods Example**
 _**Before we start with the example, advance your Android skills and learn about TAGs in Android.**_  
@@ -67,39 +67,63 @@ protected void onDestroy() {
 
 **Keeping data across app lifecycle events example.**
 
-When an app creates or captures data from user input, this data will only be available during the lifetime of the app. You only have access to this data as long as the app is not yet killed by Android runtime. When the app is shut down, all the data that has been created while the app was running will be lost. Android offers a variety of ways for us to persist data so that it can outlive the app lifetime and allow us to access the same data across the app lifecycle events. One way is the use of onSaveInstanceState method to save data across different lifecycle events which was explored in the Stopwatch app.  
+When an app creates or captures data from user input, this data will only be available during the lifetime of the app. You only have access to this data as long as the app is not yet killed by Android runtime. When the app is shut down, all the data that has been created while the app was running will be lost. Android offers a variety of ways for us to persist data so that it can outlive the app lifetime and allow us to access the same data across the app lifecycle events. One way is the use of **onSaveInstanceState** method to save data across different lifecycle events which were explored in the Stopwatch app.  
 
-In this example, you will explore the SharedPreferences storage way which allow you to keep the data safe even after your app is killed.
-SharedPreferences	This is the simplest form of storage. It’s just a dictionary object that uses the key/value pair idiom. This is useful if your data is simple enough to be structured as a dictionary object (key/value pairs). Android stores these files internally as XML files. SharedPrefs only stores simple data types (e.g., String and primitive data types). It cannot store more complex data
+**In this example, you will explore the SharedPreferences storage way which allows you to keep the data safe even after your app is killed.**
 
-- To create a SharedPreferences file, we need to use the getPreferences method while inside an Activity class and then specify the mode of access for the file as follow:
-- SharedPreferences sp = getPreferences(CONTEXT.MODE_PRIVATE);
+**What is SharedPreferences?**
+
+SharedPreferences: this is the simplest form of storage. It’s just a dictionary object that uses the key/value pair idiom. This is useful if your data is simple enough to be structured as a dictionary object (key/value pairs). Android stores these files internally as XML files. SharedPrefs only stores simple data types (e.g., String and primitive data types). It cannot store more complex data such as objects.
+
+**How to use SharedPreferences?**
+
+- To create a SharedPreferences file, we need to use the **getPreferences** method while inside an Activity class and then specify the mode of access for the file as follow:
+```java
+SharedPreferences sp = getPreferences(CONTEXT.MODE_PRIVATE);
+```
 - As per Android documentation, Context.MODE_PRIVATE is what we are supposed to use because the public mode has already been deprecated since API level 17. Next, we need an Editor object so we can start modifying data in the newly created file as follow:
-- SharedPreferences.Editor editor = sp.edit();
+```java
+SharedPreferences.Editor editor = sp.edit();
+```
 - Now we can start putting in some data:
-- edit.putString("name","Gandalf the Grey");
-- edit.putInt("age", 2019);
-- The first parameter to the put commands is always the key, and the second parameter is the value. In the preceding example, “name” and “age” are the keys and “Gandalf the Grey” and 2019 are values, respectively. The put commands, by themselves, do not save the data to the file, so we need to use either the apply or the commit method.
-- editor.apply(); // or
-- editor.commit();
-- Either the commit or apply method will save the information and persist it in an XML file; there are only slight differences between these two methods. 
-- commit—this is synchronous and returns a boolean value, it returns true if the write operation succeeded
-- apply—this also saves the data but does not return any value. It is executed asynchronously
+```java
+edit.putString("name","Gandalf the Grey");
+edit.putInt("age", 2019);
+```
+- The first parameter to the put commands is always the key, and the second parameter is the value. In the preceding example, “name” and “age” are the keys and “Gandalf the Grey” and 2019 are values, respectively. The put commands, by themselves, do not save the data to the file, so we need to use either the apply or the commit method:
+```java
+editor.apply(); // or
+editor.commit();
+```
+Either the commit or apply method will save the information and persist it in an XML file; there are only slight differences between these two methods. 
+| Method| Purpose|
+| ------ | ------ |
+| commit| this is synchronous and returns a boolean value, it returns true if the write operation succeeded|
+| apply | this also saves the data but does not return any value. It is executed asynchronously|
 
-NOTE:
+_**NOTE:**_
 You don’t need to specify a file name for the shared preferences file; the Android runtime will automatically assign a name for the newly created file. By convention, the newly created file follows the name of the activity class from where getPreferences was called from; for example, if you called getPreferences from MainActivity.java, the name of the shared preferences file will be MainActivity.xml
 
 - Retrieving data from a shared preferences file is just as easy as creating it. To access the created shared preferences file, we use the same syntax when we created the file in the first place as follow:
-- SharedPreferences sp = getPreferences(CONTEXT.MODE_PRIVATE);
-- The getPreferences method returns an instance of a SharedPreferences object. The first time this method is called, it will look for an XML file bearing the same name as the activity from which the method was called; if it doesn’t find that file, it will be created, but if the file already exist, it will be used instead. Since we already created the file the first time we called getPreferences, Android won’t be creating a new file, nor will it overwrite what we created before.
-- Once we have a shared preferences object, we can extract data from it as follow:
-- sp.getString("name", "default value");
-- sp.getInt("age", 0);
 
-Now, let’s experience this in practice.
-- Create a new project and name it “SharedPreferences”. 
-- Design the UI layout for the main layout file as shown below. 2 Plain Text, 2 Button and 1 Text View
+```java
+SharedPreferences sp = getPreferences(CONTEXT.MODE_PRIVATE);
+```
+- The getPreferences method returns an instance of a SharedPreferences object. The first time this method is called, it will look for an XML file bearing the same name as the activity from which the method was called; if it doesn’t find that file, it will be created, but if the file already exist, it will be used instead. Since we already created the file the first time we called getPreferences, Android won’t be creating a new file, nor will it overwrite what we created before.
+
+- Once we have a shared preferences object, we can extract data from it as follow:
+```java
+sp.getString("name", "default value");
+sp.getInt("age", 0);
+```
+
+**Now, let’s experience this in practice.**
+
+1) Create a new project and name it “SharedPreferences”. 
+2) Design the UI layout for the main layout file as shown below. 2 Plain Text, 2 Button and 1 Text View
  
+![image](uploads/34c7d1d128ba57c4e756b88869b6d2a5/image.png)
+
 The final layout code should look like the following: 
 
 ```xml
@@ -182,21 +206,23 @@ The final layout code should look like the following:
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-- The basic workflow for this app would be as follows: 
-        1. Type the last name and first name information in the two text fields.
- 	2. When the “SAVE” button is clicked, extract the string values from the text fields and save them in the shared preferences file. 
-•	To do so, follow the next steps: 
-o	Create a shared preferences file (if one does not exist yet).
+The basic workflow for this app would be as follows: 
+        - Type the last name and first name information in the two text fields.
+        - When the “SAVE” button is clicked, extract the string values from the text fields and save them in the shared preferences file. 
+
+We need to create a shared preferences file as explained above and do the following:
 o	Push the last name and first name data into the shared preferences file by using one of the put methods of editor object.
 o	Save the changes. 
-3. When the “LOAD” button is clicked. Follow the next steps: 
+
+When the “LOAD” button is clicked. Follow the next steps: 
 o	Retrieve the shared preferences file using the same syntax as when it was created
 o	Retrieve the data on the file using one of the get methods
 o	Show the retrieved data by setting the text attribute of a TextView object
 
-Strat coding now!
-•	In the onCreate() method access the UI views and create two onClick() events for the two buttons as shown in the layout code above.
+**Start coding now!**
+4) In the onCreate() method access the UI views and create two onClick() events for the two buttons as shown in the layout code above.
 
+```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -205,9 +231,11 @@ protected void onCreate(Bundle savedInstanceState) {
     Button loadbtn = findViewById(R.id.load_button);
 
 }
+```
 
-•	In the save_button onClick() event, write the following code:
+5) In the save_button onClick() event, write the following code:
 
+```java
 public void onClickSave(View view) {
     EditText lname_edit = findViewById(R.id.lname_edit);
     EditText fname_edit = findViewById(R.id.fname_edit);
@@ -224,7 +252,7 @@ public void onClickSave(View view) {
     Log.i(TAG, "onClickSave: Toast is an Android class which is used to display messages to the user");
 
 }
-
+```
 Save Button 
 ❶ Creates the shared preferences file, if one doesn’t exist yet
 ❷ We can’t save data to the shared preferences file (yet); we need an interface object for it. The editor objects will do that job
