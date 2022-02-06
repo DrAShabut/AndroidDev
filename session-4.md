@@ -597,7 +597,6 @@ Return to the Settings app, select the Apps option and select the PermissionDemo
 
 Prior to the introduction of Android 6.0, the only step necessary for an app to request permission to access certain functionality was to add an appropriate line to the application’s manifest file. The user would then be prompted to approve the permission at the point that the app was installed. This is still the case for most permissions, with the exception of a set of permissions that are considered dangerous. Permissions that are considered dangerous usually have the potential to allow an app to violate the user’s privacy such as allowing access to the microphone, contacts list or external storage.
 
-Can you now implement runtime permission for using a camera, writing to external storage and reading contacts?
 
 
 
