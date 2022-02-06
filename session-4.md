@@ -208,19 +208,20 @@ The final layout code should look like the following:
 
 The basic workflow for this app would be as follows: 
         - Type the last name and first name information in the two text fields.
-        - When the “SAVE” button is clicked, extract the string values from the text fields and save them in the shared preferences file. 
+        - When the “SAVE” button is clicked, extract the string values from the text fields and save them in the shared preferences file.
+        - To achieve this, you need to do the following: 
 
-We need to create a shared preferences file as explained above and do the following:
-o	Push the last name and first name data into the shared preferences file by using one of the put methods of editor object.
-o	Save the changes. 
+               1. Create a shared preferences file
+               2. Push the last name and first name data into the shared preferences file by using one of the put methods of editor object.
+               3. Save the changes. 
 
-When the “LOAD” button is clicked. Follow the next steps: 
-o	Retrieve the shared preferences file using the same syntax as when it was created
-o	Retrieve the data on the file using one of the get methods
-o	Show the retrieved data by setting the text attribute of a TextView object
+        - When the “LOAD” button is clicked. Follow the next steps: 
+               1. Retrieve the shared preferences file using the same syntax as when it was created
+               2. Retrieve the data on the file using one of the get methods
+               3. Show the retrieved data by setting the text attribute of a TextView object
 
 **Start coding now!**
-4) In the onCreate() method access the UI views and create two onClick() events for the two buttons as shown in the layout code above.
+3) In the onCreate() method access the UI views and create two onClick() events for the two buttons as shown in the layout code above.
 
 ```java
 @Override
@@ -233,7 +234,7 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-5) In the save_button onClick() event, write the following code:
+4) In the save_button onClick() event, write the following code:
 
 ```java
 public void onClickSave(View view) {
@@ -253,15 +254,16 @@ public void onClickSave(View view) {
 
 }
 ```
-Save Button 
-❶ Creates the shared preferences file, if one doesn’t exist yet
+**Save Button**
+❶ Creates the shared preferences file if one doesn’t exist yet
 ❷ We can’t save data to the shared preferences file (yet); we need an interface object for it. The editor objects will do that job
 ❸ Retrieve whatever the user has typed on the EditText objects and assign them to String variables
 ❹ Use the editor object to persist data into the shared preferences file
 ❺ Commit the changes to the file
 
-•	In the load_button onClick() event, write the following code:
+5) In the load_button onClick() event, write the following code:
 
+```java
 public void onClickLoad(View view) {
     TextView name_text = findViewById(R.id.textView);
 
@@ -270,16 +272,19 @@ public void onClickLoad(View view) {
  String fname = sp.getString("fname", "na");
  name_text.setText(String.format("%s, %s", lname, fname)); ❸
 }
+```
 
-Load Button
+**Load Button**
 ❶ Retrieve the shared preferences object by getting a reference to it. The syntax for creating a shared preferences object is the same as that for retrieving it. Android is clever enough to 
 Note:
-Figure out that if the file doesn’t exist, you want to create, and if it does exist, you want to retrieve it
+Figure out that if the file doesn’t exist, you want to create it, and if it does exist, you want to retrieve it
 ❷ Get the data out of the shared pref file using one of the get methods; store it in a String variable
 ❸ Set the text of the TextView object using the retrieved data from the shared pref file
 
-•	The final code should look like the following:
-•	package com.example.leedstrinity.sharedpreferences;
+The final code should look like the following:
+
+```java
+package com.example.leedstrinity.sharedpreferences;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -328,40 +333,53 @@ public class MainActivity extends AppCompatActivity {
         name_text.setText(String.format("%s, %s", lname, fname));
     }
 }
+```
 
-•	Check for errors and run your application. 
-•	Add age and date of birth fields to your layout and update the shared preferences file to save and retrieve the new fields. 
+6) Check for errors and run your app. 
+7) Add age and date of birth fields to your layout and update the shared preferences file to save and retrieve the new fields. 
 
-Runtime permissions example:
+
+**Runtime permissions example:**
 The full list of permissions that fall into the dangerous category is as follow:
 
-Permission Group	Permission
-Calendar	READ_CALENDAR
-WRITE_CALENDAR
-Camera	CAMERA
-Contacts	READ_CONTACTS
-WRITE_CONTACTS
-GET_ACCOUNTS
-Location	ACCESS_FINE_LOCATION
-ACCESS_COARSE_LOCATION
-Microphone	RECORD_AUDIO
-Phone	READ_PHONE_STATE
-CALL_PHONE
-READ_CALL_LOG
-WRITE_CALL_LOG
-ADD_VOICEMAIL
-USE_SIP
-PROCESS_OUTGOING_CALLS
-Sensors	BODY_SENSORS
-SMS	SEND_SMS
-RECEIVE_SMS
-READ_SMS
-RECEIVE_WAP_PUSH
-RECEIVE_MMS
-Storage	READ_EXTERNAL_STORAGE
-WRITE_EXTERNAL_STORAGE
 
-Lifecycle of Runtime Permissions
+| Permission Group | Permission |
+| ------ | ------ |
+| Calendar | READ_CALENDAR |
+|          | WRITE_CALENDAR |	
+| ------ | ------ |
+| Camera   | CAMERA |
+| ------ | ------ |	
+| Contacts | READ_CONTACTS |
+|          | WRITE_CONTACTS |
+|          | GET_ACCOUNTS |
+| ------ | ------ |
+| Location | ACCESS_FINE_LOCATION |
+           | ACCESS_COARSE_LOCATION |
+| ------ | ------ |
+| Microphone |	RECORD_AUDIO |
+| ------ | ------ |
+| Phone | READ_PHONE_STATE |
+|        | CALL_PHONE |
+|        | READ_CALL_LOG |
+|        | WRITE_CALL_LOG |
+|         | ADD_VOICEMAIL |
+|         | USE_SIP |
+|         | PROCESS_OUTGOING_CALLS |
+| ------ | ------ |
+| Sensors | BODY_SENSORS |
+| ------ | ------ |
+| SMS	  | SEND_SMS |
+|         | RECEIVE_SMS |
+|         | READ_SMS |
+|         | RECEIVE_WAP_PUSH |
+|         | RECEIVE_MMS |
+| ------ | ------ |
+| Storage | READ_EXTERNAL_STORAGE |
+|         | WRITE_EXTERNAL_STORAGE |
+| ------ | ------ |
+
+**Lifecycle of Runtime Permissions**
 For example let’s assume, we want to request camera permission from user.
 	Step 1 -> First of all, we will ask it with pop up dialog. If user grants permissions, then you can implement camera feature.
 	Step 2 -> Other than granting the permission, user have other option to deny it. When user denies the permission, we have to repeat the step 1 and this process continues.
