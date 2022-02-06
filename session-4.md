@@ -1,30 +1,25 @@
+**About the Tutorial**
 
+![image](https://gitlab.com/LTUcompsci/5014-further-software-dev/-/wikis/uploads/ff971689644c8b4dcbb0f7d1aeb6be01/image.png)
 
+An activity in Android is a single, focused thing that the user can do. Almost all activities interact with the user, so the Activity class takes care of creating a window for you in which you can place your UI and allow the user to start interacting with your content, however, knowing about the Android Runtime system and activity lifecycle in Android is crucial to design your code. So, this tutorial will give you examples of how to use the Activity class and the lifecycle methods. In addition, you will know how to use runtime permission in Android.
 
+**Activity Lifecycle Methods Example**
+_**Before we start with the example, advance your Android skills and learn about TAGs in Android.**_  
 
+- In Android, you can declare a TAG constant in your MainActivity class to use Log API for sending logs output. You can then view the logs in logcat. Log API is used to test your code, such as printing or saving information about what exactly your code is doing and what is the current data works with. So, it is important to read more about Log API in this [link](https://developer.android.com/reference/android/util/Log).
 
+Now let's start with the example's steps:
+1) Create a new android project and name it “ActivityLifecycle”.
 
-
-
-
-
-
-
-
-
-
-
-
-
-Activity Lifecycle Methods Example
-Advance your Android skills: Learn about TAGs in Android.  
-•	Create a new android project and name it “ActivityLifecycle”. Test the following lifecycle methods and run your application.
-•	First step in your code is to declare a TAG constant in your MainActivity class to use Log API for sending logs output. You can then view the logs in logcat. Log API is used to test your code, such as printing or saving information about what exactly your code is doing and what is the current data it works with. So, it is important to read more about Log API in this link.
-
-1) Edit the MainActivity.java code and define a TAG variable as follow: 
+2) Edit the MainActivity.java code and define a TAG variable under the class name as follow: 
+```java
 private static final String TAG = "MainActivity";
+```
 
 2) Add the following changes to the MainActivity.java code:
+
+```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -63,42 +58,51 @@ protected void onDestroy() {
     Log.i(TAG, "onDestroy");
 }
 
+```
  
-Note: If you want to see the onDestroy message, you can use the “Recent apps” button of the device to see all the running apps. You can kill the application from there.
+**_Note: If you want to see the onDestroy message, you can use the “Recent apps” button of the device to see all the running apps. You can kill the application from there, see figure below:_**
+
+![image](uploads/0a033afcfaeb8522795cd0ea93816cec/image.png)
  
-Keeping data across app lifecycle events example.
+
+**Keeping data across app lifecycle events example.**
+
 When an app creates or captures data from user input, this data will only be available during the lifetime of the app. You only have access to this data as long as the app is not yet killed by Android runtime. When the app is shut down, all the data that has been created while the app was running will be lost. Android offers a variety of ways for us to persist data so that it can outlive the app lifetime and allow us to access the same data across the app lifecycle events. One way is the use of onSaveInstanceState method to save data across different lifecycle events which was explored in the Stopwatch app.  
+
 In this example, you will explore the SharedPreferences storage way which allow you to keep the data safe even after your app is killed.
 SharedPreferences	This is the simplest form of storage. It’s just a dictionary object that uses the key/value pair idiom. This is useful if your data is simple enough to be structured as a dictionary object (key/value pairs). Android stores these files internally as XML files. SharedPrefs only stores simple data types (e.g., String and primitive data types). It cannot store more complex data
 
-•	To create a SharedPreferences file, we need to use the getPreferences method while inside an Activity class and then specify the mode of access for the file as follow:
-SharedPreferences sp = getPreferences(CONTEXT.MODE_PRIVATE);
-•	As per Android documentation, Context.MODE_PRIVATE is what we are supposed to use because the public mode has already been deprecated since API level 17. Next, we need an Editor object so we can start modifying data in the newly created file as follow:
-SharedPreferences.Editor editor = sp.edit();
-•	Now we can start putting in some data:
-edit.putString("name","Gandalf the Grey");
-edit.putInt("age", 2019);
-•	The first parameter to the put commands is always the key, and the second parameter is the value. In the preceding example, “name” and “age” are the keys and “Gandalf the Grey” and 2019 are values, respectively. The put commands, by themselves, do not save the data to the file, so we need to use either the apply or the commit method.
-editor.apply(); // or
-editor.commit();
-Either the commit or apply method will save the information and persist it in an XML file; there are only slight differences between these two methods. 
-•	commit—this is synchronous and returns a boolean value, it returns true if the write operation succeeded
-•	apply—this also saves the data but does not return any value. It is executed asynchronously
+- To create a SharedPreferences file, we need to use the getPreferences method while inside an Activity class and then specify the mode of access for the file as follow:
+- SharedPreferences sp = getPreferences(CONTEXT.MODE_PRIVATE);
+- As per Android documentation, Context.MODE_PRIVATE is what we are supposed to use because the public mode has already been deprecated since API level 17. Next, we need an Editor object so we can start modifying data in the newly created file as follow:
+- SharedPreferences.Editor editor = sp.edit();
+- Now we can start putting in some data:
+- edit.putString("name","Gandalf the Grey");
+- edit.putInt("age", 2019);
+- The first parameter to the put commands is always the key, and the second parameter is the value. In the preceding example, “name” and “age” are the keys and “Gandalf the Grey” and 2019 are values, respectively. The put commands, by themselves, do not save the data to the file, so we need to use either the apply or the commit method.
+- editor.apply(); // or
+- editor.commit();
+- Either the commit or apply method will save the information and persist it in an XML file; there are only slight differences between these two methods. 
+- commit—this is synchronous and returns a boolean value, it returns true if the write operation succeeded
+- apply—this also saves the data but does not return any value. It is executed asynchronously
 
 NOTE:
 You don’t need to specify a file name for the shared preferences file; the Android runtime will automatically assign a name for the newly created file. By convention, the newly created file follows the name of the activity class from where getPreferences was called from; for example, if you called getPreferences from MainActivity.java, the name of the shared preferences file will be MainActivity.xml
-•	Retrieving data from a shared preferences file is just as easy as creating it. To access the created shared preferences file, we use the same syntax when we created the file in the first place as follow:
-SharedPreferences sp = getPreferences(CONTEXT.MODE_PRIVATE);
-•	The getPreferences method returns an instance of a SharedPreferences object. The first time this method is called, it will look for an XML file bearing the same name as the activity from which the method was called; if it doesn’t find that file, it will be created, but if the file already exist, it will be used instead. Since we already created the file the first time we called getPreferences, Android won’t be creating a new file, nor will it overwrite what we created before.
-•	Once we have a shared preferences object, we can extract data from it as follow:
-sp.getString("name", "default value");
-sp.getInt("age", 0);
 
-Now, let’s experiencing this in practice.
-•	Create a new project and name it “SharedPreferences”. 
-•	Design the UI layout for the main layout file as shown below. 2 Plain Text, 2 Button and 1 Text View
+- Retrieving data from a shared preferences file is just as easy as creating it. To access the created shared preferences file, we use the same syntax when we created the file in the first place as follow:
+- SharedPreferences sp = getPreferences(CONTEXT.MODE_PRIVATE);
+- The getPreferences method returns an instance of a SharedPreferences object. The first time this method is called, it will look for an XML file bearing the same name as the activity from which the method was called; if it doesn’t find that file, it will be created, but if the file already exist, it will be used instead. Since we already created the file the first time we called getPreferences, Android won’t be creating a new file, nor will it overwrite what we created before.
+- Once we have a shared preferences object, we can extract data from it as follow:
+- sp.getString("name", "default value");
+- sp.getInt("age", 0);
+
+Now, let’s experience this in practice.
+- Create a new project and name it “SharedPreferences”. 
+- Design the UI layout for the main layout file as shown below. 2 Plain Text, 2 Button and 1 Text View
  
 The final layout code should look like the following: 
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -176,9 +180,10 @@ The final layout code should look like the following:
         app:layout_constraintGuide_begin="416dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+```
 
-•	The basic workflow for this app would be as follows: 
-1. Type the last name and first name information in the two text fields.
+- The basic workflow for this app would be as follows: 
+        1. Type the last name and first name information in the two text fields.
  	2. When the “SAVE” button is clicked, extract the string values from the text fields and save them in the shared preferences file. 
 •	To do so, follow the next steps: 
 o	Create a shared preferences file (if one does not exist yet).
