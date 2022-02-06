@@ -73,7 +73,7 @@ When an app creates or captures data from user input, this data will only be ava
 
 **What is SharedPreferences?**
 
-SharedPreferences: this is the simplest form of storage. It’s just a dictionary object that uses the key/value pair idiom. This is useful if your data is simple enough to be structured as a dictionary object (key/value pairs). Android stores these files internally as XML files. SharedPrefs only stores simple data types (e.g., String and primitive data types). It cannot store more complex data such as objects.
+SharedPreferences is the simplest form of storage. It’s just a dictionary object that uses the key/value pair idiom. This is useful if your data is simple enough to be structured as a dictionary object (key/value pairs). Android stores these files internally as XML files. SharedPrefs only stores simple data types (e.g., String and primitive data types). It cannot store more complex data such as objects.
 
 **How to use SharedPreferences?**
 
