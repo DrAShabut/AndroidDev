@@ -162,15 +162,12 @@ public class ToolbarFragment extends Fragment
                        + " must implement ToolbarListener");
                }
           }
-.
-.
+
           public void buttonClicked (View view) {
                  activityCallback.onButtonClick(seekvalue,
                       edittext.getText().toString());
           }
-.
-.
-.
+
 }
 ```
 
