@@ -137,7 +137,7 @@ public class ToolbarFragment extends Fragment implements OnSeekBarChangeListener
 
 Before moving on, we need to take some time to explain the above code changes. First, the class is declared as implementing the OnSeekBarChangeListener interface. This is because the user interface contains a SeekBar instance and the fragment needs to receive notifications when the user slides the bar to change the font size. Implementation of the OnSeekBarChangeListener interface requires that the onProgressChanged(), onStartTrackingTouch() and onStopTrackingTouch() methods be implemented. These methods have been implemented but only the onProgressChanged() method is actually required to perform a task, in this case storing the new value in a variable named seekvalue which has been declared at the start of the class. Also declared is a variable in which to store a reference to the EditText object.
 The onActivityCreated() method has been added to obtain references to the EditText, SeekBar and Button views in the layout. Once a reference to the button has been obtained it is used to set up an onClickListener on the button which is configured to call a method named buttonClicked() when a click event is detected. This method is also then implemented, though at this point it does not do anything.
-The next phase of this process is to set up the listener that will allow the fragment to call the activity when the button is clicked (text in bold indicates what you need to change in the previous code):
+The next phase of this process is to set up the listener that will allow the fragment to call the activity when the button is clicked:
 
 ```java
 public class ToolbarFragment extends Fragment
