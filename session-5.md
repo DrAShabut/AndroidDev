@@ -1,4 +1,6 @@
-##About the Example
+#About the Example
+
+![image](https://gitlab.com/LTUcompsci/5014-further-software-dev/-/wikis/uploads/ff971689644c8b4dcbb0f7d1aeb6be01/image.png)
 
 Fragment is an Android programming aspect that represents a portion of the user interface of what a user sees on the application window. The Android documentation describes Fragment as a portion of the user interface in an Activity Object. This tutorial will help learn how to create and work with Android fragment.
 
