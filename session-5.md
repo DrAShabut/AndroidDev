@@ -39,7 +39,7 @@ Use the Infer constraints toolbar button to add any missing constraints, at whic
 
 Repeating the steps used to create the toolbar fragment, add another empty fragment named TextFragment with a layout file named fragment_text. Once again, convert the FrameLayout container to a ConstraintLayout and remove the default TextView.
 
-Drag a drop a TextView widget from the palette and position it in the center of the layout, using the Infer constraints button to add any missing constraints. Change the id of the view to textView1, the text to read “Fragment Two” and modify the textAppearance attribute from the theme attribute group to Large.
+Drag and drop a TextView widget from the palette and position it in the centre of the layout, using the Infer constraints button to add any missing constraints. Change the id of the view to textView1, the text to read “Fragment Two” and modify the textAppearance attribute from the theme attribute group to Large.
 On completion, the layout should match that shown in the figure below:
  
 ![image](uploads/0a99450802967135ae69c0c1d9764208/image.png)
