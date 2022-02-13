@@ -1,4 +1,4 @@
-#About the Example#
+# About the Example
 
 ![image](https://gitlab.com/LTUcompsci/5014-further-software-dev/-/wikis/uploads/ff971689644c8b4dcbb0f7d1aeb6be01/image.png)
 
