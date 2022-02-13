@@ -2,7 +2,7 @@
 
 ![image](https://gitlab.com/LTUcompsci/5014-further-software-dev/-/wikis/uploads/ff971689644c8b4dcbb0f7d1aeb6be01/image.png)
 
-Fragment is an Android programming aspect that represents a portion of the user interface of what a user sees on the application window. The Android documentation describes Fragment as a portion of the user interface in an Activity Object. This tutorial will help learn how to create and work with Android fragment.
+Fragment is an Android programming aspect that represents a portion of the user interface of what a user sees on the application window. The Android documentation describes Fragment as a portion of the user interface in an Activity Object. This tutorial will help learn how to create and work with Android fragments.
 
 ## Example 1
 The example will consist of a single activity and two fragments. The user interface for the first fragment will contain a toolbar of sorts consisting of an EditText view, a SeekBar and a Button, all contained within a ConstraintLayout view. The second fragment will consist solely of a TextView object, also contained within a ConstraintLayout view.
@@ -11,9 +11,9 @@ The two fragments will be embedded within the main activity of the application a
 
 Since this application is intended to work on earlier versions of Android, it will also be necessary to make use of the appropriate Android support library.
 
-## Creating the Example Project
+## Creating the Fragment Example 
 
-Create a new Android project from File --> New --> New Project, within the resulting new project dialog, choose the Empty Activity template before clicking on the Next button. Enter "FragmentExample2 into the Name field and specify com.example.leedstrinity.fragmentexample as the package name. Before clicking on the Finish button, change the Minimum API level setting to API 26: Android 8.0 (Oreo) and the Language menu to Java.
+Create a new Android project from File --> New --> New Project. Within the resulting new project dialog, choose the Empty Activity template before clicking on the Next button. Enter "FragmentExample2 into the Name field and specify com.example.leedstrinity.fragmentexample as the package name. Before clicking on the Finish button, change the Minimum API level setting to API 26: Android 8.0 (Oreo) and the Language menu to Java.
 
 ## Creating the First Fragment Layout
 
