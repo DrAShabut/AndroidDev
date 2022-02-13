@@ -4,28 +4,48 @@
 
 Fragment is an Android programming aspect that represents a portion of the user interface of what a user sees on the application window. The Android documentation describes Fragment as a portion of the user interface in an Activity Object. This tutorial will help learn how to create and work with Android fragment.
 
-The application will consist of a single activity and two fragments. The user interface for the first fragment will contain a toolbar of sorts consisting of an EditText view, a SeekBar and a Button, all contained within a ConstraintLayout view. The second fragment will consist solely of a TextView object, also contained within a ConstraintLayout view.
+## Example 1
+The example will consist of a single activity and two fragments. The user interface for the first fragment will contain a toolbar of sorts consisting of an EditText view, a SeekBar and a Button, all contained within a ConstraintLayout view. The second fragment will consist solely of a TextView object, also contained within a ConstraintLayout view.
+
 The two fragments will be embedded within the main activity of the application and communication implemented such that when the button in the first fragment is pressed, the text entered into the EditText view will appear on the TextView of the second fragment using a font size dictated by the position of the SeekBar in the first fragment.
+
 Since this application is intended to work on earlier versions of Android, it will also be necessary to make use of the appropriate Android support library.
-Creating the Example Project
-Select the Start a new Android Studio project quick start option from the welcome screen and, within the resulting new project dialog, choose the Empty Activity template before clicking on the Next button.
-Enter FragmentExample into the Name field and specify com.example.leedstrinity.fragmentexample as the package name. Before clicking on the Finish button, change the Minimum API level setting to API 26: Android 8.0 (Oreo) and the Language menu to Java.
-Creating the First Fragment Layout
+
+## Creating the Example Project
+
+Create a new Android project from File --> New --> New Project, within the resulting new project dialog, choose the Empty Activity template before clicking on the Next button. Enter "FragmentExample2 into the Name field and specify com.example.leedstrinity.fragmentexample as the package name. Before clicking on the Finish button, change the Minimum API level setting to API 26: Android 8.0 (Oreo) and the Language menu to Java.
+
+## Creating the First Fragment Layout
+
 The next step is to create the user interface for the first fragment that will be used within our activity.
-This user interface will consist of an XML layout file and a fragment class. While these could be added manually, it is quicker to ask Android Studio to create them for us. Within the project tool window, locate the app -> java -> com.example.leedtrinity.fragmentexample entry and right click on it. From the resulting menu, select the New -> Fragment -> Gallery... option to display the dialog shown in figure below:
+
+This user interface will consist of an XML layout file and a fragment class. While these could be added manually, it is quicker to ask Android Studio to create them for us. Within the project tool window, locate the app --> java --> com.example.leedtrinity.fragmentexample entry and right click on it. From the resulting menu, select the New --> Fragment --> Gallery... option to display the dialog shown in the figure below:
+
+![image](uploads/55496d305163522ec8b202eff490e8d6/image.png)
  
+
 Select the Fragment (Blank) template before clicking the Next button. On the subsequent screen, name the fragment ToolbarFragment with a layout file named fragment_toolbar:
+
+![image](uploads/7896c3a6790f52b948902d3bf0b5de40/image.png)
  
 Load the fragment_toolbar.xml file into the layout editor using Design mode, right-click on the FrameLayout entry in the Component Tree panel and select the Convert FrameLayout to ConstraintLayout menu option, accepting the default settings in the confirmation dialog. Select and delete the default TextView and add a Plain EditText, Seekbar and Button to the layout and change the view ids to editText1, button1 and seekBar1 respectively.
+
 Change the text on the button to read “Change Text”, extract the text to a string resource named change_text and remove the Name text from the EditText view. Finally, set the layout_width property of the Seekbar to match_constraint with margins set to 8dp on the left and right edges.
 Use the Infer constraints toolbar button to add any missing constraints, at which point the layout should match that shown in figure below:
+
+![image](uploads/f6816884d0f1b64c7ab024e29e6bdfe6/image.png)
  
-Adding the Second Fragment
+## Adding the Second Fragment
+
 Repeating the steps used to create the toolbar fragment, add another empty fragment named TextFragment with a layout file named fragment_text. Once again, convert the FrameLayout container to a ConstraintLayout and remove the default TextView.
+
 Drag a drop a TextView widget from the palette and position it in the center of the layout, using the Infer constraints button to add any missing constraints. Change the id of the view to textView1, the text to read “Fragment Two” and modify the textAppearance attribute from the theme attribute group to Large.
 On completion, the layout should match that shown in the figure below:
  
-Adding the Fragments to the Activity
+![image](uploads/0a99450802967135ae69c0c1d9764208/image.png)
+
+## Adding the Fragments to the Activity
+
 The main activity for the application has associated with it an XML layout file named activity_main.xml. For the purposes of this example, the fragments will be added to the activity using the <fragment> element within this file. Using the Project tool window, navigate to the app -> res -> layout section of the FragmentExample project and double-click on the activity_main.xml file to load it into the Android Studio Layout Editor tool.
 With the Layout Editor tool in Design mode, select and delete the default TextView object from the layout and select the Common category in the palette. Drag the <fragment> component from the list of views and drop it onto the layout so that it is centered horizontally and positioned such that the dashed line appears indicating the top layout margin:
  
