@@ -13,7 +13,7 @@ Since this application is intended to work on earlier versions of Android, it wi
 
 ## Creating the Fragment Example 
 
-Create a new Android project from File --> New --> New Project. Within the resulting new project dialog, choose the Empty Activity template before clicking on the Next button. Enter "FragmentExample2 into the Name field and specify com.example.leedstrinity.fragmentexample as the package name. Before clicking on the Finish button, change the Minimum API level setting to API 26: Android 8.0 (Oreo) and the Language menu to Java.
+Create a new Android project from File --> New --> New Project. Within the resulting new project dialog, choose the Empty Activity template before clicking on the Next button. Enter "FragmentExample" into the Name field and specify com.example.leedstrinity.fragmentexample as the package name. Before clicking on the Finish button, keep the Minimum API level setting to API 23 and the Language menu to Java. Check the option "Use legacy android.support libraries". 
 
 ## Creating the First Fragment Layout
 
@@ -47,7 +47,7 @@ On completion, the layout should match that shown in the figure below:
 ## Adding the Fragments to the Activity
 
 The main activity for the application has associated with it an XML layout file named activity_main.xml. For the purposes of this example, the fragments will be added to the activity using the <fragment> element within this file. Using the Project tool window, navigate to the app -> res -> layout section of the FragmentExample project and double-click on the activity_main.xml file to load it into the Android Studio Layout Editor tool.
-With the Layout Editor tool in Design mode, select and delete the default TextView object from the layout and select the Common category in the palette. Drag the <fragment> component from the list of views and drop it onto the layout so that it is centered horizontally and positioned such that the dashed line appears indicating the top layout margin:
+With the Layout Editor tool in Design mode, select and delete the default TextView object from the layout and select the Common category in the palette. Drag the <fragment> component from the list of views and drop it onto the layout so that it is centred horizontally and positioned such that the dashed line appears indicating the top layout margin:
 
 ![image](uploads/056c336a3ce312165fba0ae5dcabd5b8/image.png)
  
@@ -59,7 +59,7 @@ Select the ToolbarFragment entry from the list and click on the OK button to dis
 
 ![image](uploads/84bd0c356a64eadb11406b70e6f86269/image.png)
  
-With the fragment selected, change the layout_width property to match_constraint so that it occupies the full width of the screen. Click and drag another <fragment> entry from the panel and position it so that it is centered horizontally and located beneath the bottom edge of the first fragment. When prompted, select the TextFragment entry from the fragment dialog before clicking on the OK button. Display the error panel once again and click on the Use @layout/fragment_text option. Use the Infer constraints button to establish any missing layout constraints.
+With the fragment selected, change the layout_width property to match_constraint so that it occupies the full width of the screen. Click and drag another <fragment> entry from the panel and position it so that it is centred horizontally and located beneath the bottom edge of the first fragment. When prompted, select the TextFragment entry from the fragment dialog before clicking on the OK button. Display the error panel once again and click on the Use @layout/fragment_text option. Use the Infer constraints button to establish any missing layout constraints.
 
 **Note that the fragments are now visible in the layout as demonstrated in the figure below:**
 
@@ -75,16 +75,15 @@ The first step in this process is to make sure that the toolbar fragment respond
 ```java
 package com.example.leedstrinity.fragmentexample;
  
+import android.content.Context;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.content.Context;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
-import android.widget.SeekBar.OnSeekBarChangeListener;
  
 public class ToolbarFragment extends Fragment implements OnSeekBarChangeListener {
  
@@ -177,7 +176,7 @@ Since the Android Support Library is being used for fragment support in earlier 
 ```java
 package com.example.leedstrinity.fragmentexample;
  
-import androidx.fragment.app.FragmentActivity;
+import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
  
 public class MainActivity extends FragmentActivity implements ToolbarFragment.ToolbarListener {
@@ -194,7 +193,7 @@ public class MainActivity extends FragmentActivity implements ToolbarFragment.To
 }
 ```
 
-**Note: Don't forget to import classes (select androidx package).**
+**Note: Don't forget to import classes (don't select androidx package, instead use the V4 legacy support libraries).**
 
 With the code changes as they currently stand, the toolbar fragment will detect when the button is clicked by the user and call a method on the activity passing through the content of the EditText field and the current setting of the SeekBar view. It is now the job of the activity to communicate with the Text Fragment and to pass along these values so that the fragment can update the TextView object accordingly.
 
@@ -205,11 +204,12 @@ As outlined in the lecture an activity can communicate with a fragment by obtain
 package com.example.leedstrinity.fragmentexample;
  
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
  
 public class TextFragment extends Fragment {
  
