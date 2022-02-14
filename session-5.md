@@ -194,6 +194,8 @@ public class MainActivity extends FragmentActivity implements ToolbarFragment.To
 }
 ```
 
+**Note: Don't forget to import classes (select androidx package).**
+
 With the code changes as they currently stand, the toolbar fragment will detect when the button is clicked by the user and call a method on the activity passing through the content of the EditText field and the current setting of the SeekBar view. It is now the job of the activity to communicate with the Text Fragment and to pass along these values so that the fragment can update the TextView object accordingly.
 
 ## Making the Activity Talk to the Text Fragment
