@@ -2,7 +2,7 @@
 
 In this exercise, we're going to demonstrate working with an SQLite database. As you're already familiar with SQL databases, then much of what you know will apply. 
 
-To get you up and running with an SQLite database quickly, our example implements the basic CRUD operations. Generally, when creating a database in Android, you create a class that extends SQLiteOpenHelper, which is where your database functionality is implemented. Here is a list of the CRUD (create, read, update, and delete) functions:
+To get you up and running with an SQLite database quickly, this example implements the basic CRUD operations. Generally, when creating a database in Android, you create a class that extends SQLiteOpenHelper, which is where your database functionality is implemented. Here is a list of the CRUD (create, read, update, and delete) functions:
 
 •	Create: insert()
 •	Read: query() and rawQuery()
