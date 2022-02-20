@@ -230,8 +230,8 @@ Although this is a fully functioning example of SQLite, it is still just the bas
 # Upgrading a database
 As we mentioned previously, when we increment the database version, the onUpgrade() method will be called. What you do here is dependent on the changes made to the database. If you changed an existing table, ideally you'll want to migrate the user data to the new format by querying the existing data and inserting it into the new format. Keep in mind that there is no guarantee the user will upgrade in consecutive order, so they could jump from version 1 to version 4, for example.
 See also
-•	SQLite homepage: https://www.sqlite.org/
-•	SQLite database Android reference: http://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.html
+- SQLite homepage: https://www.sqlite.org/
+- SQLite database Android reference: http://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.html
 
 # Accessing data in the background using a Loader
 Any potentially long-running operations should not be done on the UI thread, as this can cause your application to be slow or become unresponsive. The Android OS will bring up the Application Not Responding (ANR) dialog when apps become unresponsive.
@@ -239,8 +239,8 @@ Any potentially long-running operations should not be done on the UI thread, as 
 Since querying databases can be time-consuming, Android introduced the Loader API in Android 3.0. A Loader processes the query on a background thread and notifies the UI thread when it finishes.
 
 The two primary benefits to Loaders are the following:
-•	Querying the database is (automatically) handled on a background thread
-•	The query auto-updates (when using a Content Provider data source)
+- Querying the database is (automatically) handled on a background thread
+- The query auto-updates (when using a Content Provider data source)
 
 To demonstrate a Loader, we will modify the previous SQLite database example to use a CursorLoader to populate ListView.
 
