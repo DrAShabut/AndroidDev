@@ -136,7 +136,7 @@ public Cursor getWordList() {
     return db.rawQuery(query, null);
 }
 ```
-7.	With the database, class finished, open MainActivity.java. Add the following global variables below the class declaration:
+7.	We finished with class DictionaryDatabase, now open MainActivity.java and add the following global variables below the class declaration:
 ```java
 EditText mEditTextWord; 
 EditText mEditTextDefinition; 
