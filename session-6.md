@@ -30,10 +30,9 @@ public class DictionaryDatabase extends SQLiteOpenHelper {
 
 ![image](uploads/3fc21909ac940b0c0bf5fa5830c64b48/image.png)
 
-Insert the following information in the popup window as in the figure below:
+Insert the name of the class as in the figure below and extend SQLiteOpenHelper class:
 
-![image](uploads/9d17229d769353da7283416e1ee7246c/image.png)
- 
+![image](uploads/add049db617c3100116ae0e66e51e4e7/image.png)
 
 3.	Below the declaration, add the following constants:
 
