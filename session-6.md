@@ -1,4 +1,4 @@
-## Creating and using an SQLite database
+# Creating and using an SQLite database
 
 In this exercise, we're going to demonstrate working with an SQLite database. As you're already familiar with SQL databases, then much of what you know will apply. 
 
@@ -11,10 +11,10 @@ To get you up and running with an SQLite database quickly, this example implemen
 
 To demonstrate a fully working database, we will create a simple Dictionary database where we'll store words and their definitions. We'll demonstrate the CRUD operations by adding new words (with their definitions) and updating existing word definitions. We'll show words in a ListView using a cursor. Pressing a word in the ListView will read the definition from the database and display it in a Toast message. A long press will delete the word.
 
-## Getting ready
-Create a new project in Android Studio and call it SQLiteDatabase. Use the default options and select Empty Activity on the Add an Activity to Mobile dialog.
+# Getting ready
+Create a new project in Android Studio and call it SQLiteDatabase. Use the default options and select Empty Activity.
 
-## How to do it...
+# How to do it...
 First, we'll create the UI, which will consist of two PlainText fields, a Button, and a ListView. As we add words to the database, they will populate the ListView. Start by opening activity_main.xml and follow these steps:
 
 1.	Design your screen as follow:
@@ -22,11 +22,12 @@ First, we'll create the UI, which will consist of two PlainText fields, a Button
 ![image](uploads/bd7464c0ff61a51f021aa5e20054f4b4/image.png) ![image](uploads/6a530bdec78a1b5201e54944015047de/image.png)
   
 
-Use the attribute “Hint” to hardcode your string for the two PlainText.
+Use the attribute “Hint” to hardcode your string for the two PlainText. Change the attribute "Text" to "Save" for the Button and id to what you see in the figure for all views.
 
-2.	Add a new Java class to the project named DictionaryDatabase. This class extends from SQLiteOpenHelper and handles all the SQLite functions. Here is the class declaration:
+2.	Add a new Java class to the project named DictionaryDatabase. This class extends from **SQLiteOpenHelper** and handles all the SQLite functions. Here is the class declaration:
+```java
 public class DictionaryDatabase extends SQLiteOpenHelper { 
-
+```
 
 ![image](uploads/8ee1d77598f1eafb30acac4aacd31713/image.png)
 ![image](uploads/9d17229d769353da7283416e1ee7246c/image.png)
@@ -196,7 +197,7 @@ updateWordList();
 ```
 11.	Run the program on a device or emulator and try it out.
 
-## How it works...
+# How it works...
 We'll start by explaining the DictionaryDatabase class as that's the heart of an SQLite database. The first item to note is the constructor:
 ```java
 DictionaryDatabase(Context context) { 
@@ -221,16 +222,16 @@ We use the SimpleCursorAdapter to create a mapping between our field in the curs
 
 We call updateWordList() in three places: during onCreate() to create the initial list, then again after we add/update an item, and lastly when deleting an item.
 
-## There's more...
+# There's more...
 Although this is a fully functioning example of SQLite, it is still just the basics. There are many books dedicated to SQLite for Android and they are worth checking out.
 
-## Upgrading a database
+# Upgrading a database
 As we mentioned previously, when we increment the database version, the onUpgrade() method will be called. What you do here is dependent on the changes made to the database. If you changed an existing table, ideally you'll want to migrate the user data to the new format by querying the existing data and inserting it into the new format. Keep in mind that there is no guarantee the user will upgrade in consecutive order, so they could jump from version 1 to version 4, for example.
 See also
 •	SQLite homepage: https://www.sqlite.org/
 •	SQLite database Android reference: http://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.html
 
-## Accessing data in the background using a Loader
+# Accessing data in the background using a Loader
 Any potentially long-running operations should not be done on the UI thread, as this can cause your application to be slow or become unresponsive. The Android OS will bring up the Application Not Responding (ANR) dialog when apps become unresponsive.
 
 Since querying databases can be time-consuming, Android introduced the Loader API in Android 3.0. A Loader processes the query on a background thread and notifies the UI thread when it finishes.
@@ -241,10 +242,10 @@ The two primary benefits to Loaders are the following:
 
 To demonstrate a Loader, we will modify the previous SQLite database example to use a CursorLoader to populate ListView.
 
-## Getting ready
+# Getting ready
 We will use the project from the previous example, Creating and using an SQLite database, as the base for this recipe. Create a new project in Android Studio and call it Loader. Use the default options and select Empty Activity on the Add an Activity to Mobile dialog. Copy the DictionaryDatabase class and the layout from the previous recipe. Although we will use parts of the previous ActivityMain.java code, we will start at the beginning in this recipe to make it easier to follow.
 
-## How to do it...
+# How to do it...
 With the project set up as described in Getting ready, we'll continue by creating two new Java classes, and then tie it all together in ActivityMain.java. Here are the steps:
 1.	Create a new Java class called DictionaryAdapter that extends CursorAdapter. 
 
@@ -370,7 +371,7 @@ public void onLoaderReset(Loader<Cursor> loader) {
 ```
 8.	Run the program on a device or emulator.
 
-## How it works...
+# How it works...
 The default CursorAdapter requires a Content Provider URI. Since we are accessing the SQLite database directly (and not through a Content Provider), we don't have a URI to pass, so instead, we created a custom adapter by extending the CursorAdapter class. DictionaryAdapter still performs the same functionality as SimpleCursorAdapter from the previous recipe, namely mapping the data from the cursor to the item layout.
 
 The next class we added was DictionaryLoader, which handles populating the adapter. As you can see, it's actually very simple. All it does is return the cursor from getWordList(). The key here is that this query is being handled in a background thread and will call the onLoadFinished() callback (in MainActivity.java) when it finishes. Fortunately, most of the heavy lifting is handled in the base class.
@@ -381,10 +382,10 @@ This takes us to ActivityMain.java, where we implemented the following three cal
 •	onLoadFinished(): It's called when the Loader loadInBackground() finishes.
 •	onLoaderReset(): It's called when the Loader is being recreated (such as with the restart() method). We set the old cursor to null because it will be invalidated and we don't want a reference kept around.
 
-## There's more...
+# There's more...
 As you saw in the previous example, we need to manually notify the Loader to re-query the database using restartLoader(). One of the benefits of using a Loader is that it can auto-update, but it requires a Content Provider as the data source. A Content Provider supports using an SQLite database as the data source and is recommended for a serious application. (See the following Content Provider link to get started.)
 
-## See also
+# See also
 •	Creating a Content Provider: http://developer.android.com/guide/topics/providers/content-provider-creating.html.
 •	It's also worth checking out Paging and LiveData in the Android Jetpack Components: https://developer.android.com/jetpack/.
 •	The Loader (and AsyncTask) are both included in the Android SDK. A non-SDK option (and highly recommended) is RXJava for Android: https://github.com/ReactiveX/RxAndroid. RXJava is gaining popularity on Android and we're seeing more and more support for RXJava observables.
