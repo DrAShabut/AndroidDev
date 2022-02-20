@@ -4,10 +4,10 @@ In this exercise, we're going to demonstrate working with an SQLite database. As
 
 To get you up and running with an SQLite database quickly, this example implements the basic CRUD operations. Generally, when creating a database in Android, you create a class that extends SQLiteOpenHelper, which is where your database functionality is implemented. Here is a list of the CRUD (create, read, update, and delete) functions:
 
-•	Create: insert()
-•	Read: query() and rawQuery()
-•	Update: update()
-•	Delete: delete()
+- Create: insert()
+- Read: query() and rawQuery()
+- Update: update()
+- Delete: delete()
 
 To demonstrate a fully working database, we will create a simple Dictionary database where we'll store words and their definitions. We'll demonstrate the CRUD operations by adding new words (with their definitions) and updating existing word definitions. We'll show words in a ListView using a cursor. Pressing a word in the ListView will read the definition from the database and display it in a Toast message. A long press will delete the word.
 
