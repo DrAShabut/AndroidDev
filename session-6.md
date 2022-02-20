@@ -30,6 +30,9 @@ public class DictionaryDatabase extends SQLiteOpenHelper {
 ```
 
 ![image](uploads/8ee1d77598f1eafb30acac4aacd31713/image.png)
+
+Insert the following information in the popup window as in the figure below:
+
 ![image](uploads/9d17229d769353da7283416e1ee7246c/image.png)
  
 
