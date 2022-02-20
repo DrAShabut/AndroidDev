@@ -146,7 +146,7 @@ ListView mListView;
 
 8.	Add the following method to save the fields when the button is clicked:
 ```java
-private void saveReco11rd() {
+private void saveRecord() {
     mDB.saveRecord(mEditTextWord.getText().toString(), mEditTextDefinition.getText().toString());
     mEditTextWord.setText("");
     mEditTextDefinition.setText("");
