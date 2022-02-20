@@ -28,7 +28,7 @@ Use the attribute “Hint” to hardcode your string for the two PlainText. Chan
 public class DictionaryDatabase extends SQLiteOpenHelper { 
 ```
 
-![image](uploads/8ee1d77598f1eafb30acac4aacd31713/image.png)
+![image](uploads/3fc21909ac940b0c0bf5fa5830c64b48/image.png)
 
 Insert the following information in the popup window as in the figure below:
 
