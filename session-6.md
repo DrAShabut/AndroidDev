@@ -252,7 +252,7 @@ We will use the project from the previous example, Creating and using an SQLite 
 With the project set up as described in Getting ready, we'll continue by creating two new Java classes, and then tie it all together in ActivityMain.java. Here are the steps:
 1.	Create a new Java class called DictionaryAdapter that extends CursorAdapter. 
 
-![image](uploads/a7ced7fd73ef96c7da22774c4a0f2d20/image.png) 
+![image](uploads/160e5515a40f9051d37c922e9f7c2a16/image.png)
 
 This class replaces the SimpleCursorAdapater used in the previous recipe. Here is the full code:
 ```java
