@@ -19,8 +19,7 @@ First, we'll create the UI, which will consist of two PlainText fields, a Button
 
 1.	Design your screen as follow:
 
-![image](uploads/bd7464c0ff61a51f021aa5e20054f4b4/image.png) ![image](uploads/6a530bdec78a1b5201e54944015047de/image.png)
-  
+![image](uploads/57d2b6b76994ea83855d5b9e13617903/image.png)  
 
 Use the attribute “Hint” to hardcode your string for the two PlainText. Change the attribute "Text" to "Save" for the Button and id to what you see in the figure for all views.
 
