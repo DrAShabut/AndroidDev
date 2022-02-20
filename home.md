@@ -7,3 +7,5 @@ Following the links will take you to the corresponding **Lab Worksheets**.
 + [Session 3](session-3): Multiple Activities and Intents
 + [Session 4](session-4): Activity Lifecycle and Permissions
 + [Session 5](session-5): Introduction to Android Fragment
++ [Session 6](session-6): Introduction to SQLite in Android
+
