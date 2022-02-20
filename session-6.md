@@ -34,6 +34,8 @@ Insert the name of the class as in the figure below and extend SQLiteOpenHelper 
 
 ![image](uploads/add049db617c3100116ae0e66e51e4e7/image.png)
 
+_Don’t worry if you have an error, we will solve it by adding a constructor to the class and onCreate() method in the following steps._
+
 3.	Below the declaration, add the following constants:
 
 ```java
