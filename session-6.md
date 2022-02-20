@@ -380,15 +380,7 @@ The next class we added was DictionaryLoader, which handles populating the adapt
 
 This takes us to ActivityMain.java, where we implemented the following three callbacks from the LoaderManager.LoaderCallbacks interface:
 
-•	onCreateLoader(): It's initially called in onCreate() with the initLoader() call. It's called again with the restartLoader() call after we make changes to the database.
-•	onLoadFinished(): It's called when the Loader loadInBackground() finishes.
-•	onLoaderReset(): It's called when the Loader is being recreated (such as with the restart() method). We set the old cursor to null because it will be invalidated and we don't want a reference kept around.
-
-# There's more...
-As you saw in the previous example, we need to manually notify the Loader to re-query the database using restartLoader(). One of the benefits of using a Loader is that it can auto-update, but it requires a Content Provider as the data source. A Content Provider supports using an SQLite database as the data source and is recommended for a serious application. (See the following Content Provider link to get started.)
-
-# See also
-•	Creating a Content Provider: http://developer.android.com/guide/topics/providers/content-provider-creating.html.
-•	It's also worth checking out Paging and LiveData in the Android Jetpack Components: https://developer.android.com/jetpack/.
-•	The Loader (and AsyncTask) are both included in the Android SDK. A non-SDK option (and highly recommended) is RXJava for Android: https://github.com/ReactiveX/RxAndroid. RXJava is gaining popularity on Android and we're seeing more and more support for RXJava observables.
+- onCreateLoader(): It's initially called in onCreate() with the initLoader() call. It's called again with the restartLoader() call after we make changes to the database.
+- onLoadFinished(): It's called when the Loader loadInBackground() finishes.
+- onLoaderReset(): It's called when the Loader is being recreated (such as with the restart() method). We set the old cursor to null because it will be invalidated and we don't want a reference kept around.
 
