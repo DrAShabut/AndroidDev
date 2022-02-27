@@ -547,7 +547,7 @@ public void takePictureClick(View view) {
 }
 ```
 16.	Add the final code to actually set up the camera and take the picture:
-```j
+```java
 private void takePicture() {
     CameraManager manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
     try {
@@ -606,21 +606,29 @@ private void takePicture() {
     } catch (CameraAccessException e) {
         e.printStackTrace();
     }
+```
 17.	Run the application on a device or emulator with a camera.
-How it works...
+
+# How it works...
+
 As you can see, there are a lot of steps for this exercise, but at a high level, it's pretty simple:
-•	Set up the camera preview
-•	Capture the image
+- Set up the camera preview
+- Capture the image
+
 Now, we'll look at each in detail.
+
 Setting up the camera preview
+
 Here's a rundown on how the code sets up the preview:
 1.	First, we set up the TextureView.SurfaceTextureListener with the setSurfaceTextureListener() method in onCreate()
 2.	When we get the onSurfaceTextureAvailable() callback, we open the camera
 3.	We pass our CameraDevice.StateCallback class to the openCamera() method, which eventually calls the onOpened() callback
 4.	onOpened() gets the surface for the preview by calling getSurfaceTexture() and passes it to the CameraDevice by calling createCaptureSession()
 5.	Finally, when CameraCaptureSession.StateCallback onConfigured() is called, we start the preview with the setRepeatingRequest() method
+
 Capturing the image
 Even though the takePicture() method may appear to be procedural, capturing an image also involves several classes and relies on callbacks. Here's a breakdown of how the code works:
+
 1.	The process starts when the Take Picture button is clicked.
 2.	Then the code queries the camera to find the largest available image size
 3.	Then an ImageReader is created.
@@ -629,11 +637,14 @@ Even though the takePicture() method may appear to be procedural, capturing an i
 6.	Next it creates CameraCaptureSession.CaptureCallback, which defines
 the onCaptureCompleted() callback. When the capture is complete, it restarts the preview.
 7.	Finally, the createCaptureSession() method is called, creating a CameraCaptureSession.StateCallback. This is where the capture() method is called, passing in the CameraCaptureSession.CaptureCallback created earlier.
-There's more...
+
+# There's more...
+
 We've just created the base code to demonstrate a working Camera application. There are many areas for improvement. First, you should handle the device orientation, for both the preview and when saving the images. (See the following links.) Also, with Android 6.0 (API 23) having over 60% of the market share, your apps should already be using the new permission model. Instead of just checking for an exception as we do in the openCamera() method, it would be better to check for the required permission.
 
-Happy Coding
-Sources: 
+**Happy Coding**
+
+# Sources: 
 Android 9 Development Cookbook - Third Edition by Rick Boyer, Publisher: Packt Publishing, October 2018
 Android Studio 4.0 Development Essentials - Java Edition by Neil Smyth, Publisher: Packt Publishing, September 2020
 
