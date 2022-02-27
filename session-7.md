@@ -1,10 +1,9 @@
 # Android Multimedia Framework
 
-This Tutorial shows you how to write a media-playing application that interacts with the user and the system in order to obtain good performance and a pleasant user experience. It also looks at how to use Camera APIs using the default camera app and camera2 app.
+This Tutorial shows you how to write a media-playing application that interacts with the user and the system in order to get good performance and a pleasant user experience. It also looks at how to use Camera APIs using the default camera app and camera2 app.
 
 
 # Exercise 1: MediaPlayer APIs to play a sound file.
-
 Create a new project in Android Studio and call it MediaPlayer. 
 Use the default options and select Empty Activity when prompted for Activity Type.
 We will also need a sound for this exercise and will use the same longer playing "water" sound from:http://soundbible.com/2032-Water.html
