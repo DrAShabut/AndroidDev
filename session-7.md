@@ -4,27 +4,28 @@ This Tutorial shows you how to write a media-playing application that interacts 
 
 
 # Exercise 1: MediaPlayer APIs to play a sound file.
-Create a new project in Android Studio and call it MediaPlayer. 
-Use the default options and select Empty Activity when prompted for Activity Type.
-We will also need a sound for this exercise and will use the same longer playing "water" sound from:http://soundbible.com/2032-Water.html
+Create a new project in Android Studio and call it MediaPlayer. Use the default options and select Empty Activity when prompted for Activity Type. We will also need a sound for this exercise and will use the same longer playing "water" sound from:http://soundbible.com/2032-Water.html
 
-# How to do it...
-
+# How to do it ...
 As explained previously, we'll need a sound file to include in the project. Once you have your sound file ready, follow these steps:
 
 1.	Create a new raw folder (File | New | Android resource directory) and chose raw in the Resource type dropdown.
+
 ![image](uploads/16b92a9871c16320bef67420dd6f68c8/image.png)
 
  
-2.	Copy your sound file to res/raw as sound_1. (Keep the original extension.)
+2.	Copy your sound file to res/raw as sound_1, (keep the original extension).
 3.	Open activity_main.xml and replace the existing TextView with the following buttons:
+
 ![image](uploads/ff75a7dc4ee95ee163ef600282c90439/image.png)  
 
 4.	Add android:onClick="buttonPlay" /> for button PLAY and android:onClick="buttonPause" for button PAUSE and android:onClick="buttonStop" for button STOP.
 
-5.	Now, open ActivityMain.java and add the following global variable:
+5.	Now, open ActivityMain.java and add the following class variable:
+```java
 MediaPlayer mMediaPlayer;
-5.	Add the buttonPlay() method:
+```
+6.	Add the buttonPlay() method:
 ```java
 public void buttonPlay(View view){
     if (mMediaPlayer==null) {
@@ -36,7 +37,7 @@ public void buttonPlay(View view){
     }
 }
 ```
-6.	Add the buttonPause() method:
+7.	Add the buttonPause() method:
 ```java
 public void buttonPause(View view){
     if (mMediaPlayer!=null && mMediaPlayer.isPlaying()) {
@@ -44,7 +45,7 @@ public void buttonPause(View view){
     }
 }
 ```
-7.	Add the buttonStop() method:
+8.	Add the buttonStop() method:
 ```java
 public void buttonStop(View view){
     if (mMediaPlayer!=null) {
@@ -54,7 +55,7 @@ public void buttonStop(View view){
     }
 }
 ```
-8.	Finally, override the onStop() callback with the following code:
+9.	Finally, override the onStop() callback with the following code:
 ```java
 @Override
 protected void onStop() {
@@ -65,11 +66,10 @@ protected void onStop() {
     }
 }
 ```
-9.	You're ready to run the application on a device or emulator.
+10.	You're ready to run the application on a device or emulator.
 
 # There's more...
-
-Using a short audio file included with the project, we aren't likely to experience any UI delays. In general, it's a good idea to use a background thread when preparing MediaPlayer. To make this common task easier, MediaPlayer already includes an asynchronous prepare method called prepareAsync(). The following code will create an OnPreparedListener() listener and use the prepareAsync() method:
+Using a short audio file included with the project, we aren't likely to experience any UI delays. In general, it's a good idea to use a background thread when preparing MediaPlayer. To make this common task easier, MediaPlayer already includes an asynchronous preparation method called prepareAsync(). The following code will create an OnPreparedListener() listener and use the prepareAsync() method:
 ```java
 mMediaPlayer = new MediaPlayer();
 mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
@@ -84,7 +84,9 @@ try {
     e.printStackTrace();
 }
 mMediaPlayer.prepareAsync();
+```
 Change the code in buttonPlay with the following code:
+```java
 public void buttonPlay(View view) {
     Uri mediaPath = Uri.parse("android.resource://" + getPackageName() + "/" + sound_1);
     mMediaPlayer = new MediaPlayer();
@@ -102,12 +104,13 @@ public void buttonPlay(View view) {
     mMediaPlayer.prepareAsync();
 }
 ```
-Using hardware volume keys to control your app's audio volume
+## Using hardware volume keys to control your app's audio volume
+
 If you want the volume controls to control the volume in your app, add the setVolumeControlStream() method to your onCreate() method to specify your application's audio stream, as follows:
 ```java
 setVolumeControlStream(AudioManager.STREAM_MUSIC);
 ``` 
-See the AudioManager link for other streaming options.
+See the AudioManager [link](https://developer.android.com/reference/android/media/AudioManager) for other streaming options.
 
 # Exercise 2: Video Playback on Android using the VideoView and MediaController Classes
 
