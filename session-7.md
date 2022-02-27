@@ -85,7 +85,7 @@ try {
 }
 mMediaPlayer.prepareAsync();
 ```
-Change the code in buttonPlay with the following code:
+Replace the code in buttonPlay with the following code:
 ```java
 public void buttonPlay(View view) {
     Uri mediaPath = Uri.parse("android.resource://" + getPackageName() + "/" + sound_1);
@@ -117,11 +117,17 @@ See the AudioManager [link](https://developer.android.com/reference/android/medi
 # Exercise 2: Video Playback on Android using the VideoView and MediaController Classes
 
 1.	Create a new empty activity and call it VideoPlayerActivity as follow:
+
+![image](uploads/e78d48c2146de563f869153b4fcb671a/image.png)
  
 2.	Open the activity_video_player.xml Layout and from the Widgets category of the Palette panel, drag and drop a VideoView instance onto the layout so that it fills the available canvas area as follows: 
+
+![image](uploads/6c874434d074a971df59a5dcaf1577d1/image.png)
  
 Using the Attributes panel, change the layout_width and layout_height attributes to match_constraint and wrap_content respectively. Also, remove the constraint connecting the bottom of the VideoView to the bottom of the parent ConstraintLayout. 
-3.	Downloading the Video File from Moodle and add it to the raw directory created in the previous example.
+
+3.	Download the Video File from [Moodle](https://moodle.leedstrinity.net/mod/resource/view.php?id=252509) and add it to the raw directory created in the previous example.
+
 4.	The next step is to configure the VideoView with the path of the video to be played and then start the playback. This will be performed when the VideoPlayerActivity has initialised, so load the VideoPlayerActivity.java file into the editor and modify it as outlined in the following listing:
 ```java
 public class VideoPlayerActivity extends AppCompatActivity {
@@ -142,6 +148,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
 }
 ```
 5.	Now Add a button to the axtivity_main.xml and start VideoPlayerActivity from the main activity using intent and run your app.
+
 6.	As the VideoPlayer application currently stands, there is no way for the user to control playback. As previously outlined, this can be achieved using the MediaController class. To add a controller to the VideoView, modify the configureVideoView() method once again. The final code should look like the following:
 ```java
 public class VideoPlayerActivity extends AppCompatActivity {
@@ -166,6 +173,8 @@ public class VideoPlayerActivity extends AppCompatActivity {
 }
 ```
 When the application is launched with these changes implemented, tapping the VideoView canvas will cause the media controls to appear over the video playback. These controls should include a seekbar together with fast forward, rewind and play/pause buttons. After the controls recede from view, they can be restored at any time by tapping on the VideoView canvas once again. With just three more lines of code, our video player application now has media controls as shown in the following figure:
+
+![image](uploads/f1e9036488a96d04acc038ad8d013c17/image.png)
  
 7.	Now set up the onPreparedListener as in the previous example by changing the existing code with the following one:
 ```java
@@ -202,22 +211,28 @@ public class VideoPlayerActivity extends AppCompatActivity {
 
 # Exercise 3: Taking a photo with the default camera app
 
-If your application needs an image from the camera, but is not a camera replacement app, it may be better to allow the default camera app to take the picture. This also respects your user's preferred camera application.
-When you take a photo, unless it is specific to your application, it's considered good practice to make the photo publicly available. (This allows it to be included in the user's photo gallery.) This exercise will demonstrate using the default photo application to click a picture, save it to the public folder, and display the image.
+If your application needs an image from the camera but is not a camera replacement app, it may be better to allow the default camera app to take the picture. This also respects your user's preferred camera application.
 
-# Getting ready
+When you take a photo, unless it is specific to your application, it's considered good practice to make the photo publicly available (this allows it to be included in the user's photo gallery). So, this exercise will demonstrate using the default photo application to click a picture, save it to the public folder, and display the image.
 
-Create a new project in Android Studio and call it UsingTheDefaultCameraApp.  
-Use the default options and select Empty Activity on the Add an Activity to Mobile dialog.
+# Getting ready ...
 
-# How to do it...
+Create a new project in Android Studio and call it UsingTheDefaultCameraApp. Use the default options and select Empty Activity on the Add an Activity to Mobile dialog.
+
+# How to do it ...
 
 We're going to create a layout with an ImageView and button. The button will create an Intent to launch the default Camera app. When the camera app is done, our app will get a callback. We'll check the result and display the picture if available. Start by opening the Android Manifest and follow these steps:
+
 1.	Add the following permission:
+```java
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+```
 2.	Open activity_main.xml and replace the existing TextView with ImageView and Button as the following screen:
  
+![image](uploads/9293fa552390dba944bb65abcf9d0cf7/image.png)
+
 Note: Add android:onClick="takePicture" as a part of setting the button’s attributes.
+
 3.	Open MainActivity.java and add the following global variables to the MainActivity class:
 ```java
 final int PHOTO_RESULT=1;
@@ -234,6 +249,7 @@ private Uri createFileURI() {
 }
 ```
 Note: add this method after onCreate()method in the MainActivity.java. 
+
 5.	Add the following method to handle the button click:
 ```java
 public void takePicture(View view) {
@@ -268,13 +284,14 @@ if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_ST
 ```
 8. You're ready to run the application on a device or emulator.
 
-# How it works...
-
+# How it works ...
 There are two parts to working with the default camera app. The first is to set up the Intent to launch the app. We create the Intent using MediaStore.ACTION_IMAGE_CAPTURE to indicate we want a photo app. We verify a default app exists by checking the results from resolveActivity(). As long as it's not null, we know an application is available to handle the Intent. (Otherwise, our app will crash.) We create a filename and add it to the Intent with putExtra(MediaStore.EXTRA_OUTPUT, mLastPhotoURI).
+
 When we get the callback in onActivityResult(), we first make sure it's PHOTO_RESULT and RESULT_OK (the user could have cancelled), then we load the photo in ImageView.
+
 You might be wondering what the StrictMode calls are for in onCreate(). Basically, those lines of code disable an additional security check made by the OS. If we don't disable StrictMode, the app will crash when creating the file URI with a FileUriExposedException exception.  For a production app, one solution would be to create a FileProvider as we did in the Accessing External Storage with Scoped Directories.
 
-# There's more...
+# There's more ...
 
 If you don't care where the picture is stored, you can call the Intent without using the MediaStore.EXTRA_OUTPUT extra. If you don't specify the output file, onActivityResult() will include a thumbnail of the image in the data Intent. The following is how you can display the thumbnail:
 ```java
@@ -294,9 +311,11 @@ if (data != null) {
     }
 }
 ```
-Calling the default video app 
+## Calling the default video app 
 It's the same process if you want to call the default video capture application (add another button to the previous app “Record Video” to test the video capture app). Just change the Intent in step 5, as follows:
+```java
 Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+```
 You can get the URI to the video in onActivityResult(), as follows:
 ```java
 Uri videoUri = intent.getData();
@@ -305,16 +324,22 @@ Uri videoUri = intent.getData();
 # Exercise 4: Taking a picture using the Camera2 API
 
 The previous exercise demonstrated how to use an Intent to call the default photo application. If you only need a quick photo, the Intent is probably the ideal solution. If not, and you need more control over the camera, this exercise will show you how to use the camera directly with the Camera2 API.
+
 Now that 85% of devices are using Android 5.0 or later, this exercise focuses only on the Camera2 API.  (Google has already deprecated the original Camera API.)
-Getting ready
+
+# Getting ready
+
 Create a new project in Android Studio and call it Camera2API. In the Target Android Devices dialog, select the Phone & Tablet option and choose API 21: Android 5.0 (Lollipop), or later, for the minimum SDK. Select Empty Activity on the Add an Activity to Mobile dialog.
 
 # How to do it...
 
 As you'll see, there's a lot of code for this exercise. Start by opening the Android Manifest and following these steps:
+
 1.	Add the following two permissions:
+```java
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+```
 2.	Now, open activity_main.xml and replace the existing TextView with the following views:
 ```xml
 <TextureView
@@ -624,22 +649,29 @@ Now, we'll look at each in detail.
 Setting up the camera preview
 
 Here's a rundown on how the code sets up the preview:
-1.	First, we set up the TextureView.SurfaceTextureListener with the setSurfaceTextureListener() method in onCreate()
-2.	When we get the onSurfaceTextureAvailable() callback, we open the camera
-3.	We pass our CameraDevice.StateCallback class to the openCamera() method, which eventually calls the onOpened() callback
-4.	onOpened() gets the surface for the preview by calling getSurfaceTexture() and passes it to the CameraDevice by calling createCaptureSession()
-5.	Finally, when CameraCaptureSession.StateCallback onConfigured() is called, we start the preview with the setRepeatingRequest() method
+- First, we set up the TextureView.SurfaceTextureListener with the setSurfaceTextureListener() method in onCreate()
+- When we get the onSurfaceTextureAvailable() callback, we open the camera
+- We pass our CameraDevice.StateCallback class to the openCamera() method, which eventually calls the onOpened() callback
+- onOpened() gets the surface for the preview by calling getSurfaceTexture() and passes it to the CameraDevice by calling createCaptureSession()
+- Finally, when CameraCaptureSession.StateCallback onConfigured() is called, we start the preview with the setRepeatingRequest() method
 
-Capturing the image
+## Capturing the image
+
 Even though the takePicture() method may appear to be procedural, capturing an image also involves several classes and relies on callbacks. Here's a breakdown of how the code works:
 
 1.	The process starts when the Take Picture button is clicked.
+
 2.	Then the code queries the camera to find the largest available image size
+
 3.	Then an ImageReader is created.
+
 4.	Next, the code sets up OnImageAvailableListener, and saves the image in the onImageAvailable() callback.
+
 5.	Then it creates CaptureRequest.Builder and includes the ImageReader surface.
+
 6.	Next it creates CameraCaptureSession.CaptureCallback, which defines
 the onCaptureCompleted() callback. When the capture is complete, it restarts the preview.
+
 7.	Finally, the createCaptureSession() method is called, creating a CameraCaptureSession.StateCallback. This is where the capture() method is called, passing in the CameraCaptureSession.CaptureCallback created earlier.
 
 # There's more...
@@ -649,6 +681,6 @@ We've just created the base code to demonstrate a working Camera application. Th
 **Happy Coding**
 
 # Sources: 
-Android 9 Development Cookbook - Third Edition by Rick Boyer, Publisher: Packt Publishing, October 2018
-Android Studio 4.0 Development Essentials - Java Edition by Neil Smyth, Publisher: Packt Publishing, September 2020
+- Android 9 Development Cookbook - Third Edition by Rick Boyer, Publisher: Packt Publishing, October 2018
+- Android Studio 4.0 Development Essentials - Java Edition by Neil Smyth, Publisher: Packt Publishing, September 2020
 
