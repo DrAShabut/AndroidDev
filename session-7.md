@@ -110,6 +110,8 @@ If you want the volume controls to control the volume in your app, add the setVo
 ```java
 setVolumeControlStream(AudioManager.STREAM_MUSIC);
 ``` 
+![image](uploads/0944d4962da7740ff42f506c0974be98/image.png)
+
 See the AudioManager [link](https://developer.android.com/reference/android/media/AudioManager) for other streaming options.
 
 # Exercise 2: Video Playback on Android using the VideoView and MediaController Classes
