@@ -88,7 +88,7 @@ mMediaPlayer.prepareAsync();
 Replace the code in buttonPlay with the following code:
 ```java
 public void buttonPlay(View view) {
-    Uri mediaPath = Uri.parse("android.resource://" + getPackageName() + "/" + sound_1);
+    Uri mediaPath = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.sound_1);
     mMediaPlayer = new MediaPlayer();
     mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
         @Override
