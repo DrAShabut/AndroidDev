@@ -31,9 +31,9 @@ public class SimpleMath {
 Now let's proceed to write our first unit test. Recall from the lecture slides, Local Unit Test vs. Instrumented Tests, they are two different things that are also reflected in the directory structure. We have app\src\androidTest and app\src\test. We are going to have to put our Local Unit tests in the latter.
 
 Before we begin, I want you to check your app-level build.gradle file to see if you have the correct dependencies for setting up local unit tests. By default, the android studio should have put those there but if not copy-paste the following:
-test implementation 'JUnit:junit:4.12' or testCompile 'JUnit:junit:4.12' if you are running an older gradle plugin.
+test implementation 'junit:junit:4.+' or testCompile 'junit:junit:4.+' if you are running an older gradle plugin.
 
-Right-click on your test folder (not the androdTest folder) and click New>Java Class. Name it SimpleMathTest to reflect the unit test is for SimpleMath.java.
+Right-click on your test folder (not the androdTest folder) and click New -> Java Class. Name it SimpleMathTest to reflect the unit test is for SimpleMath.java.
 
 ```java
 package com.example.testdemo;
@@ -82,7 +82,7 @@ public class SimpleMathTest {
 
 The code private SimpleMath simpleMath; declares an instance of the SimpleMath class in this test class. The JUnit here is the test framework, it provides us with easy to read Annotations like @Before, @After and @Test and shares similar syntax and/or approach across other programming paradigms like JSUnit for Javascript, PHPUnit for PHP, etc.
 
-Now as the comments indicate, @Before is executed before the actual @Test executes. We have instantiated the simpleMath object in the setUpmethod (function).
+Now as the comments indicate, @Before is executed before the actual @Test executes. We have instantiated the simpleMath object in the setUpmethod (method).
 
 We have written 4 methods with @Test annotation, which means we have 4 unit tests that can either pass or fail. The tested method tests the Addition functionality of SimpleMath. In this method, we have used the simpleMath instance to add 4 and 5 and store it in an int total . In the next line assertEquals("Simple Math is not adding correctly", 9, total); we are checking if total or is not equal to 9, which it should be if our SimpleMath class is functioning correctly. The assertEquals() is one of the many static methods provided by the JUnit framework. It takes at least two parameters as the String parameter is optional which is displayed in case of test failure. The second and third parameters of the assertEquals method are expected and actual values in strict order.
 
@@ -105,16 +105,16 @@ testAdd() test Passed.
 
 And you have now written your first local unit test in Android Application. Also notice how fast the test runs and how we did not need to use any device or emulator as the SimpleMath class does not require any Android Instrumentation or device features. The JVM on your development machine and the JVM on your phone is exactly the same and we can thus ensure the functionality that we just tested will work fine in an Android Device too.
 
-# Espresso Instrumental Testing:
+# Espresso Instrumentation and UI Testing:
 
 ## Espresso’s API Components
 
-Now that we are familiar with Espresso’s design model, let’s look at the four components that make up its high-level components.
+Let’s look at the four components that make up its high-level components.
 
 ## Espresso
 
 This is the starting point for all test cases. This component provides entry points or methods to start the interaction with the app’s view. Each app’s view has two components.
-First is the part of the view that belongs to the app. Testers will be able to interact with it by using the onView() and onData() methods. The second part of the view consists of the components that are provided by the OS ( home screen button, back button, etc). Espresso also provides APIs to interact with non-app components. For example, the pressBack() method to initiate going back.
+First is the part of the view that belongs to the app. Testers will be able to interact with it by using the onView() and onData() methods. The second part of the view consists of the components that are provided by the OS (home screen button, back button, etc). Espresso also provides APIs to interact with non-app components. For example, the pressBack() method to initiate going back.
 
 ## ViewMatchers
 
@@ -128,20 +128,22 @@ These components define the action that has to be performed on any given View. E
 
 Assertions complete a test case. They are the components that check if the test has passed or failed. In Espresso Android, the ViewAssertions can be passed to the Check() method from the ViewInteraction package. Matches assertion is the most commonly used check which verifies the final state of the view with what is expected.
 
-# Create an Android Project
+# Example:
 
 Create a new app in Android and call it EspressoTest and follow the next instructions:
-Espresso setup instructions
+
+## Espresso setup instructions
+
 This guide covers installing Espresso using the SDK Manager and building it using Gradle. Android Studio is recommended.
 
-# Set up your test environment
+## Set up your test environment
 
 To avoid flakiness, we highly recommend that you turn off system animations on the virtual or physical devices used for testing. On your device, under Settings > Developer options, disable the following 3 settings:
 - Window animation scale
 - Transition animation scale
 - Animator duration scale
 
-# Add Espresso dependencies
+## Add Espresso dependencies
 
 To add Espresso dependencies to your project, complete the following steps:
 
@@ -209,13 +211,13 @@ If you do not wish to upload this data, you can opt-out by including the disable
 adb shell am instrument -e disableAnalytics true
 ```
 
-# Add the first test
+## Add the first test
 
 1) Change the TextView text in the activity_main.xml to Hello World Espresso!.
 
 2) Add a new class under androidTest folder and call it HelloWorldEspressoTest and add the following code:
 
-Note: Android Studio creates tests by default in src/androidTest/java/com.example.package/.
+_Note: Android Studio creates tests by default in src/androidTest/java/com.example.package/._
 ```
 @RunWith(AndroidJUnit4.class)
 @LargeTest
@@ -231,7 +233,7 @@ public class HelloWorldEspressoTest {
 }
 ```
 
-# Run tests
+## Run tests
 You can run your tests in Android Studio.
 
 ## In Android Studio
@@ -248,6 +250,7 @@ To create a test configuration in Android Studio, complete the following steps:
 Now add a PlainText to your xml layout, change the id to editTextFirstName.
 
 Go to the HelloWorldEspressoTest class and add the following method:
+
 ```java
 @Test
 public void editTextTest() {
@@ -256,7 +259,7 @@ public void editTextTest() {
 }
 ```
 
-Run the test and check if the test is passed.
+**Run the test and check if the test is passed.**
 
 
 Add more actions to be performed automatically by Espresso. Add them one by one to check their effect.
@@ -300,7 +303,7 @@ onView(withId(R.id.get_name_button)).perform(click());
 onView(withId(R.id.get_name_button)).check(matches(not(isEnabled())));
 ```
 
-# Add test cases to your Route app.
+## Add test cases to your Route app.
 
 Happy coding
 
