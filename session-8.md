@@ -14,11 +14,11 @@ package com.example.testdemo;
 
 public class SimpleMath {
 
-    public int add(int op1, int op2){
+    public int add(int op1, int op2) {
         return op1 + op2;
     }
 
-    public int diff(int op1, int op2){
+    public int diff(int op1, int op2) {
         return op1-op2;
     }
 
@@ -28,7 +28,7 @@ public class SimpleMath {
     }
 }
 ```
-The class above is fairly straightforward. Now let's proceed to write our first unit test. Recall from the above section Local Unit Test vs. Instrumented Tests, they are two different things that are also reflected in the directory structure. We have app\src\androidTest and app\src\test. We are going to have to put our Local Unit tests in the latter.
+Now let's proceed to write our first unit test. Recall from the above section Local Unit Test vs. Instrumented Tests, they are two different things that are also reflected in the directory structure. We have app\src\androidTest and app\src\test. We are going to have to put our Local Unit tests in the latter.
 
 Before we begin, I want you to check your app-level build.gradle file to see if you have the correct dependencies for setting up local unit tests. By default, the android studio should have put those there but if not copy-paste the following:
 test implementation 'JUnit:junit:4.12' or testCompile 'JUnit:junit:4.12' if you are running an older gradle plugin.
