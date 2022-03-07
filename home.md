@@ -9,4 +9,6 @@ Following the links will take you to the corresponding **Lab Worksheets**.
 + [Session 5](session-5): Introduction to Android Fragment
 + [Session 6](session-6): Introduction to SQLite in Android
 + [Session 7](session-7): Introduction to Android Multimedia Framework
++ [Session 8](session-8): Android App Testing
+
 
