@@ -341,10 +341,11 @@ if (activities.isEmpty()) {
     findViewById(R.id.imageButton).setEnabled(false);
     Toast.makeText(this, "Speech Recognition Not Supported", Toast.LENGTH_LONG).show();
 }
-
+```
 
 4.	Add the button click method:
 
+```java
 public void speakNow(View view) {
     Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
     intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, 
