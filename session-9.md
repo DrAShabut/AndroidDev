@@ -166,7 +166,7 @@ When the device boots, Android will send the BOOT_COMPLETED intent. As long as o
 
 •	Checking for the BOOT_COMPLETED action in the Broadcast Receiver
 
-Obviously, you'll want to replace the Toast message with your own code, such as for recreating any alarms you might need.
+Obviously, you'll need to replace the Toast message with your own code, such as for recreating any alarms you might need.
 
 ## There's more
 If you followed the previous example, then you already have a Broadcast Receiver. You don't need a separate BroadcastReceiver for each action, just check for each action as needed. Here's an example if we need to handle another action:
