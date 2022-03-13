@@ -327,6 +327,8 @@ We'll start by adding a Speak Now (or microphone) button to the layout, then we'
 
  ```
 
+![image](uploads/d68d8a3868e90ba32ad29ec33b62a6ba/image.png)
+
 2.	Define the REQUEST_SPEECH constant in the MainActivity.java:
 ```java
 private final int REQUEST_SPEECH=1; 
@@ -385,7 +387,9 @@ The button click starts the recognition process by calling an intent created wit
 We get the result back in the onActivityResult() callback. If the result equals RESULT_OK, then we should have a list of words recognized, which we can retrieve using getStringArrayListExtra(). The array list will be ordered starting with the highest recognition confidence.
 
 If you want to retrieve the confidence rating, retrieve the float array using EXTRA_CONFIDENCE_SCORES. Here's an example:
+```java
 float[] confidence = data.getFloatArrayExtra(RecognizerIntent.EXTRA_CONFIDENCE_SCORES);
+```
 The confidence rating is optional and may not be present. A score of 1.0 indicates highest confidence, while 0.0 indicates lowest confidence.
 
 ## There's more
