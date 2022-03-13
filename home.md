@@ -10,5 +10,7 @@ Following the links will take you to the corresponding **Lab Worksheets**.
 + [Session 6](session-6): Introduction to SQLite in Android
 + [Session 7](session-7): Introduction to Android Multimedia Framework
 + [Session 8](session-8): Introduction to Android Testing
++ [Session 9](session-9): Polishing and Publishing Android Apps
+
 
 
