@@ -394,8 +394,9 @@ The confidence rating is optional and may not be present. A score of 1.0 indicat
 
 ## There's more
 Using the intent is a quick and easy way to get speech recognition; however, if you would prefer not to use the default Google activity, you can call the SpeechRecognizer class directly. Here's an example of how to instantiate the class:
+```java
 SpeechRecognizer speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
-
+```
 You will need to add the RECORD_AUDIO permission and implement the RecognitionListener class to handle the speech events. (See the following links for more information.)
 
  
