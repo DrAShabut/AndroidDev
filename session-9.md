@@ -15,7 +15,15 @@ Setting an alarm requires a Pending Intent, which Android sends when the alarm i
     </intent-filter>
 </receiver>
 ```
-
+Note: if you use the latest version, you need to add ```android:exported="true"``` as the following code:
+```xml
+<receiver android:name=".AlarmBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.leedstrinity.alarms.ACTION_ALARM" />
+            </intent-filter>
+        </receiver>
+```
 2.	Open activity_main.xml and replace the existing TextView with the
 following button:
 ```xml
