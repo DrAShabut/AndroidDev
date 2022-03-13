@@ -7,7 +7,7 @@ Create a new project in Android Studio and call it Alarms. Use the default Phone
 ## How to do it?
 Setting an alarm requires a Pending Intent, which Android sends when the alarm is triggered. Therefore, we need to set up a Broadcast Receiving to capture the alarm intent. Your UI will consist of just a simple button to set the alarm. To start, open the Android Manifest and follow these steps:
 
-1.	Add the following <receiver> to the <application> element at the same level as the existing <activity> element:
+1.	Add the following ```<receiver>``` to the ```<application>``` element at the same level as the existing ```<activity>``` element:
 ```xml
 <receiver android:name=".AlarmBroadcastReceiver">
     <intent-filter>
