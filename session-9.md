@@ -114,7 +114,7 @@ For the Interval, you can specify the interval time in milliseconds or use one o
 
 •	INTERVAL_HOUR
 
-Receiving notification of device boot
+## Receiving notification of device boot
 
 Android sends out many intents during its lifetime. One of the first intents sent is ACTION_BOOT_COMPLETED. If your application needs to know when the device boots, you need to capture this intent.
 
