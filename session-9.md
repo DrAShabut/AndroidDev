@@ -81,11 +81,13 @@ _Note: change 30 to 1 if you want to see the result straightaway._
 ```java
 set(AlarmType, Time, PendingIntent); 
 ```
-Prior to Android 4.4 KitKat (API 19), this was the method to request an exact time. Android 4.4 and later will consider this as an inexact time for efficiency but will not deliver the intent prior to the requested time. (See setExact() as follows if you need an exact time.)
+Prior to Android 4.4 KitKat (API 19), this was the method to request an exact time. Android 4.4 and later will consider this as an inexact time for efficiency but will not deliver the intent prior to the requested time. (See ```setExact()``` as follows if you need an exact time.)
 
 To set the alarm, we create a Pending Intent with our previously defined alarm action:
+```java
 public static final String ACTION_ALARM= "com.example.leedstrinity.alarms.ACTION_ALARM";
-This is an arbitrary string and could be anything we want, but it needs to be unique, so we prepend our package name. We check for this action in the Broadcast Receiver's onReceive() callback.
+```
+This is an arbitrary string and could be anything we want, but it needs to be unique, so we prepend our package name. We check for this action in the Broadcast Receiver's ```onReceive()``` callback.
 
 ## There's more
 If you click the Set Alarm button and wait for thirty minutes, you will see the Toast when the alarm triggers. If you are too impatient to wait and click the Set Alarm button again before the first alarm is triggered, you won't get two alarms. Instead, the OS will replace the first alarm with the new alarm, since they both use the same Pending Intent. (If you need multiple alarms, you need to create different Pending Intents, such as using different Actions.)
