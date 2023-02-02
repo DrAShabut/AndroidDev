@@ -7,7 +7,7 @@ An activity in Android is a single, focused thing that the user can do. Almost a
 **Activity Lifecycle Methods Example**
 _**Before we start with the example, advance your Android skills and learn about TAGs in Android.**_  
 
-- In Android, you can declare a TAG constant in your MainActivity class to use Log API for sending logs output. You can then view the logs in logcat. Log API is used to test your code, such as printing or saving information about what exactly your code is doing and what is the current data works with. So, it is important to read more about Log API in this [link](https://developer.android.com/reference/android/util/Log).
+- In Android, you can declare a TAG constant in your MainActivity class to use Log API for sending logs output. You can then view the logs in logcat. Log API is used to test your code, such as printing or saving information about what exactly your code is doing and what the current data works with. So, it is important to read more about Log API in this [link](https://developer.android.com/reference/android/util/Log).
 
 Now let's start with the example's steps:
 1) Create a new android project and name it “ActivityLifecycle”.
@@ -66,7 +66,8 @@ protected void onDestroy() {
  
 
 **Keeping data across app lifecycle events example.**
-<span style="color:red">some *blue* **Don't code yet, just read through it**</span>.
+
+<span style="color:red">some *blue* Don't code yet, just read through it</span>.
 
 
 When an app creates or captures data from user input, this data will only be available during the lifetime of the app. You only have access to this data as long as the app is not yet killed by Android runtime. When the app is shut down, all the data that has been created while the app was running will be lost. Android offers a variety of ways for us to persist data so that it can outlive the app's lifetime and allow us to access the same data across the app lifecycle events. One way is the use of **onSaveInstanceState** method to save data across different lifecycle events. You can follow the example in the post-activity on Moodle to see how to use this parameter to save data for future use even after the lifetime of the activity. 
