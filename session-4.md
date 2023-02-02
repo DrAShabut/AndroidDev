@@ -68,7 +68,7 @@ protected void onDestroy() {
 **Keeping data across app lifecycle events example.**
 
 ```diff
-- RED Don't code yet, just read through it
+  Don't code yet, just read through it
 ``` 
 
 
