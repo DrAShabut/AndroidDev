@@ -66,8 +66,10 @@ protected void onDestroy() {
  
 
 **Keeping data across app lifecycle events example.**
+<span style="color:red">some *blue* **Don't code yet, just read through it**</span>.
 
-When an app creates or captures data from user input, this data will only be available during the lifetime of the app. You only have access to this data as long as the app is not yet killed by Android runtime. When the app is shut down, all the data that has been created while the app was running will be lost. Android offers a variety of ways for us to persist data so that it can outlive the app lifetime and allow us to access the same data across the app lifecycle events. One way is the use of **onSaveInstanceState** method to save data across different lifecycle events. You can follow the example in the post-activity on Moodle to see how to use this parameter to save data for future use even after the lifetime of activity. 
+
+When an app creates or captures data from user input, this data will only be available during the lifetime of the app. You only have access to this data as long as the app is not yet killed by Android runtime. When the app is shut down, all the data that has been created while the app was running will be lost. Android offers a variety of ways for us to persist data so that it can outlive the app's lifetime and allow us to access the same data across the app lifecycle events. One way is the use of **onSaveInstanceState** method to save data across different lifecycle events. You can follow the example in the post-activity on Moodle to see how to use this parameter to save data for future use even after the lifetime of the activity. 
 
 **In this example, you will explore the SharedPreferences storage way which allows you to keep the data safe even after your app is killed.**
 
