@@ -82,10 +82,9 @@ SharedPreferences is the simplest form of storage. It’s just a dictionary obje
 
 **How to use SharedPreferences?**
 
-- To create a SharedPreferences file, we need to use the **getPreferences** method while inside an Activity class and then specify the mode of access for the file as follow:
-```java
+- To create a SharedPreferences file, we need to use the **getPreferences** method while inside an Activity class and then specify the mode of access for the file as follows:
+- 
 SharedPreferences sp = getPreferences(CONTEXT.MODE_PRIVATE);
-```
 - As per Android documentation, Context.MODE_PRIVATE is what we are supposed to use because the public mode has already been deprecated since API level 17. Next, we need an Editor object so we can start modifying data in the newly created file as follow:
 ```java
 SharedPreferences.Editor editor = sp.edit();
@@ -109,20 +108,18 @@ Either the commit or apply method will save the information and persist it in an
 _**NOTE:**_
 You don’t need to specify a file name for the shared preferences file; the Android runtime will automatically assign a name for the newly created file. By convention, the newly created file follows the name of the activity class from where getPreferences was called from; for example, if you called getPreferences from MainActivity.java, the name of the shared preferences file will be MainActivity.xml
 
-- Retrieving data from a shared preferences file is just as easy as creating it. To access the created shared preferences file, we use the same syntax when we created the file in the first place as follow:
+- Retrieving data from a shared preferences file is just as easy as creating it. To access the created shared preferences file, we use the same syntax when we created the file in the first place as follows:
 
-```java
 SharedPreferences sp = getPreferences(CONTEXT.MODE_PRIVATE);
-```
-- The getPreferences method returns an instance of a SharedPreferences object. The first time this method is called, it will look for an XML file bearing the same name as the activity from which the method was called; if it doesn’t find that file, it will be created, but if the file already exist, it will be used instead. Since we already created the file the first time we called getPreferences, Android won’t be creating a new file, nor will it overwrite what we created before.
 
-- Once we have a shared preferences object, we can extract data from it as follow:
-```java
+- The getPreferences method returns an instance of a SharedPreferences object. The first time this method is called, it will look for an XML file bearing the same name as the activity from which the method was called; if it doesn’t find that file, it will be created, but if the file already exists, it will be used instead. Since we already created the file the first time we called getPreferences, Android won’t be creating a new file, nor will it overwrite what we created before.
+
+- Once we have a shared preferences object, we can extract data from it as follows:
+
 sp.getString("name", "default value");
 sp.getInt("age", 0);
-```
 
-**Now, let’s experience this in practice.**
+**Now, let’s experience this in practice, start coding now!!!**
 
 1) Create a new project and name it “SharedPreferences”. 
 2) Design the UI layout for the main layout file as shown below. 2 Plain Text, 2 Button and 1 Text View
