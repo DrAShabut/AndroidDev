@@ -50,7 +50,7 @@ On completion, the layout should match that shown in the figure below:
 ## Adding the Fragments to the Activity
 
 The main activity for the application has associated with it an XML layout file named activity_main.xml. For the purposes of this example, the fragments will be added to the activity using the <fragment> element within this file. Using the Project tool window, navigate to the app -> res -> layout section of the FragmentExample project and double-click on the activity_main.xml file to load it into the Android Studio Layout Editor tool.
-With the Layout Editor tool in Design mode, select and delete the default TextView object from the layout and select the Common category in the palette. Drag the <fragment> component from the list of views and drop it onto the layout so that it is centred horizontally and positioned such that the dashed line appears indicating the top layout margin:
+With the Layout Editor tool in Design mode, select and delete the default TextView object from the layout and select the Common category in the palette. Drag the FragmentContainerView view from the list of views and drop it onto the layout so that it is centred horizontally and positioned such that the dashed line appears indicating the top layout margin:
 
 ![image](uploads/056c336a3ce312165fba0ae5dcabd5b8/image.png)
  
