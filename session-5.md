@@ -13,7 +13,7 @@ Since this application is intended to work on earlier versions of Android, it wi
 
 ## Creating the Fragment Example 
 
-Create a new Android project from File --> New --> New Project. Within the resulting new project dialog, choose the Empty Activity template before clicking on the Next button. Enter "FragmentExample" into the Name field and specify com.example.leedstrinity.fragmentexample as the package name. Before clicking on the Finish button, keep the Minimum API level setting to API 23 and the Language menu to Java. Check the option "Use legacy android.support libraries". 
+Create a new Android project from File --> New --> New Project. Within the resulting new project dialog, choose the Empty Activity template before clicking on the Next button. Enter "FragmentExample" into the Name field and specify com.example.leedstrinity.fragmentexample as the package name. Before clicking on the Finish button, keep the Minimum API level setting to API 23 and the Language menu to Java.
 
 ## Creating the First Fragment Layout
 
@@ -29,12 +29,12 @@ Select the Fragment (Blank) template before clicking the Next button. On the sub
 ![image](uploads/7896c3a6790f52b948902d3bf0b5de40/image.png)
 
  
-Load the fragment_toolbar.xml file into the layout editor using Design mode, right-click on the FrameLayout entry in the Component Tree panel and select the Convert FrameLayout to ConstraintLayout menu option, accepting the default settings in the confirmation dialog. Select and delete the default TextView and add a Plain EditText, Seekbar and Button to the layout and change the view ids to editText1, button1 and seekBar1 respectively.
+Load the fragment_toolbar.xml file into the layout editor using Design mode, right-click on the FrameLayout entry in the Component Tree panel, and select the Convert FrameLayout to ConstraintLayout menu option, accepting the default settings in the confirmation dialog. Select and delete the default TextView and add a Plain EditText, Seekbar, and Button to the layout and change the view ids to editText1, button1 and seekBar1 respectively.
 
 ![image](uploads/5611d8ed63555091778fb22f76f8995d/image.png)
 
 Change the text on the button to read “Change Text”, extract the text to a string resource named change_text and remove the Name text from the EditText view. Finally, set the layout_width property of the Seekbar to match_constraint with margins set to 8dp on the left and right edges.
-Use the Infer constraints toolbar button to add any missing constraints, at which point the layout should match that shown in figure below:
+Use the Infer constraints toolbar button to add any missing constraints, at which point the layout should match that shown in the figure below:
 
 ![image](uploads/f6816884d0f1b64c7ab024e29e6bdfe6/image.png)
  
