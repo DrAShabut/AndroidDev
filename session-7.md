@@ -147,7 +147,9 @@ public class VideoPlayerActivity extends AppCompatActivity {
     }
 }
 ```
-5.	Now Add a button to the axtivity_main.xml and start VideoPlayerActivity from the main activity using intent and run your app.
+5.	Now Add a button to the activity_main.xml and start VideoPlayerActivity from the main activity using intent and run your app.
+
+![image](uploads/e4624e31852d4ea0e25e3fb10cbbdba3/image.png)
 
 6.	As the VideoPlayer application currently stands, there is no way for the user to control playback. As previously outlined, this can be achieved using the MediaController class. To add a controller to the VideoView, modify the configureVideoView() method once again. The final code should look like the following:
 ```java
