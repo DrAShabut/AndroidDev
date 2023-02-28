@@ -85,7 +85,7 @@ try {
 }
 mMediaPlayer.prepareAsync();
 ```
-Replace the code in buttonPlay with the following code:
+To do this step, replace the code in buttonPlay with the code above. the method buttonPlay should look like the following:
 ```java
 public void buttonPlay(View view) {
     Uri mediaPath = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.sound_1);
