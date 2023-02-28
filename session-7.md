@@ -9,7 +9,7 @@ Create a new project in Android Studio and call it MediaPlayer. Use the default 
 # How to do it ...
 As explained previously, we'll need a sound file to include in the project. Once you have your sound file ready, follow these steps:
 
-1.	Create a new raw folder (File | New | Android resource directory) and chose raw in the Resource type dropdown.
+1.	Create a new raw folder (File | New | Android resource directory) and chose raw in the Resource type dropdown and then click ok button.
 
 ![image](uploads/16b92a9871c16320bef67420dd6f68c8/image.png)
 
