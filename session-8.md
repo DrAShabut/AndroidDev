@@ -51,7 +51,7 @@ public class SimpleMathTest {
         System.out.println("Ready for testing");
     }    
     @After //This is executed after the 
-    @Test executes
+    @Test
     public void tearDown(){
         System.out.println("Done with testing");
     }    
