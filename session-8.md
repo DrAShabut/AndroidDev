@@ -232,6 +232,12 @@ public class HelloWorldEspressoTest {
     }
 }
 ```
+When you import the classes, please import espresso classes and methods:
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 ## Run tests
 You can run your tests in Android Studio.
