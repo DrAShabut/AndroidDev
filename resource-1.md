@@ -44,7 +44,8 @@
 
 ![image](https://github.com/DrAShabut/AndroidDev/assets/146723487/1b3967b5-2593-4630-ad3d-86201d099d9c)
  
-- Then paste the URL of the project you have created into GitHub (you need to create an empty repo inside GitHub).
+- Then paste the URL of the project you have created into GitHub (you need to create an empty repo inside GitHub). If this is the 1st time, you will be asked to provide your GitHub account details and authorise JB to authenticate your details.
+  
 - Click OK and a list of files will be shown. Just click on Push and then refresh your GitHub browser and your project will be shown.
 
 
