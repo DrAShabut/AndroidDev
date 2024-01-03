@@ -112,8 +112,6 @@ If we press the button we want the text in the TextView to be changed to “Find
 
 9. The two variables are in red colour which means more classes are required to be imported by the system. To resolve this click Alt + Enter and click Import class.
 
-`
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,9 +120,8 @@ If we press the button we want the text in the TextView to be changed to “Find
 
     public void pressMeButton(View view) {
     }
-` 
  
-- Now everything is fine, let continue coding:__
+- Now everything is fine, let's continue coding:
  
 10. Add the following code inside the method onCreate() to find the views by their IDs. The onCreate() method is one of many methods that are fired when an activity is loaded.  
  
@@ -132,8 +129,7 @@ If we press the button we want the text in the TextView to be changed to “Find
  
 The code will look like this in the MainActivity.java.
  
-`
-    
+ 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,14 +141,12 @@ The code will look like this in the MainActivity.java.
     public void pressMeButton(View view) {
         newText.setText("Find a great idea for the next app");
     }
-`
 
-
-12. Add a layout constraint to your UI design by connecting the views to the parent. Change the text of the TextView to “change me” and text of pressMeButton to “Click me”.
+12. Add a layout constraint to your UI design by connecting the views to the parent. Change the text of the TextView to “change me” and the text of pressMeButton to “Click me”.
  
 The xml code in the activity_main.xml will look like the following: 
 
-     `<Button
+     <Button
         android:id="@+id/firstButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -183,12 +177,10 @@ The xml code in the activity_main.xml will look like the following:
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
  
-`
 13. Let us run the app again, remember to click on the Run list and press Run app command. You will have the following screens:
  
 ![image](uploads/5a96782ae204d167d44bb6543fb436ee/image.png)
 
 **What’s Next**
 
-To consolidate your understanding and dive further into Android basic concepts and add them to your toolbox, you need to go through chapter 1 from the book “Head First Andriod Development, 3rd Edition” available at 1. Getting Started: Diving In - Head First Android Development, 3rd Edition (oreilly.com).
-Note: this book will use Kotlin as the development programming language but Chapter 1 is generic and it will cover everything we need to start with Android. 
+To strengthen your grasp of Android fundamentals and expand your dev toolkit, it's recommended to explore Chapter 1 in the book "Head First Android Development, 3rd Edition," accessible at oreilly.com. Note: Although this book primarily uses Kotlin as the programming language, Chapter 1 is comprehensive and covers everything necessary to commence Android development.
