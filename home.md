@@ -13,5 +13,6 @@ Following the links will take you to the corresponding **Lab Worksheets**.
 + [Session 9](session-9.md): Polishing and Publishing Android Apps
 
 Extra resources:
-:How to use Git in Android
+
++ [How to use Git in Android](How to use Git in Android): How to use Git in Android
 
