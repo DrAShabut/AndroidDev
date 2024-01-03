@@ -1,4 +1,4 @@
-Integrate Git into the project and push a project to a GitHub repo
+*Integrate Git into a project and push to a GitHub repo.*
 
 Download GitHub and then install it.
 Go to Android Studio and click on File
