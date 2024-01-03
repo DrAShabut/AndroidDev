@@ -1,22 +1,22 @@
-**About this Tutorial**
+**About This Tutorial**
 
 
 ![image](uploads/7e766148270fd32ad121f48164e0b921/image.png)
 
-Android is an open-source mobile operating system based on Java language and Linux kernel. It runs on different handheld mobile devices such as smartphones, tablets, switches, TV, etc. Android was developed by Android Inc. and is now led by Google which purchased it in 2005. This tutorial will illustrate the basics of Android development through “Hello World” and “Change me” examples. To satisfy with this material, please review the introductory lecture notes. 
+Android is an open-source mobile operating system based on Java language and Linux kernel. It runs on different handheld mobile devices such as smartphones, tablets, switches, TV, etc. Android was developed by Android Inc. and is now led by Google which purchased it in 2005. This tutorial will illustrate the basics of Android development through “Hello World” and “Change me” examples. To be satisfied with this material, please review the introductory lecture notes. 
 
-**Learning objectives**
+**What You'll Learn:**
 
-After completing this tutorial, you will find yourself able to understand some Android terminology and able to create a new project, design basic UI and write a simple code and run your application on a virtual and real device. 
+After finishing this tutorial, you'll be familiar with some Android words. You'll also be able to start a new project, create basic designs, write simple code, and run your app on a real or virtual device.
 
-**Requirements**
+**What You Need:**
 
-Enough space on your disk to install Android Studio if you decide to use your own, Android device and USB cable to connect your device with your computer. I recommend you to use a real device as it will be quicker to run your apps on a real device than on a virtual one. If you don’t have one, you could contact the LTU Media centre to borrow a tablet that you can use throughout the semester.
+You'll need some space on your computer to install Android Studio if you want to use your own. If you have an Android device, grab a USB cable to connect it to your computer. It's faster to test your apps on a real device than a virtual one. Don't worry if you don't have your own; you can ask the LTU Media Centre to lend you a tablet for the semester. Let's get started!
 
 **Hello World Example**
 
 1. Install Android Studio 
-Instructions on how to install Android Studio, features and user guide are available through this link: https://developer.android.com/studio/?utm_source=android-studio. This link will provide you with the latest stable version. Android Studio 2020.3.1 is the latest version at the time of preparing this tutorial. You may see little differences between your screens and what is already present in this tutorial as a different version is used to prepare this guide.
+For guidance on installing Android Studio, exploring its features, and understanding how to use it, visit https://developer.android.com/studio/?utm_source=android-studio. This link offers access to the latest stable version, with Android Studio 2023.1.1 being the most recent version during the creation of this tutorial. Keep in mind that there might be slight variations between your screens and the tutorial's content if you're using a different version.
 
 2. After installing Android Studio, you will have the following screen: 
 
