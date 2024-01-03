@@ -79,7 +79,7 @@ Well done you have created your first ‘Hello World’ app.
  
 2. Delete the ‘Hello World!’ TextView by clicking it and then pressing ‘delete’ button from your keyboard. 
 
-3. From the pallet (in the above screen) where all Widgets are available, add a TextView and a Button to your project by clicking, dragging and dropping on the activity design in the required location. The design will look like the following screen:
+3. From the palette (in the above screen) where all Widgets are available, add a TextView and a Button to your project by clicking, dragging and dropping on the activity design in the required location. The design will look like the following screen:
 
 ![image](uploads/6a5460f15298a043473edea6ee3bcb96/image.png) 
 
