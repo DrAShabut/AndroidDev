@@ -14,5 +14,5 @@ Following the links will take you to the corresponding **Lab Worksheets**.
 
 Extra resources:
 
-+ [How to use Git in Android](resource_1.md): How to use Git in Android
++ [Resource 1](resource_1.md): How to use Git in Android
 
