@@ -26,7 +26,7 @@
   
 ![image](https://github.com/DrAShabut/AndroidDev/assets/146723487/8cf2e46a-d0a5-4a3a-b7df-ecf488dfadfb)
 
-- Right-click on the project folder again select git and then Commit Directory.
+- Right-click on the project folder again select Git and then Commit Directory.
   
 ![image](https://github.com/DrAShabut/AndroidDev/assets/146723487/33020aef-6434-4018-977f-aca49a42c69b)
 
