@@ -34,7 +34,7 @@ For guidance on installing Android Studio, exploring its features, and understan
 
 - _It is preferred to keep all the examples in one folder and name it “Android App Development”._ 
 
-6. Click Finish to see your app created with an Activity (java based file) called MainActivity and a Layout (xml based file) called activity_main. If your project is created successfully, you will see the following project screen:
+6. Click Finish to see your app created with an Activity (Java-based file) called MainActivity and a Layout (XML-based file) called activity_main. If your project is created successfully, you will see the following project screen:
 
 ![image](uploads/252b9f3d0766cd65243d9e0abecaed5e/image.png) 
 
@@ -71,11 +71,11 @@ Well done you have created your first ‘Hello World’ app.
 
 **Change Me Example**
 
-1. Expand the app files on the left-hand side and then expand the ‘res’ folder and scroll down to the layout folder and expand it, click on ‘activity_main.xml’ and  the UI design will be shown on your screen as follow:
+1. Expand the app files on the left-hand side and then expand the ‘res’ folder, scroll down to the layout folder and expand it, click on ‘activity_main.xml’ and  the UI design will be shown on your screen as follows:
 
 ![image](uploads/3db1ea9be98d32c056b5a2b7a8d2d237/image.png) 
 
-- Now you can be creative and design your UI.__
+- Now you can be creative and design your UI.
  
 2. Delete the ‘Hello World!’ TextView by clicking it and then pressing ‘delete’ button from your keyboard. 
 
