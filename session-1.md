@@ -16,7 +16,7 @@ You'll need some space on your computer to install Android Studio if you want to
 **Hello World Example**
 
 1. Install Android Studio 
-For guidance on installing Android Studio, exploring its features, and understanding how to use it, visit https://developer.android.com/studio/?utm_source=android-studio. This link offers access to the latest stable version, with Android Studio 2023.1.1 being the most recent version during the creation of this tutorial. Keep in mind that there might be slight variations between your screens and the tutorial's content if you're using a different version.
+For guidance on installing Android Studio, exploring its features, and understanding how to use it, visit https://developer.android.com/studio/?utm_source=android-studio. This link offers access to the latest stable version, with Android Studio 2023.1.1 being the most recent version during the creation of this tutorial. Keep in mind that there might be slight variations between your screens and the tutorial's content as it is based on an older version 4.0.1 but it will be the same steps.
 
 2. After installing Android Studio, you will have the following screen: 
 
@@ -26,7 +26,7 @@ For guidance on installing Android Studio, exploring its features, and understan
 
 ![image](uploads/7bdd6780cd6584fc6e0019f346e96e97/image.png) 
 
-4. Keep the default selections as we will develop apps for “Phone and Tablet” and we will select an “Empty Activity” to start our project with, press Next when you are ready and the following screen will appear:
+4. Keep the default selections as we will develop apps for “Phone and Tablet” and we will select an “Empty Activity” to start our project with, (for Hedgehog version, select Empty Views Activity' to develop with Java language, press Next when you are ready and the following screen will appear:
 
 ![image](uploads/247fc797596a0f4b4788f604980aefa8/image.png) 
 
