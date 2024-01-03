@@ -99,7 +99,7 @@ Well done you have created your first ‘Hello World’ app.
 
 ![image](uploads/95e2b3a9887012ed251421345de7e5ea/image.png)
  
-- Now we need to write our code inside this method. __
+- Now we need to write our code inside this method.
 
 
 **Change Me idea is very simple for now:**
