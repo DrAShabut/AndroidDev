@@ -1,6 +1,6 @@
 **Integrate Git into a project and push to a GitHub repo.**
 
-- Download GitHub and then install it.
+- Download Git and then install it.
 - Go to Android Studio and click on File --> Settings --> Version Control --> Git as shown below:
  
 ![image](https://github.com/DrAShabut/AndroidDev/assets/146723487/61393f68-0645-499b-8baa-d999e46e0140)
