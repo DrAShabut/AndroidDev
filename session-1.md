@@ -184,3 +184,8 @@ The xml code in the activity_main.xml will look like the following:
 **What’s Next**
 
 To strengthen your grasp of Android fundamentals and expand your dev toolkit, it's recommended to explore Chapter 1 in the book "Head First Android Development, 3rd Edition," accessible at oreilly.com. Note: Although this book primarily uses Kotlin as the programming language, Chapter 1 is comprehensive and covers everything necessary to commence Android development.
+
+Exercise 1: Develop a simple calculator using Android Studio. 
+(Note: this needs to be submitted with the first example).
+![image](https://github.com/DrAShabut/AndroidDev/assets/146723487/5542a98b-b56d-4fb5-a035-d55d32dc55f2)
+
