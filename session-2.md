@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-Have you spotted a new way to create events in Android? Can you tell the difference between the method and the method we used in the last sessions? Which one is easier? 
+Have you spotted a new way to create events in Android? Can you tell the difference between this method and the method we used in the last session? Which one is easier? 
 
 Task: 
 1) Validate the input inserted by the user and create a toast for each one if the input is wrong.
