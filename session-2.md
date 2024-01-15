@@ -216,12 +216,12 @@ Figure 3: Apply for job design.
 **Can you make the app interactive? Write code to show a message using Toasts**
 
 
-**Exercise 3: Design your health app (assignment)**
+**Exercise 3: Design your 'Book Club' app (assignment)**
 
 Start thinking about your UI layout for your app and test the layout using the layout validation.
 
 **Exercise 4: Use Git in Android Studio**
 
-Working with Git in Android is relatively easy and it needs only a few steps, if you use a Mac machine, then the following [Medium article](https://betterprogramming.pub/how-to-use-git-in-android-studio-part-1-a8a554006aad) is for you. If you use a VM or Windows machine, the only difference is the first step to go to File ➤ Settings ➤ Version Control ➤ Git instead of Preferences. The rest will be the same.
+Push everything into a GitHub repo and share it with your tutor.
 
 **Happy design time**
