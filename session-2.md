@@ -89,11 +89,53 @@ __**Note: don’t copy and paste the code, use it as a guide to your design.**__
         app:layout_constraintGuide_begin="215dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
-Can you now add a TextView and write “Message sent” when the user presses the send button?
+Can you now add a Text message to show “Message sent” when the user presses the send button? How to do this?
+A toast in Android provides simple feedback about an operation in a small popup. It only fills the amount of space required for the message and the current activity remains visible and interactive. Toasts automatically disappear after a timeout.
+
+Instantiate a Toast object
+Use the makeText() method, which takes the following parameters:
+
+1) The activity Context.
+2) The text that should appear to the user.
+3) The duration that the toast should remain on the screen.
+4) The makeText() method returns a properly initialised Toast object.
+
+```java
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    Button sendButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        sendButton = findViewById(R.id.button);
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Message sent", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+}
+```
+
+Have you spotted a new way to create events in Android? Can you tell the difference between the method and the method we used in the last sessions? Which one is easier? 
+
+Task: 
+1) Validate the input inserted by the user and create a toast for each one if the input is wrong.
+2) Change the duration of the toast from SHORT to LONG.
+3) Make the Message edit text multiline. 
 
 **Exercise 2: Apply for Job Design**
 
-Create a new project and design the 'Apply' activity as shown in figure 3 below. 
+Create a new project and design the 'Apply' activity as shown in Figure 3 below. 
 
 
 ![image](uploads/be2f12f38a16dd62277ab86db74eabaf/image.png)
