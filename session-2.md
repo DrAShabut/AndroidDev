@@ -16,7 +16,7 @@ Figure 1: Send message design.
 
 ![image](uploads/7feb9c5f7e0eaace9769e6e57c67d748/image.png)
 
-Figure 2: Android Studio design layout.
+Figure 2: Android Studio design layout editor.
 
 
 **Final XML code**
