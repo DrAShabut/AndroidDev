@@ -90,6 +90,7 @@ __**Note: don’t copy and paste the code, use it as a guide to your design.**__
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 Can you now add a Text message to show “Message sent” when the user presses the send button? How to do this?
+
 A toast in Android provides simple feedback about an operation in a small popup. It only fills the amount of space required for the message and the current activity remains visible and interactive. Toasts automatically disappear after a timeout.
 
 Instantiate a Toast object
