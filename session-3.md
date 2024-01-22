@@ -1,38 +1,38 @@
 **About the Tutorial**
 
-![image](https://gitlab.com/LTUcompsci/5014-further-software-dev/-/wikis/uploads/ff971689644c8b4dcbb0f7d1aeb6be01/image.png)
+![image](uploads/7e766148270fd32ad121f48164e0b921/image.png)
 
 Android apps can contain one or more activities. Once your app has more than one activity, you will get to navigate from one activity to another using Intent. This tutorial will illustrate the basics of Intent in Android and how to use this messaging object to start communications between different components. 
 
 **Android Intent Example**
 
-The following example shows a way to add another activity to an existing project and so navigate between the two activities in an android application.
+The following example shows a way to add another activity to an existing project and so navigate between the two activities in an Android application.
 
 **Explicit Intent - Navigate Between Two Activities Example:**
 
-_(Skip this example if you are done with the MyMessenger project introduced in the lecture)._
+_(Skip this example if you are done with the MyMessenger project introduced in the lecture and move directly to step 8)._
 
 1. Create a new project and name it “MultipleActivitiesApplication”.
-2.  Open res ➪ layout ➪ activity_main.xml , add a button and change its id to “linkButton” and text to “NextActivity”.
+2. Open res ➪ layout ➪ activity_main.xml, add a button and change its id to “linkButton” and text to “NextActivity”.
  
 ![image](uploads/157a5adb478afbe7a6f2b711ace34fed/image.png)
 
-_Important Note!!! You need to constraint each view you add to your XML UI using the design editor._
+_Important Note!!! You need to constrain each view you add to your XML UI using the design editor._
 
 3. Now you need to add a new activity and name it “SecondActivity”. 
-4. Click the app folder from the project window and add a new activity by selecting File -> New -> Activity -> EmptyActivity.
+4. Click the app folder from the project window and add a new activity by selecting File -> New -> Activity -> Empty Views Activity.
 
 ![image](uploads/0678b64d1a62f0dd7e6a93d4cae8c3bd/image.png)
  
-5.  Now add a TextView to the xml layout and change its id to “linkView” and text to “This is the second Activity”.  
+5.  Now add a TextView to the XML layout and change its id to “linkView” and text to “This is the second Activity”.  
 
 ![image](uploads/074d02a26625c01e372b04dc010ebe9b/image.png)
  
-6.  Now add the following code in MainActivity.java class.
-The main points are as follow: 
+6.  Now add the following code in the MainActivity.java class.
+The main points are as follows: 
 - Create a variable from the type Button to access the button view you put in the main layout.
-- Access the button view in onCreate method using the R java class and the button id.
-- Create an onClick event called 'linkNextActivity' for the button view in the main layout and add the corresponding method in the java code as we did in previous sessions.
+- Access the button view in the onCreate method using the R java class and the button id.
+- Create an onClick event called 'linkNextActivity' for the button view in the main layout and add the corresponding method in the Java code as we did in previous sessions.
 - Add the code as below.
 
 
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
 7.  You are done now. Run your Android Intent Application.
 
-8. Now practice sharing data between your activities. Adjust the activity_main.xml UI design and add a PlainText view to your UI, change its id to "editTextMessage", delete the default value of text attribute and add "Enter your Message" in the hint attribute. 
+8. Now practice sharing data between your activities. Adjust the activity_main.xml UI design and add a PlainText view to your UI, change its id to "editTextMessage", delete the default value of the text attribute and add "Enter your Message" in the hint attribute. 
   
 9. Go to the MainActivity.java class and add the following code to the 'linkNextActivity' method:
 
@@ -102,23 +102,22 @@ public class MainActivity extends AppCompatActivity {
 
 ```
 
-10. To receive the data in the SecondActivity, add the following code to onCreate() method in the SecondActivity.java class:
+10. To receive the data in the SecondActivity, add the following code to the onCreate() method in the SecondActivity.java class:
 
 ```java
 textMessage = findViewById(R.id.textView);
-Intent intent = new Intent();
 textMessage.setText(getIntent().getStringExtra("Message"));
 ```
-_Note: don't forget to define the variable textMessage as a class variable._
+_Note: don't forget to define the variable textMessage as a class member._
 
 11. You are done now, run your code to see your message shown on the SecondActivity.
 
  
 **Pending Intent - Notification Example**
 
-1. Create a new project called NotifyMeApp and add a button to the activity_main.xml. Change its id to “notifyMe” and the text to “create notification”. Add onClick event to the button, call it 'onCreateNotification' and add the corresponding method associated with it to java code. 
+1. Create a new project called NotifyMeApp and add a button to the activity_main.xml. Change its id to “notifyMe” and the text to “create notification”. Add onClick event to the button, call it 'onCreateNotification' and add the corresponding method associated with it to Java code. 
 
-_Hint: you can now develop some advanced skills and keep all strings in a strings.xml file which is used to replace the Hard-coded strings with a single string. We define all the strings in this xml file and then access them in our app (Activity or in Layout XML files) from this file. This file enhances the reusability of the code. Location in Android Studio:_
+_Hint: you can now develop some advanced skills and keep all strings in a strings.xml file which is used to replace the Hard-coded strings with a single string. We define all the strings in this XML file and then access them in our app (Activity or in Layout XML files) from this file. This file enhances the reusability of the code. Location in Android Studio:_
 
 ![image](uploads/a066331b659fadde7ff5cc962b212f9e/image.png)
  
@@ -126,8 +125,9 @@ _For more information about strings.xml file and how to format and style your te
 
 ![image](uploads/d666473293241377fdc636aa1bfa4a14/image.png) 
 
-2. Add a new activity and name it “TestActivity” as in the previous example and design the activity_test.xml layout to include a TextView. The code should look as follow:
-
+2. Add a new activity and name it “TestActivity” as in the previous example and design the activity_test.xml layout to include a TextView. The code should look as follows:
+   Note: don't forget to select the right option for the activity: 'Empty Views Activity'.
+   
 ![image](uploads/32f6cfde1caebed19df35e62662c2b8e/image.png)
  
 3. Add the following code to the MainActivity.java class:
@@ -144,10 +144,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onCreateNotification(View view) {
-        // Create notification channel
+        // Create a notification channel
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
+        // The NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "My Notifications", NotificationManager.IMPORTANCE_DEFAULT);
 
@@ -178,6 +178,13 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+Note: Don't forget to import all the classes, go with the 1st suggestions from the Android list or ask for assistance if you're confused. 
+You will receive an error at the line:'NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);' and Android will suggest adding a 'POST_NOTIFICATIONS' permission, so please go with the suggestion and let Android add it for you.
+Check AndroidManidest and make sure that a line is added as follows:
+
+```xml
+ <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+ ```
 
 4. You are done now. Run your application.
 5. Set the notification's tap action: every notification should respond to a tap, usually to open an activity in your app that corresponds to the notification. To do so, you must specify a content intent defined with a PendingIntent object and pass it to setContentIntent(). 
