@@ -145,11 +145,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onCreateNotification(View view) {
-        // Create a notification channel
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+       NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         // Create the NotificationChannel, but only on API 26+ because
         // The NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "My Notifications", NotificationManager.IMPORTANCE_DEFAULT);
 
             // Configure the notification channel.
@@ -159,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
             notificationChannel.setVibrationPattern(new long[]{0, 1000, 500, 1000});
             notificationChannel.enableVibration(true);
             notificationManager.createNotificationChannel(notificationChannel);
-        }
+        //}
 
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
@@ -169,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.drawable.ic_launcher_background)
                 .setTicker("Hearty365")
-                .setPriority(Notification.PRIORITY_MAX)
+                .setPriority(Notification.DEFAULT_ALL)
                 .setContentTitle("Default notification")
                 .setContentText("This is my first notification app.")
                 .setContentInfo("Info");
