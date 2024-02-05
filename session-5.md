@@ -105,7 +105,7 @@ public int deleteRecord(long id) {
 }
 ```
 
-6.	And these methods handle reading the information from the database:
+6.	And these methods to handle reading the information from the database:
 ```java
 public long findWordID(String word) {
     long returnVal = -1;
