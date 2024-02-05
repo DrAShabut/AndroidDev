@@ -733,7 +733,7 @@ Continue the design stage or skip this step by copying the following code:
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
-** c)    ForgotPasswordActivity**
+**c)    ForgotPasswordActivity**
 Leave it blank for now.
 
 6) Now start the Java coding in MainActivity.java
