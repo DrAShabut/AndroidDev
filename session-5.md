@@ -421,8 +421,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 }
 ```
-4) Design the activity_main.xml as the following screenshot:
-You can skip the design and copy the code below for speedy development of the main learning activities:
+4) Design the activity_main.xml as the code below. You can skip the design and copy the code below for speedy development of the main learning activities:
 
  ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -549,7 +548,7 @@ You can skip the design and copy the code below for speedy development of the ma
 5) Add three extra activities as follows SignUpActivity, UserActivity and ForgotPasswordActivity.
  
 Continue the design stage or skip this step by copying the following code:
-a)	Activity_sign_up.xml
+**a)	Activity_sign_up.xml**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -696,7 +695,7 @@ a)	Activity_sign_up.xml
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-b)	Activity_user.xml
+**b)	Activity_user.xml**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -734,9 +733,12 @@ b)	Activity_user.xml
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
+** c)    ForgotPasswordActivity**
+Leave it blank for now.
 
 6) Now start the Java coding in MainActivity.java
 Start with defining the UI widgets as class variables:
+
 ```java
 private TextView signUp, forgotPassword;
 private EditText editTextEmail, editTextPassword;
@@ -875,7 +877,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-6) Now let’s look at the SignUpActivity. Java class:
+7) Now let’s look at the SignUpActivity Java class:
 
 ```java
 package com.example.bookclubapp;
@@ -992,7 +994,8 @@ public class SignUpActivity extends AppCompatActivity {
 }
 ```
 
-Finally, let’s look at the UserActivity class:
+8. Finally, let’s look at the UserActivity class:
+
 ```java
 package com.example.bookclubapp;
 
@@ -1017,6 +1020,5 @@ public class UserActivity extends AppCompatActivity {
 ```
 Run the code and discuss it with your peers and tutor. 
 
-Task: Identify and improve upon the poor software development practices present in the code and improve them in your version.
-
-
+## Task 1: Identify and improve upon the poor software development practices present in the code and improve them in your version.
+## Task 2: Implement the ForgotPassword activity.
