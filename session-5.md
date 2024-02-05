@@ -1,3 +1,6 @@
+
+![image](uploads/7e766148270fd32ad121f48164e0b921/image.png)
+
 # Creating and using an SQLite database
 
 In this exercise, we're going to demonstrate working with an SQLite database. As you're already familiar with SQL databases, then much of what you know will apply. 
