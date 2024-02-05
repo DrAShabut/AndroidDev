@@ -211,7 +211,7 @@ DictionaryDatabase(Context context) {
     super(context, DATABASE_NAME, null, DATABASE_VERSION); 
 } 
 ```
-Notice DATABASE_VERSION? Only when you make changes to your database schema do you need to increment this value?
+Note: Increment the value of your DATABASE_VERSION only when you make changes to your database schema.
 
 Next is onCreate(), where the database is created. This is only called the first time the database is created, not each time the class is created. It's also worth noting the _id field. Android does not require tables to have a primary field, but some classes, such as the SimpleCursorAdapter, may require an _id.
 
