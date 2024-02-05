@@ -2,11 +2,11 @@
 
 ![image](uploads/7e766148270fd32ad121f48164e0b921/image.png)
 
-# Creating and using an SQLite database
+# Creating and using SQLite database
 
-In this exercise, we're going to demonstrate working with an SQLite database. As you're already familiar with SQL databases, then much of what you know will apply. 
+In this exercise, we're going to demonstrate working with SQLite database. As you're already familiar with SQL databases, then much of what you know will apply. 
 
-To get you up and running with an SQLite database quickly, this example implements the basic CRUD operations. Generally, when creating a database in Android, you create a class that extends SQLiteOpenHelper, which is where your database functionality is implemented. Here is a list of the CRUD (create, read, update, and delete) functions:
+To get you up and running with SQLite database quickly, this example implements the basic CRUD operations. Generally, when creating a database in Android, you create a class that extends SQLiteOpenHelper, which is where your database functionality is implemented. Here is a list of the CRUD (create, read, update, and delete) functions:
 
 - Create: insert()
 - Read: query() and rawQuery()
@@ -16,12 +16,12 @@ To get you up and running with an SQLite database quickly, this example implemen
 To demonstrate a fully working database, we will create a simple Dictionary database where we'll store words and their definitions. We'll demonstrate the CRUD operations by adding new words (with their definitions) and updating existing word definitions. We'll show words in a ListView using a cursor. Pressing a word in the ListView will read the definition from the database and display it in a Toast message. A long press will delete the word.
 
 # Getting ready
-Create a new project in Android Studio and call it SQLiteDatabase. Use the default options and select Empty Activity.
+Create a new project in Android Studio and call it SQLiteDatabase. Use the default options and select Empty Views Activity.
 
 # How to do it...
 First, we'll create the UI, which will consist of two PlainText fields, a Button, and a ListView. As we add words to the database, they will populate the ListView. Start by opening activity_main.xml and follow these steps:
 
-1.	Design your screen as follow:
+1.	Design your screen as follows:
 
 ![image](uploads/57d2b6b76994ea83855d5b9e13617903/image.png)  
 
