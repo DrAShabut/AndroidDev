@@ -298,7 +298,7 @@ For me, I designed the user table to include full name, email, age, password and
 
 3) Create another class called DBHelper.java to include all the important methods for connecting to the SQLite. Don’t forget to extend the SQLiteOpenHelper class (remember the DictionaryDatabase class in the example above).
 ```java
-package com.example.bookclub;
+package com.example.bookclubapp;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -313,7 +313,7 @@ public class DBHelper extends SQLiteOpenHelper {
     static SQLiteDatabase db;
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "fitnessdata.db";
+    private static final String DATABASE_NAME = "bookclubdata.db";
     private static final String TABLE_NAME = "user";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_FULLNAME = "fullname";
@@ -770,7 +770,7 @@ protected void onCreate(Bundle savedInstanceState) {
 The whole class should look like the following:
 
 ```java
-package com.example.fitnessapp;
+package com.example.bookclubapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -878,7 +878,7 @@ public class MainActivity extends AppCompatActivity {
 6) Now let’s look at the SignUpActivity. Java class:
 
 ```java
-package com.example.fitnessapp;
+package com.example.bookclubapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -994,7 +994,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 Finally, let’s look at the UserActivity class:
 ```java
-package com.example.fitnessapp;
+package com.example.bookclubapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
