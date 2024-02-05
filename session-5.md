@@ -239,11 +239,9 @@ See also
 - SQLite database Android reference: http://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.html
 
 # Sign in and sign up activities
-Now, start working on your SQLite database for your project by following the next steps:
-In this session, we will cover SQLite in more detail. We will do input validation and test some functionalities. 
+In this example, we will cover SQLite in more detail. We will do input validation and test some functionalities. It is the time to work on your assignment project.  
 
-Let’s start working on the project:
-1) Create a new project using Android and call it BookClub App. 
+1) Create a new project using Android and call it BookClubApp. 
 2) Create a new Java Class and call it User
  
 In the User class, create public variables and constructors for the user sign in and sign up activities as follows:
