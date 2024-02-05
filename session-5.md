@@ -29,7 +29,7 @@ Use the attribute “Hint” to hardcode your string for the two PlainText. Chan
 
 2.	Add a new Java class to the project named DictionaryDatabase. This class extends from **SQLiteOpenHelper** and handles all the SQLite functions. Here is the class declaration:
 ```java
-public class DictionaryDatabase extends SQLiteOpenHelper { 
+public class DictionaryDatabase extends SQLiteOpenHelper { }
 ```
 
 ![image](uploads/3fc21909ac940b0c0bf5fa5830c64b48/image.png)
