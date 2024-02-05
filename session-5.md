@@ -19,7 +19,7 @@ To demonstrate a fully working database, we will create a simple Dictionary data
 Create a new project in Android Studio and call it SQLiteDatabase. Use the default options and select Empty Views Activity.
 
 # How to do it...
-First, we'll create the UI, which will consist of two PlainText fields, a Button, and a ListView. As we add words to the database, they will populate the ListView. Start by opening activity_main.xml and follow these steps:
+First, we'll create the UI, which will consist of two PlainText fields, a Button, and a ListView from the Legacy options. As we add words to the database, they will populate the ListView. Start by opening activity_main.xml and follow these steps:
 
 1.	Design your screen as follows:
 
@@ -211,13 +211,13 @@ DictionaryDatabase(Context context) {
     super(context, DATABASE_NAME, null, DATABASE_VERSION); 
 } 
 ```
-Notice DATABASE_VERSION? Only when you make changes to your database schema do you need to increment this value.
+Notice DATABASE_VERSION? Only when you make changes to your database schema do you need to increment this value?
 
-Next is onCreate(), where the database is actually created. This is only called the first time the database is created, not each time the class is created. It's also worth noting the _id field. Android does not require tables to have a primary field, but some classes, such as the SimpleCursorAdapter, may require an _id.
+Next is onCreate(), where the database is created. This is only called the first time the database is created, not each time the class is created. It's also worth noting the _id field. Android does not require tables to have a primary field, but some classes, such as the SimpleCursorAdapter, may require an _id.
 
 We're required to implement the onUpgrade() callback, but as this is a new database, there's nothing to do. This method will only be called when the database version is incremented.
 
-The saveRecord() method handles calling addRecord() or updateRecord(), as appropriate. Since we are going to modify the database, both methods use getWritableDatabase() to get an updatable database reference. A writable database requires more resources so if you don't need to make changes, get a read-only database instead.
+The saveRecord() method handles calling addRecord() or updateRecord(), as appropriate. Since we will modify the database, both methods use getWritableDatabase() to get an updatable database reference. A writable database requires more resources so if you don't need to make changes, get a read-only database instead.
 
 The last method to note is getWordList(), which returns all the words in the database using a cursor object. We use this cursor to populate the ListView, which brings us to ActivityMain.java. The onCreate() method does the standard initialization we've seen before and also creates an instance of the database with the following line of code:
 ```java
@@ -225,7 +225,7 @@ mDB = new DictionaryDatabase(this);
 ```
 The onCreate() method is also where we set up the events to show the word definition (with a Toast) when an item is pressed and to delete the word on a long press. Probably the most complicated code is in updateWordList().
 
-We use the SimpleCursorAdapter to create a mapping between our field in the cursor and the ListView item. We use the layout.simple_list_item_1 layout, which only includes a single text field with the ID android.R.id.text1. In a real application, we'd probably create a custom layout and include the definition in the ListView item, but we wanted to demonstrate a method to read the definition from the database.
+We use the SimpleCursorAdapter to create a mapping between our field in the cursor and the ListView item. We use the layout.simple_list_item_1 layout, which only includes a single text field with the ID android.R.id.text1. In a real application, we could create a custom layout and include the definition in the ListView item, but we wanted to demonstrate a method to read the definition from the database.
 
 We call updateWordList() in three places: during onCreate() to create the initial list, then again after we add/update an item, and lastly when deleting an item.
 
@@ -233,8 +233,9 @@ We call updateWordList() in three places: during onCreate() to create the initia
 Although this is a fully functioning example of SQLite, it is still just the basics. There are many books dedicated to SQLite for Android and they are worth checking out.
 
 # Upgrading a database
-As we mentioned previously, when we increment the database version, the onUpgrade() method will be called. What you do here is dependent on the changes made to the database. If you changed an existing table, ideally you'll want to migrate the user data to the new format by querying the existing data and inserting it into the new format. Keep in mind that there is no guarantee the user will upgrade in consecutive order, so they could jump from version 1 to version 4, for example.
+As we mentioned previously when we increment the database version, the onUpgrade() method will be called. What you do here is dependent on the changes made to the database. If you changed an existing table, ideally you'll want to migrate the user data to the new format by querying the existing data and inserting it into the new format. Keep in mind that there is no guarantee the user will upgrade in consecutive order, so they could jump from version 1 to version 4, for example.
 See also
 - SQLite homepage: https://www.sqlite.org/
 - SQLite database Android reference: http://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.html
 
+Now, start working on your SQLite database for your project by following the next steps:
