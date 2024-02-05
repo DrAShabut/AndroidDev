@@ -238,4 +238,787 @@ See also
 - SQLite homepage: https://www.sqlite.org/
 - SQLite database Android reference: http://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.html
 
+# Sign in and sign up activities
 Now, start working on your SQLite database for your project by following the next steps:
+In this session, we will cover SQLite in more detail. We will do input validation and test some functionalities. 
+
+Let’s start working on the project:
+1) Create a new project using Android and call it BookClub App. 
+2) Create a new Java Class and call it User
+ 
+In the User class, create public variables and constructors for the user sign in and sign up activities as follows:
+ 
+```java
+public class User {
+
+    public String fullName, email, mobile, password;
+    public int age;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+}
+```
+For me, I designed the user table to include full name, email, age, password and mobile. Please feel free to change as per your design.
+
+3) Create another class called DBHelper.java to include all the important methods for connecting to the SQLite. Don’t forget to extend the SQLiteOpenHelper class (remember the DictionaryDatabase class in the example above).
+```java
+package com.example.bookclub;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.service.autofill.UserData;
+import android.util.Log;
+import android.widget.Toast;
+
+public class DBHelper extends SQLiteOpenHelper {
+    static SQLiteDatabase db;
+
+    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "fitnessdata.db";
+    private static final String TABLE_NAME = "user";
+    private static final String COLUMN_ID = "id";
+    private static final String COLUMN_FULLNAME = "fullname";
+    private static final String COLUMN_EMAIL= "email";
+    private static final String COLUMN_MOBILE = "mobile";
+    private static final String COLUMN_AGE = "age";
+    private static final String COLUMN_PASSWORD = "password";
+
+    private static final String CREATE_TABLE = "create table IF NOT EXISTS user (id integer primary key not null , " +
+            "fullname text not null , email text not null, age integer not null, password text not null, mobile text not null);" ;
+
+
+
+    public DBHelper(Context context){
+        super(context,DATABASE_NAME, null , DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+
+        db.execSQL(CREATE_TABLE);
+        this.db = db;
+        Log.d("Table created","created");
+    }
+
+    public boolean insertData(User user){
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_FULLNAME,user.getFullName());
+        values.put(COLUMN_EMAIL,user.getEmail());
+        values.put(COLUMN_MOBILE,user.getMobile());
+        values.put(COLUMN_AGE,user.getAge());
+        values.put(COLUMN_PASSWORD,user.getPassword());
+
+        try{
+            db.insert(TABLE_NAME, null ,values);
+            Log.d("Insert SUCCESS", values.toString());
+            return true;
+        } catch (Exception e){
+            Log.d("Insert FAILURE", e.toString());
+            return false;
+        }
+        //db.close();
+    }
+
+    public boolean userExists(String email,String password){
+        //db = this.getReadableDatabase();
+        String fetchuser = "Select email,password from " +TABLE_NAME;
+        Cursor cursor = db.rawQuery(fetchuser, null);
+        String a,b = "not found";
+        Log.d("received email", email);
+        Log.d("Cursor count", String.valueOf(cursor.getCount()));
+        if(cursor.moveToFirst()){
+            Log.d("Select " , " clause");
+            do{
+                a= cursor.getString(0);
+                Log.d("a " , a);
+                if (a.equals(email)){
+                    Log.d("email  If loop" , a);
+                    b = cursor.getString(1);
+                    Log.d("b " , b);
+                    break;
+                }
+            }
+            while(cursor.moveToNext());
+        }
+        if (b.equals(password)) {
+            Log.d("Returning "," true");
+            return true;
+        }
+        else return false;
+    }
+
+    public String getUserName(String email){
+        //db = this.getReadableDatabase();
+        String fetchuser = "Select "+COLUMN_EMAIL+", "+COLUMN_FULLNAME+" from " +TABLE_NAME;
+        Cursor cursor = db.rawQuery(fetchuser, null);
+        String a,b = "not found";
+        Log.d("received email", email);
+        Log.d("Cursor count", String.valueOf(cursor.getCount()));
+        if(cursor.moveToFirst()){
+            Log.d("Select " , " clause");
+            do{
+                a= cursor.getString(0);
+                Log.d("a " , a);
+                if (a.equals(email)){
+                    Log.d("email  If loop" , a);
+                    b = cursor.getString(1);
+                    Log.d("b " , b);
+                    break;
+                }
+            }
+            while(cursor.moveToNext());
+        }
+        return b;
+
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+        String dropquery= "DROP TABLE IF EXISTS "+TABLE_NAME;
+        db.execSQL(dropquery);
+        this.onCreate(db);
+    }
+
+}
+```
+4) Design the activity_main.xml as the following screenshot:
+You can skip the design and copy the code below for speedy development of the main learning activities:
+
+ ```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="79dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="176dp"
+        android:text="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="130dp"
+        android:text="Don't have an account?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forgotPassword" />
+
+    <Button
+        android:id="@+id/signIn"
+        android:layout_width="243dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="130dp"
+        android:onClick="onSignIn"
+        android:text="Login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="88dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="88dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="130dp"
+        android:onClick="onForgotPassword"
+        android:text="Forgot Password?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signIn" />
+
+    <TextView
+        android:id="@+id/signUp"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="58dp"
+        android:onClick="onSignUp"
+        android:text="Create Account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+5) Add three extra activities as follows SignUpActivity, UserActivity and ForgotPasswordActivity.
+ 
+Continue the design stage or skip this step by copying the following code:
+a)	Activity_sign_up.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="117dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="79dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/signUp"
+        android:layout_width="232dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="100dp"
+        android:onClick="onSignUp"
+        android:text="Sign Up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mobile" />
+
+    <EditText
+        android:id="@+id/fullName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="88dp"
+        android:ems="10"
+        android:hint="Full Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="87dp"
+        android:ems="10"
+        android:hint="Age"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="88dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <TextView
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="184dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="169dp"
+        android:onClick="onLogIn"
+        android:text="Login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accountExist" />
+
+    <TextView
+        android:id="@+id/accountExist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="129dp"
+        android:text="Already have an account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUp" />
+
+    <EditText
+        android:id="@+id/mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="87dp"
+        android:ems="10"
+        android:hint="Mobile"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/age" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="88dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullName" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+b)	Activity_user.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="onSignout"
+    tools:context=".UserActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="368dp"
+        android:layout_marginEnd="146dp"
+        android:text="You are here, welcome to user activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/signout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="146dp"
+        android:onClick="onSignOut"
+        android:text="Signout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+6) Now start the Java coding in MainActivity.java
+Start with defining the UI widgets as class variables:
+```java
+private TextView signUp, forgotPassword;
+private EditText editTextEmail, editTextPassword;
+private Button signIn;
+
+DBHelper helper = new DBHelper(this);
+
+Now, create your table/s
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    signUp = (TextView) findViewById(R.id.signUp);
+
+    signIn = (Button) findViewById(R.id.signIn);
+
+    editTextEmail = (EditText) findViewById(R.id.email);
+    editTextPassword = (EditText) findViewById(R.id.password);
+
+    forgotPassword = (TextView) findViewById(R.id.forgotPassword);
+
+    helper = new DBHelper(this);
+    SQLiteDatabase sb = helper.getWritableDatabase();
+    helper.onCreate(sb);
+
+
+}
+```
+
+The whole class should look like the following:
+
+```java
+package com.example.fitnessapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.util.Log;
+import android.util.Patterns;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    private TextView signUp, forgotPassword;
+    private EditText editTextEmail, editTextPassword;
+    private Button signIn;
+
+    DBHelper helper = new DBHelper(this);
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        signUp = (TextView) findViewById(R.id.signUp);
+
+        signIn = (Button) findViewById(R.id.signIn);
+
+        editTextEmail = (EditText) findViewById(R.id.email);
+        editTextPassword = (EditText) findViewById(R.id.password);
+
+        forgotPassword = (TextView) findViewById(R.id.forgotPassword);
+
+        helper = new DBHelper(this);
+        SQLiteDatabase sb = helper.getWritableDatabase();
+        helper.onCreate(sb);
+
+
+    }
+
+    public void onSignIn(View view) {
+        userLogin();
+    }
+
+    public void onForgotPassword(View view) {
+        startActivity(new Intent(this, ForgotPasswordActivity.class));
+
+    }
+
+
+
+    private void userLogin() {
+        String email = editTextEmail.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+
+        // do all the validation
+        if (email.isEmpty()) {
+            editTextEmail.setError("Email is required");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            editTextEmail.setError("Please provide a valid email!");
+            editTextEmail.requestFocus();
+            return;
+        }
+        if (password.isEmpty()) {
+            editTextPassword.setError("Password is required");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        if (password.length() < 6) {
+            editTextPassword.setError("Min password length should be 6 characters!");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        if(helper.userExists(email,password)){
+
+            String userFullName = helper.getUserName(email);
+            Log.d("Retrieved userfullname", userFullName);
+            Intent i = new Intent(MainActivity.this,UserActivity.class);
+            i.putExtra("username", userFullName);
+            startActivity(i);
+
+        } else{
+            Toast.makeText(this, "Email and/or password don't match.",
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void onSignUp(View view) {
+           startActivity(new Intent(this, SignUpActivity.class));
+
+        }
+
+}
+```
+
+6) Now let’s look at the SignUpActivity. Java class:
+
+```java
+package com.example.fitnessapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.util.Patterns;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class SignUpActivity extends AppCompatActivity {
+    //private TextView banner;
+    private Button signUpUser;
+    private EditText editTextFullName, editTextEmail, editTextPassword, editTextAge, editTextMobile;
+    DBHelper helper = new DBHelper(this);
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sign_up);
+
+        signUpUser = (Button) findViewById(R.id.signUp);
+        editTextFullName = (EditText) findViewById(R.id.fullName);
+        editTextEmail = (EditText) findViewById(R.id.email);
+        editTextPassword = (EditText) findViewById(R.id.password);
+        editTextAge = (EditText) findViewById(R.id.age);
+        editTextMobile = (EditText) findViewById(R.id.mobile);
+
+    }
+
+    public void onSignUp(View view) {
+        SignUpUser();
+    }
+    public void onSignIn(View view) {
+        startActivity(new Intent(this, MainActivity.class));
+
+    }
+
+    private void SignUpUser() {
+        String email = editTextEmail.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+        String fullName = editTextFullName.getText().toString().trim();
+        int age = Integer.parseInt(editTextAge.getText().toString());
+        String mobile = editTextMobile.getText().toString().trim();
+
+        if (fullName.isEmpty()){
+            editTextFullName.setError("Full name is required");
+            editTextFullName.requestFocus();
+            return;
+        }
+        if (email.isEmpty()){
+            editTextEmail.setError("Email is required");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            editTextEmail.setError("Please provide valid email!");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        if (password.isEmpty()){
+            editTextPassword.setError("Password is required");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        if (password.length() < 6){
+            editTextPassword.setError("Min password length should be 6 characters!");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+
+        User user = new User();
+        user.setFullName(fullName);
+        user.setEmail(email);
+        user.setAge(age);
+        user.setMobile(mobile);
+        user.setPassword(password);
+
+        Log.d("user.getFullName", user.getFullName());
+        Log.d("user.getEmail", user.getEmail());
+        Log.d("user.getAge", String.valueOf(user.getAge()));
+        Log.d("user.getMobile", user.getMobile());
+        Log.d("user.getPassword", user.getPassword());
+
+        //helper.insertData(user);
+
+        if(helper.insertData(user)){
+
+            String userFullName = helper.getUserName(email);
+            Log.d("Successful Signup", userFullName);
+            Intent i = new Intent(SignUpActivity.this,UserActivity.class);
+            i.putExtra("username", userFullName);
+            startActivity(i);
+
+        } else{
+            Toast.makeText(this, "Sign up could not be completed, please try again",
+                    Toast.LENGTH_LONG).show();
+        }
+
+
+}
+
+}
+```
+
+Finally, let’s look at the UserActivity class:
+```java
+package com.example.fitnessapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
+public class UserActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user);
+    }
+
+    public void onSignOut(View view) {
+        startActivity(new Intent(this, MainActivity.class));
+    }
+}
+```
+Run the code and discuss it with your peers and tutor. 
+
+Task: Identify and improve upon the poor software development practices present in the code and improve them in your version.
+
+
