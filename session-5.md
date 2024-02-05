@@ -548,6 +548,8 @@ public class DBHelper extends SQLiteOpenHelper {
 5) Add three extra activities as follows SignUpActivity, UserActivity and ForgotPasswordActivity.
  
 Continue the design stage or skip this step by copying the following code:
+
+
 **a)	Activity_sign_up.xml**
 
 ```xml
