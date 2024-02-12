@@ -20,11 +20,10 @@ The next step is to create the user interface for the first fragment that will b
 This user interface will consist of an XML layout file and a fragment class. While these could be added manually, it is quicker to ask Android Studio to create them for us. Within the project tool window, locate the app --> java --> com.example.leedtrinity.fragmentexample entry and right-click on it. From the resulting menu, select the New --> Fragment --> Fragment (blank) as shown in the figure below:
 ![image](https://github.com/DrAShabut/AndroidDev/assets/146723487/e2991d85-8533-4696-aae2-71f2bd5c6c51)
 
-Select the Fragment (Blank) template before clicking the Next button. On the subsequent screen, name the fragment ToolbarFragment with a layout file named fragment_toolbar:
+On the subsequent screen, name the fragment ToolbarFragment with a layout file named fragment_toolbar:
 
-![image](uploads/7896c3a6790f52b948902d3bf0b5de40/image.png)
+![image](https://github.com/DrAShabut/AndroidDev/assets/146723487/55930a36-6653-409d-94b3-acc726368751)
 
- 
 Load the fragment_toolbar.xml file into the layout editor using Design mode, right-click on the FrameLayout entry in the Component Tree panel, and select the Convert FrameLayout to ConstraintLayout menu option, accepting the default settings in the confirmation dialog. Select and delete the default TextView, add a Plain EditText, Seekbar, and Button to the layout and change the view ids to editText1, button1 and seekBar1 respectively.
 
 ![image](uploads/5611d8ed63555091778fb22f76f8995d/image.png)
