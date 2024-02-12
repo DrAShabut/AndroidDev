@@ -74,7 +74,6 @@ package com.example.leedstrinity.fragmentexample;
  
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -173,7 +172,6 @@ Since the Android Support Library is being used for fragment support in earlier 
 ```java
 package com.example.leedstrinity.fragmentexample;
  
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
  
 public class MainActivity extends FragmentActivity implements ToolbarFragment.ToolbarListener {
@@ -181,7 +179,7 @@ public class MainActivity extends FragmentActivity implements ToolbarFragment.To
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment_example);
+        setContentView(R.layout.fragment_toolbar);
     }
  
     public void onButtonClick(int fontsize, String text) {
@@ -189,8 +187,6 @@ public class MainActivity extends FragmentActivity implements ToolbarFragment.To
     }
 }
 ```
-
-**Note: Don't forget to import classes (don't select androidx package, instead use the V4 legacy support libraries).**
 
 With the code changes as they currently stand, the toolbar fragment will detect when the button is clicked by the user and call a method on the activity passing through the content of the EditText field and the current setting of the SeekBar view. It is now the job of the activity to communicate with the Text Fragment and to pass along these values so that the fragment can update the TextView object accordingly.
 
@@ -201,7 +197,6 @@ As outlined in the lecture an activity can communicate with a fragment by obtain
 package com.example.leedstrinity.fragmentexample;
  
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -245,10 +240,19 @@ public void onButtonClick(int fontsize, String text) {
 }
 ```
 
+## Add dependency to Gradle aap
+```xml
+// Java language implementation
+    implementation ("androidx.fragment:fragment:1.6.2")
+```
+
 ## Testing the Application
 
 With the coding for this project now complete, the last remaining task is to run the application. When the application is launched, the main activity will start and will, in turn, create and display the two fragments. When the user touches the button in the toolbar fragment, the onButtonClick() method of the activity will be called by the toolbar fragment and passed the text from the EditText view and the current value of the SeekBar. The activity will then call the changeTextProperties() method of the second fragment, which will modify the TextView to reflect the new text and font size:
  
 ## Summary
 The goal of this example was to work through the creation of an example project intended specifically to demonstrate the steps involved in using fragments within an Android application. Topics covered include the use of the Android Support Library for compatibility with Android versions predating the introduction of fragments, the inclusion of fragments within an activity layout and the implementation of inter-fragment communication.
+
+## Core UI Elements 
+Implement the UI in the pre-activities if you haven't done so yet.
 
