@@ -179,7 +179,7 @@ public class MainActivity extends FragmentActivity implements ToolbarFragment.To
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_toolbar);
+        setContentView(R.layout.activity_main);
     }
  
     public void onButtonClick(int fontsize, String text) {
