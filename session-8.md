@@ -92,10 +92,7 @@ We have written 4 methods with @Test annotation, which means we have 4 unit test
 Running the testAdd() method
 
 
-To run the test add either select the Green play button on the right of the line numbers or select the testAdd method right-click and select Run testAdd(). If you run into an error like TestSuite Empty which I hope you don’t, just click Run -> Edit Configurations and Remove the test configurations under JUnit.
-
-![image](uploads/091a905b66c058ed4059986f70f875f8/image.png) 
-Dealing with Test Suite Empty error
+To run the test add either select the Green play button on the right of the line numbers or select the testAdd method right-click and select Run testAdd(). 
 
 If everything goes well you should see something like the following:
 
