@@ -27,7 +27,10 @@ public class SimpleMath {
 Now let's proceed to write our first unit test. Recall from the lecture slides that local Unit Tests and Instrumented Tests are two different things that are also reflected in the directory structure. We have app\src\androidTest and app\src\test. We will have to put our local Unit tests in the latter.
 
 Before we begin, could you please check your app-level build? gradle file to see if you have the correct dependencies for setting up local unit tests. By default, Android Studio should have put those there but if not copy-paste the following:
-test implementation 'junit:junit:4.+' or testCompile 'junit:junit:4.+' if you run an older gradle plugin.
+
+test implementation 'junit:junit:4.+' 
+
+Check here for a complete guide on adding dependencies to Gradle for various tests: https://developer.android.com/training/testing/local-tests
 
 Right-click on your test folder (not the androdTest folder) and click New -> Java Class. Name it SimpleMathTest to reflect the unit test is for SimpleMath.java.
 
