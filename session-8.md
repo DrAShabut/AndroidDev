@@ -305,12 +305,12 @@ Add a button now to your layout and add the following test case to check the int
 
 ```java
 onView(withId(R.id.editTextFirstName)).perform(ViewActions.clearText())
-                .perform(ViewActions.typeText(“My Name”),closeSoftKeyboard());
-onView(withId(R.id.get_name_button)).perform(click());
-onView(withId(R.id.get_name_button)).check(matches(not(isEnabled())));
+                .perform(ViewActions.typeText("My Name"),closeSoftKeyboard());
+        onView(withId(R.id.button)).perform(click());
+        onView(withId(R.id.button)).check(matches(isEnabled()));
 ```
 
-## Add test cases to your Route app.
+## Now add test cases to your BookClub app.
 
 Happy coding
 
