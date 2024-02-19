@@ -1,13 +1,9 @@
 # Android App Testing
-
+![image](uploads/7e766148270fd32ad121f48164e0b921/image.png)
 # Unit Testing in Android
-To Write your first local unit test in Android, the first thing I want you to do is to create an Android Project, File -> New -> New Project.
+To Write your first local unit test in Android, the first thing I want you to do is to create a new Android Project and name it a TestDemo.
 
-![image](uploads/d840b2fa87a9f8c62480457eb29b1d0b/image.png) 
-Create new Project in Android Studio
-
-
-Let's now write a utility class for this demo. Let's say we need an App that does simple mathematics like addition, subtraction, multiplication and division. We will now write a SimpleMath.java class. Right-click on your main package, com.example.java and select New -> New java class. Name it "SimpleMath". Add the following basic methods:
+Let's now write a utility class for this demo. Let's say we need to test your Calculator App that does simple mathematics of addition, subtraction, multiplication and division. We will now write a SimpleMath.java class to carry out the test. Right-click on your main package, com.example.java and select New -> New java class. Name it "SimpleMath". Add the following basic methods:
 
 ```java
 package com.example.testdemo;
@@ -28,10 +24,10 @@ public class SimpleMath {
     }
 }
 ```
-Now let's proceed to write our first unit test. Recall from the lecture slides, Local Unit Test vs. Instrumented Tests, they are two different things that are also reflected in the directory structure. We have app\src\androidTest and app\src\test. We are going to have to put our Local Unit tests in the latter.
+Now let's proceed to write our first unit test. Recall from the lecture slides that local Unit Tests and Instrumented Tests are two different things that are also reflected in the directory structure. We have app\src\androidTest and app\src\test. We will have to put our local Unit tests in the latter.
 
-Before we begin, I want you to check your app-level build.gradle file to see if you have the correct dependencies for setting up local unit tests. By default, the android studio should have put those there but if not copy-paste the following:
-test implementation 'junit:junit:4.+' or testCompile 'junit:junit:4.+' if you are running an older gradle plugin.
+Before we begin, could you please check your app-level build? gradle file to see if you have the correct dependencies for setting up local unit tests. By default, Android Studio should have put those there but if not copy-paste the following:
+test implementation 'junit:junit:4.+' or testCompile 'junit:junit:4.+' if you run an older gradle plugin.
 
 Right-click on your test folder (not the androdTest folder) and click New -> Java Class. Name it SimpleMathTest to reflect the unit test is for SimpleMath.java.
 
@@ -59,7 +55,7 @@ public class SimpleMathTest {
     public void testAdd() {
         int total = simpleMath.add(4, 5);
         assertEquals("Simple Math is not adding correctly", 9, total);
-        //The message here is displayed iff the test fails
+        //The message here is displayed if the test fails
     }    
     @Test
     public void testDiff() {
@@ -80,11 +76,11 @@ public class SimpleMathTest {
 ```
 # Explanation:
 
-The code private SimpleMath simpleMath; declares an instance of the SimpleMath class in this test class. The JUnit here is the test framework, it provides us with easy to read Annotations like @Before, @After and @Test and shares similar syntax and/or approach across other programming paradigms like JSUnit for Javascript, PHPUnit for PHP, etc.
+The code 'private SimpleMath simpleMath' declares an instance of the SimpleMath class in this test class. The JUnit here is the test framework, it provides us with easy to read Annotations like @Before, @After and @Test and shares similar syntax and/or approach across other programming paradigms like JSUnit for Javascript, PHPUnit for PHP, etc.
 
 Now as the comments indicate, @Before is executed before the actual @Test executes. We have instantiated the simpleMath object in the setUpmethod (method).
 
-We have written 4 methods with @Test annotation, which means we have 4 unit tests that can either pass or fail. The tested method tests the Addition functionality of SimpleMath. In this method, we have used the simpleMath instance to add 4 and 5 and store it in an int total . In the next line assertEquals("Simple Math is not adding correctly", 9, total); we are checking if total or is not equal to 9, which it should be if our SimpleMath class is functioning correctly. The assertEquals() is one of the many static methods provided by the JUnit framework. It takes at least two parameters as the String parameter is optional which is displayed in case of test failure. The second and third parameters of the assertEquals method are expected and actual values in strict order.
+We have written 4 methods with @Test annotation, which means we have 4 unit tests that can either pass or fail. The tested method tests the Addition functionality of SimpleMath. In this method, we have used the simpleMath instance to add 4 and 5 and store it in an int 'total' variable. In the next line assertEquals("Simple Math is not adding correctly", 9, total); we are checking if total is or is not equal to 9, which it should be if our SimpleMath class is functioning correctly. The assertEquals() is one of the many static methods provided by the JUnit framework. It takes at least two parameters as the String parameter is optional which is displayed in case of test failure. The second and third parameters of the assertEquals method are expected and actual values in strict order.
 
 # Run the testAdd()
 
@@ -93,7 +89,7 @@ We have written 4 methods with @Test annotation, which means we have 4 unit test
 Running the testAdd() method
 
 
-To run the test add either select the Green play button on the right of the line numbers or select the testAdd method right-click and select Run testAdd(). If you run into error like TestSuite Empty which I hope you don’t, just click Run -> Edit Configurations and Remove the test configurations under JUnit.
+To run the test add either select the Green play button on the right of the line numbers or select the testAdd method right-click and select Run testAdd(). If you run into an error like TestSuite Empty which I hope you don’t, just click Run -> Edit Configurations and Remove the test configurations under JUnit.
 
 ![image](uploads/091a905b66c058ed4059986f70f875f8/image.png) 
 Dealing with Test Suite Empty error
@@ -103,7 +99,7 @@ If everything goes well you should see something like the following:
 ![image](uploads/2563a8a1e9a5bb7a06ebc53fcf2ba70b/image.png) 
 testAdd() test Passed.
 
-And you have now written your first local unit test in Android Application. Also notice how fast the test runs and how we did not need to use any device or emulator as the SimpleMath class does not require any Android Instrumentation or device features. The JVM on your development machine and the JVM on your phone is exactly the same and we can thus ensure the functionality that we just tested will work fine in an Android Device too.
+You have now written your first local unit test in Android Application. Also, notice how fast the test runs and how we did not need to use any device or emulator as the SimpleMath class does not require any Android Instrumentation or device features. The JVM on your development machine and the JVM on your phone are the same and we can thus ensure the functionality that we just tested will work fine on an Android Device too.
 
 # Espresso Instrumentation and UI Testing:
 
@@ -118,7 +114,7 @@ First is the part of the view that belongs to the app. Testers will be able to i
 
 ## ViewMatchers
 
-Views are always in a hierarchy called the View Hierarchy. For the test cases to navigate the view hierarchy, ViewMatchers are used. Technically, they are a collection of objects and they implement the Matcher interface. Testers will be able to pass one or more of these objects to the OnView() method provided by Espresso Component.
+Views are always in a hierarchy called the View Hierarchy. For the test cases to navigate the view hierarchy, ViewMatchers are used. Technically, they are a collection of objects and they implement the Matcher interface. Testers will be able to pass one or more of these objects to the OnView() method provided by the Espresso Component.
 
 ## ViewActions
 
@@ -130,7 +126,7 @@ Assertions complete a test case. They are the components that check if the test 
 
 # Example:
 
-Create a new app in Android and call it EspressoTest and follow the next instructions:
+Create a new app in Android, call it EspressoTest and follow the next instructions:
 
 ## Espresso setup instructions
 
