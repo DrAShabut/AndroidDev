@@ -141,7 +141,7 @@ To avoid flakiness, we highly recommend that you turn off system animations on t
 
 ## Add Espresso dependencies
 
-To add Espresso dependencies to your project, complete the following steps:
+To add Espresso dependencies to your project if not been added by default, complete the following steps:
 
 1.	Open your app’s build.gradle file. This is usually not the top-level build.gradle file but app/build.gradle.
 
