@@ -240,7 +240,10 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 ## Run tests
 You can run your tests in Android Studio.
 
-## In Android Studio (you may not need this if everythinh is running as expected)
+## In Android Studio 
+
+
+Note: You may not need this if everything is running as expected.
 
 To create a test configuration in Android Studio, complete the following steps:
 1. Open Run > Edit Configurations.
@@ -251,7 +254,7 @@ To create a test configuration in Android Studio, complete the following steps:
 6. Check if the test is passed.  
  
 
-Now add a PlainText to your xml layout, change the id to editTextFirstName.
+Now add a PlainText to your XML layout, and change the id to editTextFirstName.
 
 Go to the HelloWorldEspressoTest class and add the following method:
 
