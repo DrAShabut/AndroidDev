@@ -240,7 +240,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 ## Run tests
 You can run your tests in Android Studio.
 
-## In Android Studio
+## In Android Studio (you may not need this if everythinh is running as expected)
 
 To create a test configuration in Android Studio, complete the following steps:
 1. Open Run > Edit Configurations.
