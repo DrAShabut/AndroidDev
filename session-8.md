@@ -281,7 +281,7 @@ public void editTextTest() {
 }
 ```
 
-To control the test time, you can add the following code:
+To control the test time, you can add the method 'pauseTestFor' and call it from the 'editTestTest' method:
 ```java
 @Test
 public void editTextTest() {
