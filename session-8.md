@@ -126,7 +126,7 @@ See the AudioManager [link](https://developer.android.com/reference/android/medi
  
 Using the Attributes panel, change the layout_width and layout_height attributes to match_constraint and wrap_content respectively. Also, remove the constraint connecting the bottom of the VideoView to the bottom of the parent ConstraintLayout. 
 
-3.	Download the Video File from [Moodle](https://moodle.leedstrinity.net/mod/resource/view.php?id=252509) and add it to the raw directory created in the previous example.
+3.	Download the Video File from [Google](http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4) and add it to the raw directory created in the previous example.
 
 4.	The next step is to configure the VideoView with the path of the video to be played and then start the playback. This will be performed when the VideoPlayerActivity has been initialised, so load the VideoPlayerActivity.java file into the editor and modify it as outlined in the following listing:
 ```java
@@ -214,7 +214,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
 # Exercise 3: MediaPlayer app using Media3 ExpoPlayer APIs
 Create a new project in Android Studio and call it ExpoPlayer. Use the default options and select Empty Views Activity when prompted for Activity Type.
 1. Add Dependencies, make sure you have the necessary dependencies in your build.gradle file. Add the following lines to your app-level build.gradle:
-2. 
+ 
 ```XML
 implementation "androidx.media3:media3-exoplayer:1.2.1"
 implementation "androidx.media3:media3-ui:1.2.1"
