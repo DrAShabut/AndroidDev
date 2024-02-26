@@ -221,27 +221,37 @@ implementation ("androidx.media3:media3-ui:1.2.1")
 implementation ("androidx.media3:media3-common:1.2.1")
 ```
 
-2. Create an ExoPlayer Instance, in your Java class, create an instance of SimpleExoPlayer:
+2. Go to your activity_main.xml and add a PlayerView to display the video and audio controls using the following code:
+
+```XML
+<androidx.media3.ui.PlayerView
+android:id="@+id/exoPlayerView"
+android:layout_width="match_parent"
+android:layout_height="match_parent"/>
+```
+
+3. Create an ExoPlayer Instance, in your Java class, create an instance of SimpleExoPlayer:
 
 ```Java
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.media3.common.MediaItem;
+import androidx.media3.exoplayer.ExoPlayer;
+import androidx.media3.ui.PlayerView;
+
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.exoplayer2.MediaItem;
-import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.ui.PlayerView;
+
 
 public class MainActivity extends AppCompatActivity {
-    private SimpleExoPlayer exoPlayer;
+    private ExoPlayer exoPlayer;
     private PlayerView playerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         // Initialize ExoPlayer
-        exoPlayer = new SimpleExoPlayer.Builder(this).build();
+        exoPlayer = new ExoPlayer.Builder(this).build();
 
         // Find the PlayerView in your layout
         playerView = findViewById(R.id.exoPlayerView);
@@ -266,28 +276,17 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-3. Go to your activity_main.xml code and add a PlayerView to display the video and audio controls using the following code:
 
-```XML
-<!-- res/layout/activity_media_player.xml -->
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <com.google.android.exoplayer2.ui.PlayerView
-        android:id="@+id/exoPlayerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-</FrameLayout>
-```
 4. Permissions, don’t forget to add the necessary permissions for internet access in your AndroidManifest.xml:
 
 ```XML
-
 <uses-permission android:name="android.permission.INTERNET" />
 ```
+Also, you need to add the following line of code under the application tag in your AndroidManifest.xml:
+```XML
+android:usesCleartextTraffic="true"
+```
+
 5. Run Your App, build and run your app. You should see the video playing in the PlayerView.
 
 Task: Replace the sample URL (http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4) with your actual audio or video source URL.
