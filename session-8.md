@@ -216,9 +216,9 @@ Create a new project in Android Studio and call it ExpoPlayer. Use the default o
 1. Add Dependencies, make sure you have the necessary dependencies in your build.gradle file. Add the following lines to your app-level build.gradle:
  
 ```XML
-implementation "androidx.media3:media3-exoplayer:1.2.1"
-implementation "androidx.media3:media3-ui:1.2.1"
-implementation "androidx.media3:media3-common:1.2.1"
+implementation ("androidx.media3:media3-exoplayer:1.2.1")
+implementation ("androidx.media3:media3-ui:1.2.1")
+implementation ("androidx.media3:media3-common:1.2.1")
 ```
 
 2. Create an ExoPlayer Instance, in your Java class, create an instance of SimpleExoPlayer:
@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_media_player);
+        setContentView(R.layout.activity_main);
 
         // Initialize ExoPlayer
         exoPlayer = new SimpleExoPlayer.Builder(this).build();
