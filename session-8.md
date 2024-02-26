@@ -118,10 +118,8 @@ See the AudioManager [link](https://developer.android.com/reference/android/medi
 
 # Exercise 2: Video Playback on Android using the VideoView and MediaController Classes
 
-1.	Create a new empty activity in the same project above and call it VideoPlayerActivity as follows:
+1.	Create a new empty activity in the same project above and call it VideoPlayerActivity.
 
-![image](uploads/e78d48c2146de563f869153b4fcb671a/image.png)
- 
 2.	Open the activity_video_player.xml Layout and from the Widgets category of the Palette panel, drag and drop a VideoView instance onto the layout so that it fills the available canvas area, as follows: 
 
 ![image](uploads/6c874434d074a971df59a5dcaf1577d1/image.png)
