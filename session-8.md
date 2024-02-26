@@ -291,7 +291,100 @@ android:usesCleartextTraffic="true"
 
 Task: Replace the sample URL (http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4) with your actual audio or video source URL.
 
-# Exercise 4: Take a photo using the CameraX library
+# Exercise 4: Taking a photo with the default camera app
+If your application needs an image from the camera but is not a camera replacement app, it may be better to allow the default camera app to take the picture. This also respects your user's preferred camera application.
+When you take a photo, unless it is specific to your application, it's considered good practice to make the photo publicly available (this allows it to be included in the user's photo gallery). So, this exercise will demonstrate using the default photo application to click a picture, save it to the public folder, and display the image.
+
+Getting ready ...
+Create a new project in Android Studio and call it UsingTheDefaultCameraApp. Use the default options and select Empty Activity on the Add an Activity to Mobile dialog.
+
+How to do it ...
+We're going to create a layout with an ImageView and button. The button will create an Intent to launch the default Camera app. When the camera app is done, our app will get a callback. We'll check the result and display the picture if available. Start by opening the Android Manifest and follow these steps:
+
+Add the following permission:
+
+
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
+
+Open activity_main.xml and replace the existing TextView with ImageView and Button as the following screen:
+
+
+Note: Add android:onClick="takePicture" as a part of setting the button’s attributes.
+
+Open MainActivity.java and add the following global variables to the MainActivity class:
+
+
+final int PHOTO_RESULT=1;
+private Uri mLastPhotoURI=null;
+
+
+
+Add the following method to create the URI for the photo:
+
+
+private Uri createFileURI() {
+    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
+            .format(System.currentTimeMillis());
+    String fileName = "PHOTO_" + timeStamp + ".jpg";
+    return Uri.fromFile(new File(Environment
+            .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),fileName));
+}
+
+
+Note: add this method after onCreate()method in the MainActivity.java.
+
+Add the following method to handle the button click:
+
+
+public void takePicture(View view) {
+    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+        mLastPhotoURI = createFileURI();
+        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mLastPhotoURI);
+        startActivityForResult(takePictureIntent, PHOTO_RESULT);
+    }
+}
+
+
+
+Add a new method to override onActivityResult() as follows:
+
+
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == PHOTO_RESULT && resultCode == RESULT_OK ) {
+        ImageView imageView = findViewById(R.id.imageView);
+        imageView.setImageBitmap(BitmapFactory.decodeFile(mLastPhotoURI.getPath()));
+    }
+}
+
+
+
+Add the following code to the end of the existing onCreate() method:
+
+
+StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+StrictMode.setVmPolicy(builder.build());
+
+if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) 
+        != PackageManager.PERMISSION_GRANTED ) {
+    ActivityCompat.requestPermissions(this, 
+            new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},0);
+}
+
+
+
+You're ready to run the application on a device or emulator.
+
+
+How it works ...
+There are two parts to working with the default camera app. The first is to set up the Intent to launch the app. We create the Intent using MediaStore.ACTION_IMAGE_CAPTURE to indicate we want a photo app. We verify a default app exists by checking the results from resolveActivity(). As long as it's not null, we know an application is available to handle the Intent. (Otherwise, our app will crash.) We create a filename and add it to the Intent with putExtra(MediaStore.EXTRA_OUTPUT, mLastPhotoURI).
+When we get the callback in onActivityResult(), we first make sure it's PHOTO_RESULT and RESULT_OK (the user could have cancelled), then we load the photo in ImageView.
+You might be wondering what the StrictMode calls are for in onCreate(). Those lines of code disable an additional security check made by the OS. If we don't disable StrictMode, the app will crash when creating the file URI with a FileUriExposedException exception.  For a production app, one solution would be to create a FileProvider as we did in the Accessing External Storage with Scoped Directories.
+
+# Exercise 5: Take a photo using the CameraX library
 CameraX is a powerful Jetpack library that simplifies integrating the device camera into your Android app. It provides a consistent camera experience across different devices. Let’s walk through the steps to take a photo using CameraX:
 
 1. Add Dependencies, in your app-level build.gradle file, add the following dependency:
