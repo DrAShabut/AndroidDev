@@ -2,7 +2,7 @@
 ![image](uploads/7e766148270fd32ad121f48164e0b921/image.png)
 
 
-This Tutorial shows you how to write a media-playing app that interacts with the user and the system to get good performance and a pleasant user experience. It also looks at how to use the CameraX library using the new CameraX app.
+This Tutorial shows you how to write a media-playing app that interacts with the user and the system to get good performance and a pleasant user experience. It also looks at how to use the camera hardware to capture images, and record videos using the new CameraX app.
 
 
 # Exercise 1: MediaPlayer APIs to play a sound file.
