@@ -407,69 +407,210 @@ CameraX is a powerful Jetpack library that simplifies integrating the device cam
 
 1. Add Dependencies, in your app-level build.gradle file, add the following dependency:
 ```XML
-implementation "androidx.camera:camera-camera2:1.1.0"
-```
+def camerax_version = "1.2.1"
+    implementation "androidx.camera:camera-core:${camerax_version}"
+    implementation "androidx.camera:camera-camera2:${camerax_version}"
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    implementation "androidx.camera:camera-video:${camerax_version}"
 
-2. Set Up CameraX, initialise CameraX in your Activity:
+    implementation "androidx.camera:camera-view:${camerax_version}"
+    implementation "androidx.camera:camera-extensions:${camerax_version}"
+```
+Note: change the camera version if you want to use a newer version.
+
+2. Set Up CameraX, initialise CameraX in your Activity and take a photo using 'takePhoto' method. The whole activity should look like the following: 
 
 ```Java
-import androidx.camera.core.CameraX;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.camera.core.CameraSelector;
+import androidx.camera.core.ImageCapture;
+import androidx.camera.core.ImageCaptureException;
+import androidx.camera.core.ImageProxy;
 import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
-import androidx.camera.view.PreviewView;
-import androidx.lifecycle.LifecycleOwner;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
-// ...
+import android.content.ContentValues;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.widget.Toast;
 
-// Inside your activity
-PreviewView previewView = findViewById(R.id.previewView); // Your preview view
-LifecycleOwner lifecycleOwner = this; // Use your lifecycle owner
+import com.android.example.camerajavaapp.databinding.ActivityMainBinding;
+import com.google.common.util.concurrent.ListenableFuture;
 
-// Initialize CameraX
-ProcessCameraProvider cameraProvider = ProcessCameraProvider.getInstance(this);
-cameraProvider.addListener(() -> {
-    try {
-        // Set up the preview use case
-        Preview preview = new Preview.Builder().build();
-        preview.setSurfaceProvider(previewView.getSurfaceProvider());
-
-        // Bind the preview use case to the lifecycle
-        cameraProvider.bindToLifecycle(lifecycleOwner, preview);
-    } catch (Exception e) {
-        // Handle exceptions
-    }
-});
-```
-3. Capture a Photo, to capture a photo, you’ll need to add an image capture use case. Here’s how you can do it:
-
-```Java
-import androidx.camera.core.ImageCapture;
-import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-// ...
+public class MainActivity extends AppCompatActivity {
+    private ActivityMainBinding viewBinding;
+    private ImageCapture imageCapture;
+    private ExecutorService cameraExecutor;
 
-// Inside your activity
-ExecutorService executor = Executors.newSingleThreadExecutor();
-ImageCapture imageCapture = new ImageCapture.Builder().build();
+    private static final String TAG = "CameraXApp";
+    private static final String FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS";
+    private static final int REQUEST_CODE_PERMISSIONS = 10;
 
-// Capture a photo
-File outputFile = new File(getExternalFilesDir(null), "my_photo.jpg");
-imageCapture.takePicture(outputFile, executor,
-    new ImageCapture.OnImageSavedCallback() {
-        @Override
-        public void onImageSaved(File file) {
-            // Photo saved successfully
+    private String[] REQUIRED_PERMISSIONS = {
+            android.Manifest.permission.CAMERA
+    };
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(viewBinding.getRoot());
+
+        // Request permission if not granted
+        if (allPermissionsGranted()) {
+            startCamera();
+        } else {
+            ActivityCompat.requestPermissions(
+                    this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS);
         }
 
-        @Override
-        public void onError(ImageCaptureException exception) {
-            // Handle capture error
+        viewBinding.imageCaptureButton.setOnClickListener( v -> takePhoto());
+        cameraExecutor = Executors.newSingleThreadExecutor();
+    }
+
+    // Take photo
+    private void takePhoto() {
+        if (imageCapture == null) {
+            return;
         }
-    });
+
+        ContentValues contentValues = getContentValues();
+
+        ImageCapture.OutputFileOptions outputOptions = new ImageCapture.OutputFileOptions.Builder(
+                getContentResolver(),
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                contentValues)
+                .build();
+
+        imageCapture.takePicture(
+                ContextCompat.getMainExecutor(this),
+                new ImageCapture.OnImageCapturedCallback() {
+                    @Override
+                    public void onCaptureSuccess(ImageProxy image) {
+                        super.onCaptureSuccess(image);
+                        Log.e(TAG, "Photo capture successful");
+                    }
+
+                    @Override
+                    public void onError(ImageCaptureException exception) {
+                        Log.e(TAG, "Photo capture failed : " + exception.getMessage(), exception);
+                    }
+                });
+
+
+        imageCapture.takePicture(
+                outputOptions,
+                ContextCompat.getMainExecutor(this),
+                new ImageCapture.OnImageSavedCallback() {
+                    @Override
+                    public void onError(@NonNull ImageCaptureException exc) {
+                        Log.e(TAG, "Failed to save photo : " + exc.getMessage(), exc);
+                    }
+
+                    @Override
+                    public void onImageSaved(@NonNull ImageCapture.OutputFileResults output) {
+                        String msg = "Photo saved successfully\n : " + output.getSavedUri();
+                        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, msg);
+                    }
+                }
+        );
+    }
+
+    //Path where the taken photos will be saved
+    @NonNull
+    private static ContentValues getContentValues() {
+        String name = new SimpleDateFormat(FILENAME_FORMAT, Locale.US)
+                .format(System.currentTimeMillis());
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, name);
+        contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg");
+
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
+            contentValues.put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/Dalnim-CameraX-Image");
+        }
+        return contentValues;
+    }
+
+    //Run the camera and show the video being shot in the preview.
+    private void startCamera() {
+        ListenableFuture<ProcessCameraProvider> cameraProviderFuture = ProcessCameraProvider.getInstance(this);
+
+        cameraProviderFuture.addListener(new Runnable() {
+            @Override
+            public void run() {
+                try {
+
+                    ProcessCameraProvider cameraProvider = cameraProviderFuture.get();
+
+                    // Preview
+                    Preview preview = new Preview.Builder().build();
+                    preview.setSurfaceProvider(viewBinding.viewFinder.getSurfaceProvider());
+
+                    imageCapture = new ImageCapture.Builder().build();
+                    CameraSelector cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA;
+
+                    cameraProvider.unbindAll();
+
+                    cameraProvider.bindToLifecycle(
+                            MainActivity.this, cameraSelector, preview, imageCapture);
+
+                } catch (ExecutionException | InterruptedException exc) {
+                    Log.e(TAG, "Camera viewer binding failure", exc);
+                }
+            }
+        }, ContextCompat.getMainExecutor(this));
+    }
+
+    //Check if you have camera permission
+    private boolean allPermissionsGranted() {
+        for (String permission : REQUIRED_PERMISSIONS) {
+            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //Handling camera permission request results
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+            if (allPermissionsGranted()) {
+                startCamera();
+            } else {
+                Toast.makeText(this, "It can be used only when the user gives permission", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        imageCapture = null;
+        cameraExecutor.shutdown();
+    }
+}
 ```
-4. Permissions, don’t forget to add the necessary permissions for camera access in your AndroidManifest.xml:
+For more explanation follow the codelabs here: https://developer.android.com/codelabs/camerax-getting-started#1
+
+3. Permissions, don’t forget to add the necessary permissions for camera access in your AndroidManifest.xml:
 
 ```XML
 <uses-permission android:name="android.permission.CAMERA" />
