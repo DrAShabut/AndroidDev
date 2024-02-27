@@ -615,14 +615,27 @@ For more explanation follow the codelabs here: https://developer.android.com/cod
 ```XML
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-feature android:name="android.hardware.camera.any" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
-5. Display the Preview, make sure you have a PreviewView in your layout (activity_main.xml):
+5. Display the Preview, make sure you have a PreviewView and a button in your layout (activity_main.xml):
 
 ```XML
 <androidx.camera.view.PreviewView
-    android:id="@+id/previewView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+        android:id="@+id/viewFinder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:id="@+id/image_capture_button"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginBottom="50dp"
+        android:elevation="2dp"
+        android:text="@string/take_photo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 ```
 
 6. Run Your App, build and run your app. You’ll see the camera preview in the PreviewView. When you capture a photo, it will be saved to the specified file location.
