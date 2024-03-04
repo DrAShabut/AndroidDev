@@ -284,9 +284,11 @@ To add a menu to your project follow these steps:
 1. Create a new project and call it UIAlerts.
 2. Create a menu folder under res folder in your project.
 3. Create a new menu resource file by right-clicking on the menu folder and selecting New > Menu Resource File.
-4. Name the new file book_menu.xml.
+4. ![image](https://github.com/DrAShabut/AndroidDev/assets/146723487/4f19daee-57e5-4e2a-b0fe-f32a4034f293)
+
+5. Name the new file book_menu.xml.
 ![image](https://github.com/DrAShabut/AndroidDev/assets/146723487/3e66d801-dcc5-4ef9-97d8-46fcf337a5f9)
-5. In the book_menu.xml file, add menu and menu items using the design layout as follows:
+6. In the book_menu.xml file, add menu and menu items using the design layout as follows:
 ![image](https://github.com/DrAShabut/AndroidDev/assets/146723487/07ac17bd-02c4-48c9-bcc3-a59dad9e26aa)
 
 Alternatively, use the following code:
