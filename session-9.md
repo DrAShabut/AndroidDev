@@ -1,8 +1,10 @@
-# Polish Your App and Get It Ready to Release
+# Polish Your App and Get it Ready to Release
 
 # Exercise 1: How to schedule an alarm
+Occasionally, applications cannot depend on WorkManager for task execution, especially when the work must be performed at a precise moment. WorkManager isn't tailored for scheduling tasks at specific times, making it challenging for apps to dictate the exact execution time. In such cases, it is recommended for apps to utilise Android's AlarmManager API, enabling them to schedule "alarms" that trigger at predefined times.
+
 ## Getting ready
-Create a new project in Android Studio and call it Alarms. Use the default Phone & Tablet option and select Empty Activity when prompted for Activity Type.
+Create a new project in Android Studio and call it Alarms. Use the default Phone & Tablet option and select Empty Views Activity when prompted for Activity Type.
 
 ## How to do it?
 Setting an alarm requires a Pending Intent, which Android sends when the alarm is triggered. Therefore, we need to set up a Broadcast Receiving to capture the alarm intent. Your UI will consist of just a simple button to set the alarm. To start, open the Android Manifest and follow these steps:
