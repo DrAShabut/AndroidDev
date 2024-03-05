@@ -353,7 +353,111 @@ Alternatively, use the following code:
 ```XML   
 android:theme="@style/Theme.AppCompat.Light" or
 android:theme="@style/Theme.AppCompat.Dark"
-``` 
+```
+
+## Adding a nav bar to your app.
+1. Add a new resource file to your res/menu folder and call it bottom_nav_menu.xml.
+2. Add the follwing code to your bottom_nav_menu file:
+```XML   
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/navigation_user"
+        android:icon="@drawable/ic_user"
+        android:title="User" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_notification"
+        android:title="Notifications" />
+
+</menu>
+```
+3. Go to your activity_main.xml and add a Google Material BottomNavigationView and a placeholder for Fragement using a fragment container. The code is as follows:
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Placeholder for fragment container -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation" />
+    <!-- Bottom Navigation View -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/cardview_light_background"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+4. Create Fragments (HomeFragment.java, UserFragment.java, NotificationsFragment.java). Create fragments for each section that you want to display and handle their respective layouts and functionalities.
+5. Go to your MainActivity.java code and add the following class variable and update the OnCreate() method by adding the following code:
+
+```Java
+private BottomNavigationView bottomNavigationView;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
+        // Display the initial fragment on app launch
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new HomeFragment()).commit();
+    }
+```
+6. Add this code to your java code to handle the selected fragments:
+
+```Java
+   private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(MenuItem item) {
+                    Fragment selectedFragment = null;
+                    if (item.getItemId() == R.id.navigation_home) {
+                        selectedFragment = new HomeFragment();
+                    } else if (item.getItemId() == R.id.navigation_user) {
+                        selectedFragment = new UserFragment();
+                    } else if (item.getItemId() == R.id.navigation_notifications) {
+                        selectedFragment = new NotificationsFragment();
+                    }
+                    // Replace the currently displayed fragment with the selected one
+
+                    if (selectedFragment != null) {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                                selectedFragment).commit();
+                        return true;
+                    } else return false;
+
+
+                }
+            };
+```
+7. Run your app and you should see the result as following:
+![image](https://github.com/DrAShabut/AndroidDev/assets/146723487/c042afdd-010b-46e5-a3e1-44a19c7a45e1)
+
 ## Resources
 
 •	AlarmManager Developer Docs: https://developer.android.com/reference/android/app/AlarmManager.html
