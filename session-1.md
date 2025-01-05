@@ -43,9 +43,9 @@ _**Now you are ready to run your application**_
 
 7. Click the Run menu and select Run ‘app’ command according to the following screen:
 
-![image](uploads/f9a3f5fca79d652746708a8e3d81fd7d/image.png)
+![image](https://github.com/user-attachments/assets/872c190a-6120-4315-ac96-0007b921048e)
  
-8. Select the deployment target (i.e. where do you want to run your app) by creating a virtual device or connecting a real device.
+8. We have already created a virtual device for you to run your app but if you use your own laptop, you will need to create a virtual device or connect a real device.
   
 You will see an error message “**No target device found**” at this stage as there is "**No Device**" yet to run your app. Click "**No Device**" and then click "**Open AVD Manager**". You will see a screen similar to the following:
 
