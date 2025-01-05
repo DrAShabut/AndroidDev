@@ -11,7 +11,7 @@ After finishing this tutorial, you'll be familiar with some Android words. You'l
 
 **What You Need:**
 
-You'll need some space on your computer to install Android Studio if you want to use your own. If you have an Android device, grab a USB cable to connect it to your computer. It's faster to test your apps on a real device than a virtual one. Don't worry if you don't have your own; you can ask the LTU Media Centre to lend you a tablet for the semester. Let's get started!
+You'll need space on your computer to install Android Studio if you want to use your own. If you have an Android device, you can grab a USB cable to connect it to your computer. It's faster to test your apps on a real device than a virtual one. Don't worry if you don't have your own; you can ask the LTU Media Centre to lend you a tablet for the semester. Let's get started!
 
 **Hello World Example**
 
