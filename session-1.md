@@ -35,9 +35,9 @@ For guidance on installing Android Studio, exploring its features, and understan
 
 - _It is preferred to keep all the examples in one folder and name it “Android App Development”._ 
 
-6. Click Finish to see your app created with an Activity (Java-based file) called MainActivity and a Layout (XML-based file) called activity_main. If your project is created successfully, you will see the following project screen:
+6. Click Finish to see your app created with an Activity (Java-based file) called MainActivity and a Layout (XML-based file) called activity_main. Creating android projects may take some time as the Build system 'Gradle' needs to build all the dependency, so don't touch anything while the system is busy with building your app. If your project is created successfully, you will see the following project screen:
 
-![image](uploads/252b9f3d0766cd65243d9e0abecaed5e/image.png) 
+![image](https://github.com/user-attachments/assets/a2a4bc16-22c4-4f69-a4ca-35bd6554745e)
 
 _**Now you are ready to run your application**_
 
