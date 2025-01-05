@@ -62,19 +62,17 @@ Well done you have created your first ‘Hello World’ app.
  
 2. Delete the ‘Hello World!’ TextView by clicking it and then pressing ‘delete’ button from your keyboard. 
 
-3. From the palette (in the above screen) where all Widgets are available, add a TextView and a Button to your project by clicking, dragging and dropping on the activity design in the required location. The design will look like the following screen:
+3. From the palette (in the above screen) where all Widgets are available, add a TextView and a Button to your project by clicking, dragging and dropping on the activity design in the required location. 
 
-![image](uploads/6a5460f15298a043473edea6ee3bcb96/image.png) 
+4. Click the Button as in the screen above and change the ID on the right-hand side to ‘firstButton’ and create an event on the onClick option named ‘pressMeButton’. The design will look like the following screen:
 
-4. Click the Button as in the screen above and change the ID on the right-hand side to ‘firstButton’ and create an event on the onClick option named ‘pressMeButton’. 
-
-![image](uploads/44707980dd1a4006db555a76e060accb/image.png)
+![image](https://github.com/user-attachments/assets/30dd9021-0ca2-4b70-b06b-b6f176d34853)
  
-5. Click on the Code tab at the top right of the screen above and the xml code will appear as follow: 
+5. Click on the Code button at the top right of the screen above and the xml code will appear as follow: 
 
-![image](uploads/b133c6cb485ab1ce7c7e4d6a8663c154/image.png)
+![image](https://github.com/user-attachments/assets/36ccf6db-a9a9-4bcc-8b36-ad2a1d160e81)
  
-6. Move the pointer to the ‘pressMeButton’ event and a small help light bulb will appear. Press on the option ‘Create ‘pressMeButton(View)’ in ‘MainActivity’’ option as in the screen below:
+6. Move the pointer to the ‘pressMeButton’ event and a small help light bulb will appear. Press on the option ‘Create ‘pressMeButton(View)’ in ‘MainActivity’’ option as in the screen below or write the code yourself:
 
 ![image](uploads/83c2d8abd6a1398246463aa6bd3f569d/image.png)
   
