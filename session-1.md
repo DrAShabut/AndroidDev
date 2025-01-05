@@ -177,6 +177,7 @@ To strengthen your grasp of Android fundamentals and expand your dev toolkit, it
 Exercise 1: Develop a simple calculator using Android Studio. 
 (Note: this needs to be submitted with the first example).
 ![image](https://github.com/DrAShabut/AndroidDev/assets/146723487/5542a98b-b56d-4fb5-a035-d55d32dc55f2)
+
 Here is the blueprint to know the names of views.
 ![image](https://github.com/DrAShabut/AndroidDev/assets/146723487/58c0cdd3-28de-483c-b288-74a8c0585288)
 
