@@ -72,13 +72,11 @@ Well done you have created your first ‘Hello World’ app.
 
 ![image](https://github.com/user-attachments/assets/36ccf6db-a9a9-4bcc-8b36-ad2a1d160e81)
  
-6. Move the pointer to the ‘pressMeButton’ event and a small help light bulb will appear. Press on the option ‘Create ‘pressMeButton(View)’ in ‘MainActivity’’ option as in the screen below or write the code yourself:
+6. Move the pointer to the ‘pressMeButton’ event and a small help light bulb will appear. Press on the option ‘Create ‘pressMeButton(View)’ in ‘MainActivity’’ option or write the code yourself:
 
-![image](uploads/83c2d8abd6a1398246463aa6bd3f569d/image.png)
-  
 7. A public method called ‘pressMeButton’ is created in the ‘MainActivity’ as in the screen below:
 
-![image](uploads/95e2b3a9887012ed251421345de7e5ea/image.png)
+![image](https://github.com/user-attachments/assets/c586ba92-b449-4c4d-aaa9-c40e72a415b6)
  
 - Now we need to write our code inside this method.
 
@@ -89,78 +87,88 @@ If we press the button we want the text in the TextView to be changed to “Find
 
 8. To do so, define two variables to match the two types of views as below:
 
-![image](uploads/a351c23e84d2616155b72c299afb91a1/image.png)
+![image](https://github.com/user-attachments/assets/c03dd126-d367-4276-b34a-52a04a91bc00)
 
 9. The two variables are in red colour which means more classes are required to be imported by the system. To resolve this click Alt + Enter and click Import class.
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-
-    public void pressMeButton(View view) {
-    }
  
 - Now everything is fine, let's continue coding:
  
 10. Add the following code inside the method onCreate() to find the views by their IDs. The onCreate() method is one of many methods that are fired when an activity is loaded.  
  
 11. Now write the following code in the pressMeButton() method.
+
+![image](https://github.com/user-attachments/assets/75e2f73c-5d5a-4965-b1a1-036c3d174864)
+
  
 The code will look like this in the MainActivity.java.
  
- 
+```java
+public class MainActivity extends AppCompatActivity {
+    TextView newText;
+    Button changeButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
         newText = findViewById(R.id.textView);
         changeButton = findViewById(R.id.firstButton);
     }
 
     public void pressMeButton(View view) {
         newText.setText("Find a great idea for the next app");
+
     }
+}
+```
 
 12. Add a layout constraint to your UI design by connecting the views to the parent. Change the text of the TextView to “change me” and the text of pressMeButton to “Click me”.
  
 The xml code in the activity_main.xml will look like the following: 
+```xml
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-     <Button
-        android:id="@+id/firstButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="157dp"
-        android:layout_marginLeft="157dp"
-        android:layout_marginEnd="166dp"
-        android:layout_marginRight="166dp"
-        android:layout_marginBottom="374dp"
-        android:onClick="pressMeButton"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-     <TextView
+    <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        android:layout_marginLeft="172dp"
-        android:layout_marginTop="93dp"
-        android:layout_marginEnd="181dp"
-        android:layout_marginRight="181dp"
-        android:layout_marginBottom="196dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/firstButton"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="151dp"
+        android:layout_marginEnd="32dp"
+        android:text="Change me"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
- 
+
+    <Button
+        android:id="@+id/firstButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="32dp"
+        android:onClick="pressMeButton"
+        android:text="Press Me"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
 13. Let us run the app again, remember to click on the Run list and press Run app command. You will have the following screens:
  
-![image](uploads/5a96782ae204d167d44bb6543fb436ee/image.png)
+![image](https://github.com/user-attachments/assets/c4eeb3e2-3746-45dd-b660-106b573e3d69)
 
 **What’s Next**
 
