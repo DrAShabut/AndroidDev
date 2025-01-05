@@ -23,13 +23,13 @@ For guidance on installing Android Studio, exploring its features, and understan
 ![image](https://github.com/user-attachments/assets/2fd3910d-3727-4aa1-af95-39f7e4aaac8b)
 
 
-3. Press on the ‘Create New Project’ option and the following screen will appear:
+3. Press on the ‘New Project’ Button and the following screen will appear:
 
-![image](uploads/7bdd6780cd6584fc6e0019f346e96e97/image.png) 
+![image](https://github.com/user-attachments/assets/23e4d8d3-4de4-4884-af25-8ff85c96ce3d)
 
-4. Keep the default selections as we will develop apps for “Phone and Tablet” and we will select an “Empty Activity” to start our project with, (for Hedgehog version, select Empty Views Activity' to develop with Java language, press Next when you are ready and the following screen will appear:
+4. Keep the default selections as we will develop apps for “Phone and Tablet” and we will select an “Empty Views Activity” to start our project, press Next when you are ready and the following screen will appear:
 
-![image](uploads/247fc797596a0f4b4788f604980aefa8/image.png) 
+![image](https://github.com/user-attachments/assets/633a331a-7c30-46c5-967c-141218a2bfd9)
 
 5. Change the name of the project to “MyFirstApplication” and the language to Java instead of Kotlin. Select the project location and keep the default value for the package and the minimum SDK.
 
