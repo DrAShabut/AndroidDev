@@ -50,15 +50,13 @@ _**Now you are ready to run your application**_
 This process may take a long time to finish and it can take longer if you use a virtual device. 
 Well done you have created your first ‘Hello World’ app.
 
- 
 **Now time for coding…**
- 
 
 **Change Me Example**
 
 1. Expand the app files on the left-hand side and then expand the ‘res’ folder, scroll down to the layout folder and expand it, click on ‘activity_main.xml’ and  the UI design will be shown on your screen as follows:
 
-![image](uploads/3db1ea9be98d32c056b5a2b7a8d2d237/image.png) 
+![image](https://github.com/user-attachments/assets/8d51d715-2a81-4780-b2a4-d2aaa29970c7)
 
 - Now you can be creative and design your UI.
  
