@@ -16,11 +16,12 @@ You'll need space on your computer to install Android Studio if you want to use 
 **Hello World Example**
 
 1. Install Android Studio 
-For guidance on installing Android Studio, exploring its features, and understanding how to use it, visit https://developer.android.com/studio/?utm_source=android-studio. This link offers access to the latest stable version, with Android Studio Koala | 2024.1.1 being the most recent version during the instalation of Android on our Linux VMs. Please use this version as the code in this tutorial is tested on this version.
+For guidance on installing Android Studio, exploring its features, and understanding how to use it, visit https://developer.android.com/studio/?utm_source=android-studio. This link offers access to the latest stable version, with Android Studio Koala | 2024.1.1 being the most recent version during the instalation of Android on our Linux VMs. Please use this version as the code in this tutorial is tested on this version. 
 
-2. After installing Android Studio, you will have the following screen: 
+2. Start you Linux VM and search apps for Android Studio, click on it and you will have the following screen: 
 
-![image](uploads/40df356643d45955a55a3cce54b5b1da/image.png)
+![image](https://github.com/user-attachments/assets/2fd3910d-3727-4aa1-af95-39f7e4aaac8b)
+
 
 3. Press on the ‘Create New Project’ option and the following screen will appear:
 
