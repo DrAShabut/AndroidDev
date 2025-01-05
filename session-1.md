@@ -16,7 +16,7 @@ You'll need space on your computer to install Android Studio if you want to use 
 **Hello World Example**
 
 1. Install Android Studio 
-For guidance on installing Android Studio, exploring its features, and understanding how to use it, visit https://developer.android.com/studio/?utm_source=android-studio. This link offers access to the latest stable version, with Android Studio 2023.1.1 being the most recent version during the creation of this tutorial. Keep in mind that there might be slight variations between your screens and the tutorial's content as it is based on an older version 4.0.1 but it will be the same steps.
+For guidance on installing Android Studio, exploring its features, and understanding how to use it, visit https://developer.android.com/studio/?utm_source=android-studio. This link offers access to the latest stable version, with Android Studio Koala | 2024.1.1 being the most recent version during the instalation of Android on our Linux VMs. Please use this version as the code in this tutorial is tested on this version.
 
 2. After installing Android Studio, you will have the following screen: 
 
