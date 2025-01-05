@@ -47,25 +47,9 @@ _**Now you are ready to run your application**_
  
 8. We have already created a virtual device for you to run your app but if you use your own laptop, you will need to create a virtual device or connect a real device.
   
-You will see an error message “**No target device found**” at this stage as there is "**No Device**" yet to run your app. Click "**No Device**" and then click "**Open AVD Manager**". You will see a screen similar to the following:
-
-![image](uploads/8b2a92467ba7daefe7ff9fabd43d8dbd/image.png)
-
-Click “**Create New Virtual Device**” and follow the complete steps in the following link to create your own virtual device: [Create and manage virtual devices  |  Android Developers](https://developer.android.com/studio/run/managing-avds). If you successfully created a virtual device, you will see a screen similar to the following: 
-
-![image](uploads/1014300ff0057525938b05cde4fb1e4c/image.png)
- 
-For this test, I connected my Samsung Galaxy S7 and the screen below shows the detected device. To connect your device, you need to activate the DEVELOPER OPTIONS and USB debugging from the device settings. The following link will provide you with detailed information to connect your real device: Run apps on a hardware device  |  Android Developers.
-By allowing access to your device, you will have the following screen:
-
-![image](uploads/b1aa61b172bcc6449ed4c4ec0109e153/image.png)
- 
-9. Now select the connected device and click the OK button. The run process will start as in the screen below:
-
-![image](uploads/f5e942fb0d724ae01a364e4093479b2c/image.png)
- 
 This process may take a long time to finish and it can take longer if you use a virtual device. 
 Well done you have created your first ‘Hello World’ app.
+
  
 **Now time for coding…**
  
