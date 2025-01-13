@@ -219,7 +219,7 @@ Figure 3: Apply for job design.
 
 **Exercise 3: Design A Food Delivery App**
 
-Think about the UI layout and components for the following screens:
+Think about the UI layout and components for the following screens (the example is available at https://learning.oreilly.com/course/the-complete-guide/9781838984830/)
 ![image](https://github.com/user-attachments/assets/c7773910-ea91-40ab-9c28-de55e0bbabe7)
 
 Figure 4: Dish Details
@@ -246,3 +246,8 @@ Figure 8: Order Confirmation
 Push everything into a GitHub repo and share it with your tutor.
 
 **Happy design time**
+
+**References**
+1) Android Developer Website
+2) The Complete Guide to Designing a Mobile App from Oreilly.
+
