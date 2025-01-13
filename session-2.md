@@ -219,20 +219,25 @@ Figure 3: Apply for job design.
 
 **Exercise 3: Design A Food Delivery App**
 
-You can start thinking about the UI layout and components for the following screens.
+Think about the UI layout and components for the following screens:
 ![image](https://github.com/user-attachments/assets/c7773910-ea91-40ab-9c28-de55e0bbabe7)
+
 Figure 4: Dish Details
 
 ![image](https://github.com/user-attachments/assets/e02e80c1-b36b-4b2a-81aa-1226674b26cf)
+
 Figure 5: Order Cart
 
 ![image](https://github.com/user-attachments/assets/13b4c33b-5765-44a8-a6ea-bc68c144ef04)
+
 Figure 6: Delivery Details
 
 ![image](https://github.com/user-attachments/assets/6d91926e-6ef1-4772-89e0-5e1d1bff44e7)
+
 Figure 7: Payment
 
 ![image](https://github.com/user-attachments/assets/1c07733e-2f96-4e30-9a3c-b2211ba158e0)
+
 Figure 8: Order Confirmation
 
 
