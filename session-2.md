@@ -220,25 +220,30 @@ Figure 3: Apply for job design.
 **Exercise 3: Design A Food Delivery App**
 
 Think about the UI layout and components for the following screens (the example is available at https://learning.oreilly.com/course/the-complete-guide/9781838984830/)
+
+![image](https://github.com/user-attachments/assets/83c9b7a2-119d-4ea5-97a4-7472918803c2)
+
+Figure 4: Login/SignUp 
+
 ![image](https://github.com/user-attachments/assets/c7773910-ea91-40ab-9c28-de55e0bbabe7)
 
-Figure 4: Dish Details
+Figure 5: Dish Details
 
 ![image](https://github.com/user-attachments/assets/e02e80c1-b36b-4b2a-81aa-1226674b26cf)
 
-Figure 5: Order Cart
+Figure 6: Order Cart
 
 ![image](https://github.com/user-attachments/assets/13b4c33b-5765-44a8-a6ea-bc68c144ef04)
 
-Figure 6: Delivery Details
+Figure 7: Delivery Details
 
 ![image](https://github.com/user-attachments/assets/6d91926e-6ef1-4772-89e0-5e1d1bff44e7)
 
-Figure 7: Payment
+Figure 8: Payment
 
 ![image](https://github.com/user-attachments/assets/1c07733e-2f96-4e30-9a3c-b2211ba158e0)
 
-Figure 8: Order Confirmation
+Figure 9: Order Confirmation
 
 
 **Exercise 4: Use Git in Android Studio**
