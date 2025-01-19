@@ -361,7 +361,7 @@ public class CreateMessageActivity extends AppCompatActivity {
 5) Run your application on a real device. 
 6) Practice more examples in this [link](https://developer.android.com/training/sharing/send#:~:text=1%20Sending%20text%20content.%20The%20most%20straightforward%20and,content%2C%20use%20the%20ACTION_SEND_MULTIPLE%20action%20together...%20More%20).
 
-**Challenge:** Write a simple activity for typing a phone number and then place the call?
-Check this YouTube [video ](https://www.youtube.com/watch?v=eL69kj-_Wvs)to have a clue on how to solve the challenge. Discuss how to design your app and what steps do you need before implementing the solution using Android Studio.
+**Challenge:** Write a simple activity for typing a phone number and then place the call.
+Discuss how to design your app and what steps you need before implementing the Android Studio solution.
 
 **Happy Android Coding**
