@@ -21,7 +21,7 @@ _Important Note!!! You need to constrain each view you add to your XML UI using 
 
 3. Now you need to add a new activity and name it “SecondActivity”. 
 4. Click the app folder from the project window and add a new activity by selecting File -> New -> Activity -> Empty Views Activity.
-   Note: Don't select EmptyView
+   Note: Don't select Empty View (this was from the previous version).
 
 ![image](uploads/0678b64d1a62f0dd7e6a93d4cae8c3bd/image.png)
  
