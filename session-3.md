@@ -6,7 +6,7 @@ Android apps can contain one or more activities. Once your app has more than one
 
 **Android Intent Example**
 
-The following example shows a way to add another activity to an existing project and so navigate between the two activities in an Android application.
+The following example shows a way to add another activity to an existing project and so, navigate between the two activities in an Android application.
 
 **Explicit Intent - Navigate Between Two Activities Example:**
 
@@ -187,7 +187,16 @@ Check AndroidManidest and make sure that a line is added as follows:
  ```
 
 4. You are done now. Run your application.
-5. Set the notification's tap action: every notification should respond to a tap, usually to open an activity in your app that corresponds to the notification. To do so, you must specify a content intent defined with a PendingIntent object and pass it to setContentIntent(). 
+
+5. To see the push notifications running on your emulator, you need to do the following: 
+        - Go to the app (Notification app) in the emulator as follows:
+   ![image](https://github.com/user-attachments/assets/ad2f84f0-883d-4307-babd-bfd811884525)
+        - You can see notifications are off by default because of security reasons.
+        - Click Notifications --> Turn on the option “All Notification app notifications” as follows:
+   ![image](https://github.com/user-attachments/assets/af579129-f7a6-43d8-a9ce-33b7b8de93e7)
+        - Go back and re-run your app. You should now see the post notification in the notification bar. Navigate to it and check the TestActivity. You may add a TextView to TestActivity instead of an empty screen.
+
+6. Set the notification's tap action: every notification should respond to a tap, usually to open an activity in your app that corresponds to the notification. To do so, you must specify a content intent defined with a PendingIntent object and pass it to setContentIntent(). 
 The following snippet shows how to create a basic intent to open an activity when the user taps the notification:
 
 ```java
@@ -258,7 +267,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-6. Rerun your app and check the result.
+7. Rerun your app and check the result.
 
 Check this link to read more about [notifications](https://developer.android.com/training/notify-user/build-notification#java).
 
