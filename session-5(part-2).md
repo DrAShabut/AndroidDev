@@ -4,7 +4,7 @@
 
 # Creating and using Room API database
 
-In this exercise, we're going to demonstrate working with Room API. As you're already familiar with SQL databases, then much of what you know will apply. 
+In this exercise, we're going to demonstrate working with Room API. As you're already familiar with SQL and SQLite databases, then much of what you know will apply. 
 
 Step 1: Add Dependencies
 First, add the Room dependencies to your build.gradle (Module: app) file:
