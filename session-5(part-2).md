@@ -145,6 +145,6 @@ User: 2, Bob Smith
 
 ![image](https://github.com/user-attachments/assets/3492899b-3454-4b25-934f-c8546fa4d9e6)
 
-Step 7: Now add UI elements and show the results i a list view or text view.
+Step 7: Now add UI elements and show the results in a list view or text view.
 
 
