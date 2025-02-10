@@ -11,8 +11,8 @@ First, add the Room dependencies to your build.gradle (Module: app) file:
 
 ```xml
 dependencies {
-    implementation 'androidx.room:room-runtime:2.5.2'
-    annotationProcessor 'androidx.room:room-compiler:2.5.2'
+    implementation("androidx.room:room-runtime:2.5.2")
+    annotationProcessor("androidx.room:room-compiler:2.5.2")
 }
 ```
 Step 2: Create the User Entity
