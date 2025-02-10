@@ -9,18 +9,16 @@ In this exercise, we're going to demonstrate working with Room API. As you're al
 Step 1: Add Dependencies
 First, add the Room dependencies to your build.gradle (Module: app) file:
 
-'''xml
+```xml
 dependencies {
     implementation 'androidx.room:room-runtime:2.5.2'
     annotationProcessor 'androidx.room:room-compiler:2.5.2'
 }
-'''
+```
 Step 2: Create the User Entity
 This class defines the table structure.
 
-java
-Copy
-Edit
+```java
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -42,12 +40,11 @@ public class User {
         this.lastName = lastName;
     }
 }
+```
 Step 3: Create UserDao (Data Access Object)
 This interface defines methods for interacting with the database.
 
-java
-Copy
-Edit
+```java
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -62,12 +59,11 @@ public interface UserDao {
     @Query("SELECT * FROM User")  // Fetch all users
     List<User> getAllUsers();
 }
+```
 Step 4: Create AppDatabase (Room Database Class)
 This is the main database class that initializes Room.
 
-java
-Copy
-Edit
+```java
 import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
@@ -94,12 +90,11 @@ public abstract class AppDatabase extends RoomDatabase {
         return INSTANCE;
     }
 }
+```
 Step 5: Use Room Database in an Activity
 This activity inserts and retrieves user data.
 
-java
-Copy
-Edit
+```java
 import android.os.Bundle;
 import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
@@ -134,18 +129,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+```
 Step 6: AndroidManifest.xml Permissions
 Add the android.permission.INTERNET permission if needed, though Room doesn't require extra permissions:
 
-xml
-Copy
-Edit
+```xml
 <uses-permission android:name="android.permission.INTERNET"/>
+```
 Expected Log Output (Android Logcat)
-makefile
-Copy
-Edit
+```makefile
 Users inserted!
 User: 1, Alice Brown
 User: 2, Bob Smith
+```
 
