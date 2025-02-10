@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "103924140165",
+    "firebase_url": "https://my-route-9ce2a-default-rtdb.firebaseio.com",
+    "project_id": "my-route-9ce2a",
+    "storage_bucket": "my-route-9ce2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103924140165:android:3abec0db00060ddd4081ec",
+        "android_client_info": {
+          "package_name": "com.example.leedstrinity.myroute"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103924140165-1rd86ipk4futqt887dkbmj1ld2svvgpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCmIGU0kQrA1HygZKYGNWu5qY19sp8Ib4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103924140165-1rd86ipk4futqt887dkbmj1ld2svvgpn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
