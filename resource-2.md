@@ -61,7 +61,7 @@ Updated Java Code for Android 12+
            app:layout_constraintEnd_toEndOf="parent"/>
    </androidx.constraintlayout.widget.ConstraintLayout>
 
-```
+
 Java Code (MainActivity.java)
 
 ```java
@@ -97,8 +97,8 @@ ________________________________________
        android:layout_height="wrap_content"
        android:text="The checkbox is unchecked"/>
    ```
-   ```java
-    import android.os.Bundle;
+   ```Java code
+   import android.os.Bundle;
    import androidx.appcompat.app.AppCompatActivity;
    import android.widget.CheckBox;
    import android.widget.CompoundButton;
@@ -143,8 +143,8 @@ XML Layout
        android:layout_height="wrap_content"
        android:text="The switch is off"/>
    ```
-   ```java
-    import android.os.Bundle;
+   ```Java Code
+   import android.os.Bundle;
    import androidx.appcompat.app.AppCompatActivity;
    import android.widget.Switch;
    import android.widget.CompoundButton;
@@ -207,7 +207,7 @@ XML Layout
            android:text="Green"/>
    </RadioGroup>
    ```
-   ```java
+   ```Java Code
    import android.graphics.Color;
    import android.os.Bundle;
    import android.view.View;
