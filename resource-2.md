@@ -1,19 +1,22 @@
-Understanding the UI Elements in Android
+**Understanding the UI Elements in Android**
 
 1. ImageView
-•	Used to display an image in the app.
-•	Supports multiple image formats (.png, .jpg, .gif, etc.).
-•	The android:src attribute specifies the image resource.
-•	The android:contentDescription is used for accessibility.
+   
+ • Used to display an image in the app.
+ •	Supports multiple image formats (.png, .jpg, .gif, etc.).
+ •	The android:src attribute specifies the image resource.
+ •	The android:contentDescription is used for accessibility.
+
 2. CheckBox
+   
 •	A toggleable UI component for on/off selection.
 •	The isChecked() method returns whether it is selected.
 •	You can add an OnCheckedChangeListener to handle state changes.
-3. Switch
+5. Switch
 •	A more modern version of a CheckBox.
 •	Provides visual feedback with a swipe/toggle motion.
 •	You can use setChecked(true/false) to change its state programmatically.
-4. RadioButton & RadioGroup
+6. RadioButton & RadioGroup
 •	RadioButton allows users to select one option from a set.
 •	RadioGroup ensures that only one button is selected at a time.
 •	Methods like getCheckedRadioButtonId() help retrieve the selected option.
