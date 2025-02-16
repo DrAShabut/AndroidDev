@@ -81,11 +81,6 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-✅ Updates:
-   •	Uses ConstraintLayout for better positioning.
-   
-   •	Uses contentDescription for accessibility.
-   
 ________________________________________
 
 2. CheckBox Implementation
@@ -126,10 +121,6 @@ ________________________________________
        }
    }
    ```
-✅ Updates:
-
-•	Uses CompoundButton.OnCheckedChangeListener for better performance.
-
 ________________________________________
 
 3. Switch Implementation
@@ -172,10 +163,6 @@ XML Layout
        }
    }
    ```
-✅ Updates:
-
-•	Uses SwitchCompat for better UI consistency.
-
 ________________________________________
 
 4. RadioGroup & RadioButton Implementation
@@ -259,12 +246,6 @@ XML Layout
        }
    }
    ```
-✅ Updates:
-
-•	Uses RadioGroup.OnCheckedChangeListener to detect selection.
-
-•	Uses switch-case to set the background color.
-
 ________________________________________
 
-Now think about implementing these in your app.
+Now, could you think about implementing these in your app?
