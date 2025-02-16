@@ -39,7 +39,7 @@ Updated Java Code for Android 12+
 1. ImageView Implementation (XML & Java)
    
    XML Layout (activity_main.xml)
-   xml
+   ```xml
     
    <?xml version="1.0" encoding="utf-8"?>
    <androidx.constraintlayout.widget.ConstraintLayout
@@ -60,6 +60,7 @@ Updated Java Code for Android 12+
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintEnd_toEndOf="parent"/>
    </androidx.constraintlayout.widget.ConstraintLayout>
+
 ```
 Java Code (MainActivity.java)
 
