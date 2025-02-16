@@ -15,4 +15,5 @@ Following the links will take you to the corresponding **Lab Worksheets**.
 Extra resources:
 
 + [Resource 1](resource-1.md): How to use Git in Android
++ [Resource 2](resource-2.md): Understanding other UI elements
 
