@@ -254,5 +254,5 @@ With the coding for this project now complete, the last remaining task is to run
 The goal of this example was to work through the creation of an example project intended specifically to demonstrate the steps involved in using fragments within an Android application. Topics covered include the use of the Android Support Library for compatibility with Android versions predating the introduction of fragments, the inclusion of fragments within an activity layout and the implementation of inter-fragment communication.
 
 ## Core UI Elements 
-Implement the UI in the pre-activities if you haven't done so yet.
+Implement the UI in the post-activities for this session.
 
