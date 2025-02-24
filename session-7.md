@@ -313,7 +313,7 @@ onView(withId(R.id.editTextFirstName)).perform(ViewActions.clearText())
 ## Firebase Test Lab
 As part of your big tests, you need to use Firebase Test Lab. All you need to know is available at this link https://firebase.google.com/docs/test-lab/android/get-started?_gl=1*gpkkpm*_up*MQ..*_ga*MTMwNjQ5NTAxOC4xNzA4MzQ3ODI0*_ga_CW55HF8NVT*MTcwODM0NzgyMy4xLjAuMTcwODM0NzgyMy4wLjAuMA..
 
-## Now add test cases to your BookClub app.
+## Now add test cases to your GradeTracker app.
 
 Happy coding
 
