@@ -6,7 +6,7 @@ This Tutorial shows you how to write a media-playing app that interacts with the
 
 
 # Exercise 1: MediaPlayer APIs to play a sound file.
-Create a new project in Android Studio and call it MediaPlayer. Use the default options and select Empty Views Activity when prompted for Activity Type. We will also need a sound for this exercise and will use the same longer playing "water" sound from:http://soundbible.com/2032-Water.html
+Create a new project in Android Studio and call it MediaPlayer. Use the default options and select Empty Views Activity when prompted for Activity Type. We will also need a sound for this exercise and will use "water sound" sound from: [https://pixabay.com/sound-effects/search/water%20bird%20sound/](https://pixabay.com/sound-effects/water-sound-natural-sound-real-water-sound-16044/)
 
 # How to do it ...
 As explained previously, we will need a sound file to include in the project. Once you have your sound file ready, follow these steps:
